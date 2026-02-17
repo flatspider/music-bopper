@@ -42,14 +42,17 @@ Build a browser-based rhythm game where music is converted into a stream of fall
 
 ## 4. Constraints
 
-Built in web browser. Audio latency mast be managed. ML-based transcription will be hard for clientside to do.
-Song analysis will need a backend. Curated library must use royalty-free, Creative Commons, or original recordings. User-uploaded songs stay client-side (never stored on our servers) to avoid DMCA exposure.No filesystem access (user uploads via file picker), no low-level audio device control, WebGL for rendering.
+- Built in web browser.
+- Audio latency needs to be managed. ML-based transcription will be hard for clientside to do.
+- Song analysis needs backend. Curated library must use royalty-free, Creative Commons, or original recordings.
+- User-uploaded songs stay client-side (never stored on our servers) to avoid DMCA exposure.
+- No filesystem access (user uploads via file picker), no low-level audio device control, WebGL for rendering.
 
 ## 5. Target Audience & User Stories
 
-**Primary audience:** Casual gamers — people who enjoy rhythm games but aren't grinding for perfect scores. Wordle crowd. Something fun to do with music they already love.
+**Primary audience:** Casual gamers — people who enjoy rhythm games but aren't grinding for perfect scores. Wordle crowd.
 
-**Secondary audience:** Tech demos, so being able to demonstrate live ML transcription, new song uploaded and then turned into multiplayer as a technical feat itself.
+**Secondary audience:** Tech demo, so being able to demonstrate live ML transcription, new song uploaded and then turned into multiplayer as a technical feat itself.
 
 ### User Stories
 
@@ -62,7 +65,11 @@ Song analysis will need a backend. Curated library must use royalty-free, Creati
 
 ### User Simple Journey (First Session)
 
-1.
+1. Player lands on the game, sees instructions.
+2. Selects song, song begins.
+3. Play with keyboard keys DF JK.
+4. Player continues in song, scoring points. Or fails out.
+5. Can restart or select new song.
 
 ### User Advanced Journey (First Session)
 
@@ -87,11 +94,11 @@ Notes fall from the top of the screen toward a "hit zone" at the bottom. Each no
 
 ### Difficulty Tiers
 
-| Tier         | Keys Used           | Note Density                                                 | Timing Window     |
-| ------------ | ------------------- | ------------------------------------------------------------ | ----------------- |
-| **Chill**    | Home row only (a–l) | Quarter notes, simple rhythms                                | Generous (±150ms) |
-| **Groove**   | Home + top row      | Eighth notes, light syncopation                              | Moderate (±100ms) |
-| **Virtuoso** | Full keyboard       | Sixteenth notes, complex rhythms, chords (simultaneous keys) | Tight (±50ms)     |
+Note: Develop this out to a
+
+| **Chill** | Home row only (a–l) | Quarter notes, simple rhythms | Generous (±150ms) |
+| **Groove** | Home + top row | Eighth notes, light syncopation | Moderate (±100ms) |
+| **Virtuoso** | Full keyboard | Sixteenth notes, complex rhythms, chords (simultaneous keys) | Tight (±50ms)
 
 ### Scoring
 
