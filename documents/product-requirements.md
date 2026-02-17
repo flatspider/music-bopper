@@ -9,7 +9,7 @@
 
 ## 1. Product Objective
 
-Build a browser-based rhythm game where music is converted into a stream of falling notes that the player must type in time. The ultimate goal is to allow users to drop in a song and be able to "play" it.
+Build a browser-based rhythm game where music is converted into a stream of falling notes that the player must type in time.
 
 ## 2. Scope
 
@@ -187,7 +187,7 @@ Note: Develop this out to a "fun" amount of keys. How many is that?
 
 - **Hit quality:** Perfect / Good / OK / Miss, based on timing offset from the ideal beat
 - **Streak multiplier:** Consecutive hits without a miss multiply the score (caps at 8x)
-- **Groove meter:** A feel-good visual indicator that fills as you maintain a streak. Not punitive — it drains slowly on misses, not instantly. The vibe is encouragement, not punishment.
+- **Groove meter:** A feel-good visual indicator that fills as you maintain a streak. Drains on misses, not instantly.
 - **End-of-song summary:** Total score, accuracy %, longest streak, hit quality distribution
 
 ### The "Swing" Mechanic (Possible Feature)
@@ -268,26 +268,24 @@ This produces the richest, most musical charts. Each difficulty tier can emphasi
 
 ## 14. Milestones
 
-### Phase 1: Proof of Concept (Week 1–2)
+### Phase 1: Proof of Concept (Wednesday Morning)
 
 - [ ] Static note stream falling on screen (PixiJS)
 - [ ] Keyboard input detection with timing evaluation
-- [ ] Hardcoded note chart for one song — prove the core loop feels good
+- [ ] Hardcoded note chart for one 10 second clip — prove the core loop feels good
 - [ ] Basic scoring (hit/miss/streak)
 - [ ] Audio playback synced to note stream
 
 **Exit criteria:** One song is playable end-to-end and it feels fun.
 
-### Phase 2: Audio Pipeline (Week 3–4)
+### Phase 2: Auto Generate Beat Map (Wednesday Evening)
 
-- [ ] Beat/onset detection pipeline (librosa) generating note charts from audio files
-- [ ] File upload UI and processing flow
+- [ ] Load songs and generate (via essentia) beat maps for music library (NOT user uploaded)
 - [ ] Difficulty tier generation (Chill / Groove from same analysis)
+- [ ] Ensure audio playback synced to note stream in fun way
 - [ ] Latency calibration tool
 
-**Exit criteria:** Upload an MP3, get a playable chart, play it. The chart feels connected to the music.
-
-### Phase 3: Polish & Identity (Week 5–6)
+### Phase 3: Polish & Identity (Wednesday Evening)
 
 - [ ] Jazz club visual design — background, lighting, note styling
 - [ ] Audio design — ambient sounds, hit/miss feedback, transitions
