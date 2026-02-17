@@ -94,7 +94,7 @@ Notes fall from the top of the screen toward a "hit zone" at the bottom. Each no
 
 ### Difficulty Tiers
 
-Note: Develop this out to a
+Note: Develop this out to a "fun" amount of keys. How many is that?
 
 | **Chill** | Home row only (a–l) | Quarter notes, simple rhythms | Generous (±150ms) |
 | **Groove** | Home + top row | Eighth notes, light syncopation | Moderate (±100ms) |
@@ -107,13 +107,13 @@ Note: Develop this out to a
 - **Groove meter:** A feel-good visual indicator that fills as you maintain a streak. Not punitive — it drains slowly on misses, not instantly. The vibe is encouragement, not punishment.
 - **End-of-song summary:** Total score, accuracy %, longest streak, hit quality distribution
 
-### The "Swing" Mechanic (Distinguishing Feature)
+### The "Swing" Mechanic (Possible Feature)
 
-In jazz, rhythmic feel matters more than robotic precision. Our scoring should reflect this. Instead of only rewarding dead-center timing, the game detects the song's _swing feel_ and adjusts the scoring grid to match. A song with heavy swing rewards slightly laid-back timing. A straight-eighth funk track rewards metronomic hits.
+This may be impossible to time properly: In jazz, rhythmic feel matters more than robotic precision. Our scoring should reflect this. Instead of only rewarding dead-center timing, the game detects the song's _swing feel_ and adjusts the scoring grid to match. A song with heavy swing rewards slightly laid-back timing. A straight-eighth funk track rewards metronomic hits.
 
 This is subtle, but it makes the game _feel_ different from every other rhythm game. You're rewarded for musicality, not just reaction time.
 
-### Call and Response (Distinguishing Feature)
+### Call and Response (Possible Feature)
 
 Certain sections of a song trigger "call and response" mode: the game plays a short phrase (3–6 notes), then the player echoes it back from memory. This mirrors real jazz improvisation and adds a memory/ear-training dimension that pure reaction-time games don't have.
 
@@ -135,11 +135,13 @@ The central unsolved question: **How do you take an arbitrary audio file and tur
 
 ### Approach A: Beat & Onset Detection (MVP Path)
 
-Use **librosa** (Python) or **Essentia** (C++/Python) to detect:
+Use **Essentia** (JS Library) to detect:
 
 - Tempo (BPM) and beat positions
 - Note onsets (moments where a new sound begins)
 - Spectral features (brightness, energy) to inform difficulty mapping
+
+And control playback use Tone.js for extreme control over note sounds.
 
 Then algorithmically place keyboard notes at detected onset positions, using heuristics to choose which keys map to which events. This is fast, lightweight, and well-understood — but it doesn't capture _melody_, only rhythm.
 
