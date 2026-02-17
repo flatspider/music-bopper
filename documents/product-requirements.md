@@ -9,27 +9,26 @@
 
 ## 1. Product Objective
 
-Build a browser-based rhythm game where music is converted into a stream of falling notes that the player must type in time. The goal is to allow users to drop in a song and be able to play it.
+Build a browser-based rhythm game where music is converted into a stream of falling notes that the player must type in time. The ultimate goal is to allow users to drop in a song and be able to "play" it.
 
 ## 2. Scope
 
 **In scope:**
 
 - A single-player, browser-based rhythm game
-- An audio analysis pipeline that converts any uploaded song into a playable note chart
-- A curated starter library of songs with polished, pre-generated charts
-- User song uploads with auto-generated charts
+- A curated starter library of songs with pre-generated charts
 - Difficulty scaling
 - Scoring, streaks, and session stats
 - A jazz-inspired visual and audio identity
 
 **Not in scope (for now):**
 
+- An audio analysis pipeline that converts any uploaded song into a playable note chart
+- User accounts, leaderboards, or persistent profiles
 - Multiplayer / ensemble mode
 - Streaming songs via Spotify or YouTube
 - Mobile (touch targets and keyboard requirements make this a desktop-browser experience first)
 - A chart editor for community-created note maps
-- User accounts, leaderboards, or persistent profiles
 - Monetization
 
 ## 3. Assumptions
@@ -48,7 +47,55 @@ Build a browser-based rhythm game where music is converted into a stream of fall
 - User-uploaded songs stay client-side (never stored on our servers) to avoid DMCA exposure.
 - No filesystem access (user uploads via file picker), no low-level audio device control, WebGL for rendering.
 
-## System Design
+Music is heavy. Keep only song metadata in initial bundle (title, duration, difficulty, cover art URL). Lazy-load audio/chart only when selected. Cache downloaded files for replay (Cache Storage/IndexedDB), with an LRU cap (for example 300-500MB).
+Store charts separately from audio (charts are tiny, audio is heavy).
+Offer “download for offline” explicitly instead of silently caching everything.
+
+## 5. Tech Stack
+
+│ Layer │ Tool │ Purpose │
+├───────────┼────────────────────┼──────────────────────────────────────────────────────────┤
+│ Analysis │ Essentia.js (WASM) │ Beat tracking, onset detection, pitch — runs client-side │
+├───────────┼────────────────────┼──────────────────────────────────────────────────────────┤
+│ Playback │ Tone.js │ Precise audio scheduling and sync │
+├───────────┼────────────────────┼──────────────────────────────────────────────────────────┤
+│ Rendering │ PixiJS │ Note stream, visual effects │
+├───────────┼────────────────────┼──────────────────────────────────────────────────────────┤
+│ Frontend │ React + TypeScript │ UI, state, upload flow │
+├───────────┼────────────────────┼──────────────────────────────────────────────────────────┤
+│ Backend │ Express │ Serve the app, eventually proxy to ML service │
+
+## 6a. MVP (no server) System Design
+
+```mermaid
+flowchart LR
+  subgraph C["Client-Only MVP (Desktop Browser)"]
+    UI["React + TypeScript UI"]
+    LIB["Curated Song Library (bundled or CDN static JSON/charts)"]
+    PICK["File Picker (MP3/WAV/FLAC)"]
+    DEC["Audio Decode (Web Audio API)"]
+    WASM["Essentia.js (WASM) in Web Worker"]
+    CHART["Chart Generator (onset/beat -> lanes/keys/difficulty)"]
+    PLAY["Playback + Timing Engine (Tone.js/Web Audio clock)"]
+    INPUT["Keyboard Input"]
+    RENDER["PixiJS Renderer"]
+    STATS["Session Stats (localStorage only)"]
+    CAL["Latency Calibration (local offset ms)"]
+  end
+
+  UI --> LIB
+  UI --> PICK
+  PICK --> DEC --> WASM --> CHART
+  LIB --> CHART
+  CHART --> PLAY
+  INPUT --> PLAY
+  PLAY --> RENDER
+  PLAY --> STATS
+  CAL --> PLAY
+
+```
+
+## 6b. Advanced System Design
 
 ```mermaid
 flowchart LR
@@ -84,25 +131,13 @@ flowchart LR
 
 ```
 
-│ Layer │ Tool │ Purpose │
-├───────────┼────────────────────┼──────────────────────────────────────────────────────────┤
-│ Analysis │ Essentia.js (WASM) │ Beat tracking, onset detection, pitch — runs client-side │
-├───────────┼────────────────────┼──────────────────────────────────────────────────────────┤
-│ Playback │ Tone.js │ Precise audio scheduling and sync │
-├───────────┼────────────────────┼──────────────────────────────────────────────────────────┤
-│ Rendering │ PixiJS │ Note stream, visual effects │
-├───────────┼────────────────────┼──────────────────────────────────────────────────────────┤
-│ Frontend │ React + TypeScript │ UI, state, upload flow │
-├───────────┼────────────────────┼──────────────────────────────────────────────────────────┤
-│ Backend │ Express │ Serve the app, eventually proxy to ML service │
-
-## 5. Target Audience & User Stories
+## 8. Target Audience & User Stories
 
 **Primary audience:** Casual gamers — people who enjoy rhythm games but aren't grinding for perfect scores. Wordle crowd.
 
 **Secondary audience:** Tech demo, so being able to demonstrate live ML transcription, new song uploaded and then turned into multiplayer as a technical feat itself.
 
-### User Stories
+### 8a. User Stories
 
 - **As a new player,** I want to pick a song from the starter library and be playing within 5 seconds, so I can see if I like the game before uploading my own music.
 - **As a player,** I want to upload my favorite song and get a playable note chart generated automatically, so I can play along to music I already love.
@@ -111,7 +146,7 @@ flowchart LR
 - **As a player,** I want the notes I'm typing to feel connected to what I'm hearing — like I'm actually playing the music — so the experience is immersive.
 - **As a player with audio latency issues,** I want a simple calibration tool so the game feels fair on my setup.
 
-### User Simple Journey (First Session)
+### 8b. User Simple Journey (First Session)
 
 1. Player lands on the game, sees instructions.
 2. Selects song, song begins.
@@ -119,7 +154,7 @@ flowchart LR
 4. Player continues in song, scoring points. Or fails out.
 5. Can restart or select new song.
 
-### User Advanced Journey (First Session)
+### 8c. User Advanced Journey (First Session)
 
 1. Player lands on the game. A short, animated intro sets the mood — think a neon sign flickering on outside a jazz club.
 2. Player sees a curated list of 5 starter songs. Each shows title, artist, duration, and difficulty.
@@ -128,7 +163,7 @@ flowchart LR
 5. Song ends. Player sees score, longest streak, accuracy %. A single call-to-action: "Try another" or "Upload your own."
 6. Player uploads an MP3. A short loading screen (5–15 seconds) while the analysis pipeline runs. Then they're playing.
 
-## 6. Product Functionality — Game Mechanics
+## 9. Product Functionality — Game Mechanics
 
 ### The Note Stream
 
@@ -165,19 +200,17 @@ This is subtle, but it makes the game _feel_ different from every other rhythm g
 
 Certain sections of a song trigger "call and response" mode: the game plays a short phrase (3–6 notes), then the player echoes it back from memory. This mirrors real jazz improvisation and adds a memory/ear-training dimension that pure reaction-time games don't have.
 
-### Visual Feedback
-
-- Notes glow and pulse on successful hits
-- The background environment responds to play quality — lights brighten, crowd ambience swells, the scene comes alive when you're in a groove
-- Misses don't punish harshly — a subtle flicker, not a jarring buzzer
-
-## 7. Vision — Look and Feel
+## 10. Vision — Look and Feel
 
 ![alt text](image.png)
 
 Jazz album covers, blues and blacks, lighting flickering.
 
-## 8. Core Technical Challenges & Approaches
+- Notes glow and pulse on successful hits
+- The background environment responds to play quality — lights brighten, crowd ambience swells, the scene comes alive when you're in a groove
+- Misses don't punish harshly — a subtle flicker, not a jarring buzzer
+
+## 11. Core Technical Challenges & Approaches
 
 The central unsolved question: **How do you take an arbitrary audio file and turn it into a fun, playable note chart?**
 
@@ -214,34 +247,26 @@ This produces the richest, most musical charts. Each difficulty tier can emphasi
 
 **Best for:** The full vision. Most compute-intensive. Demucs is heavy (~300MB model, benefits from GPU). Could run as a serverless GPU function (Replicate, Modal, or a lightweight FastAPI backend on a GPU instance).
 
-### Recommended Rendering Stack
+## 12. Weird Ideas for Functionality
 
-**PixiJS** — a 2D WebGL renderer. It's the standard for performant browser-based games with lots of moving sprites. It batches draw calls, handles thousands of animated elements at 60fps, and gives full creative control over the visual language. It's lighter than a full game framework (Phaser, Godot-web) while still being production-grade.
+1. **Swing-aware scoring** (described in Section 6). Makes sloppy tapping more fun.
 
-For the atmospheric effects (bokeh, grain, glow), PixiJS's filter system and custom shaders handle this natively.
+2. **Any-song playability.** Upload-and-play pipeline is a killer feature.
 
-**Alternative considered:** Phaser 3 (built on PixiJS, adds scene management and input handling). Worth evaluating if the game's state management grows complex, but PixiJS alone is likely sufficient for a single-screen rhythm game.
-
-## 9. Distinguishing Ideas — What Makes This Different
-
-1. **Swing-aware scoring** (described in Section 6). No other typing or rhythm game does this. It rewards musical feel over mechanical precision, which directly serves our casual audience.
-
-2. **Any-song playability.** The upload-and-play pipeline is the killer feature. Curated libraries get stale. Letting players bring their own music makes the game infinitely replayable.
-
-3. **Jazz club atmosphere as gameplay feedback.** The environment isn't decoration — it's a feedback mechanism. Play well and the club comes alive: lights warm, crowd murmurs swell to cheers, a silhouetted bartender nods along. Fall off the groove and the room gets quiet, the lights dim. This is softer than Guitar Hero's "boo" crowd, and more emotionally resonant.
+3. **Jazz club atmosphere as gameplay feedback.** Play well and the club comes alive: lights warm, crowd murmurs swell to cheers. Fall off the groove and the room gets quiet, the lights dim. Crowd Boos, cheers.
 
 4. **Call and response mode** (described in Section 6). Adds a memory and listening dimension that pure reaction-time games lack. Directly references jazz tradition.
 
-5. **Stem-aware difficulty.** Instead of just thinning out notes for easier difficulties, each tier plays a different _role in the band_. Easy mode plays the drums. Medium adds the bass line. Hard plays the full arrangement. You're not playing a dumbed-down version — you're playing a different instrument.
+5. **Stem-aware difficulty.** Instead of just thinning out notes for easier difficulties, each tier plays a different _role in the band_. Easy mode plays the drums. Medium adds the bass line. Hard plays the full arrangement.
 
-## 10. Success Metrics
+## 13. Success Metrics
 
 1. Quick to start a song <10 secs after landing on page
 2. Session length (how long does a user play)
 3. Do users upload their own songs...?
 4. Do they rate the auto-generated songs as fun?
 
-## 11. Milestones
+## 14. Milestones
 
 ### Phase 1: Proof of Concept (Week 1–2)
 
@@ -282,13 +307,13 @@ For the atmospheric effects (bokeh, grain, glow), PixiJS's filter system and cus
 
 **Exit criteria:** The chart quality on uploaded songs is noticeably more musical than Phase 2.
 
-## 12. Tradeoffs & Open Questions
+## 15. Tradeoffs & Open Questions
 
 **Pre-built charts vs. auto-generation quality.** Auto-generated charts will never match hand-authored ones for quality. Mitigation: ship a curated library for first impressions, use auto-gen for user uploads where "good enough" is the bar.
 
-**Server-side audio processing vs. client-side.** ML models (Basic Pitch, Demucs) need a backend. This adds infrastructure, cost, and latency. The fallback (librosa-style onset detection) can run server-side cheaply or potentially client-side via WASM. We should start with the simpler pipeline and upgrade.
+**Server-side audio processing vs. client-side.** ML models (Basic Pitch, Demucs) need a backend. The fallback (essentia-style onset detection) can run server-side cheaply or potentially client-side via WASM. We should start with the simpler pipeline and upgrade.
 
-**Typing as a mechanic — is it fun enough?** Guitar Hero works partly because the physical act of strumming feels like playing guitar. Typing might feel disconnected. The swing scoring and melodic key mapping are our answers to this, but it's an open design risk that needs playtesting early.
+**Typing as a mechanic — is it fun enough?** Typing might feel disconnected. The swing scoring and melodic key mapping are our answers to this, but it's an open design risk that needs playtesting early.
 
 **Music licensing for curated library.** We need royalty-free or CC-licensed jazz recordings. Alternatively, we commission short original tracks. This has a cost. Open question: is there a corpus of high-quality Creative Commons jazz?
 
