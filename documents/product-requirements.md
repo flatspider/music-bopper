@@ -2,30 +2,35 @@
 
 **Working title:** TBD: Music Bopper
 **Date:** 2026-02-17
-**Authors:** Conor McManamon
-**Status:** Draft — living document
+**Authors:** Conor McManamon, Lily Guo, Josh Upadhyay
+**Status:** Living Document
 
 ---
 
 ## 1. Product Objective
 
-Build a browser-based rhythm game where music is converted into a stream of falling notes that the player must type in time.
+Build a browser-based rhythm game where music is converted into a stream of falling notes that the player must type in time. Notes scroll down 4 lanes; the player presses the correct key when a note reaches the hit zone at the bottom. Timing accuracy determines score (Perfect / Great / Good / Miss) with combo multipliers rewarding streaks.
 
 ## 2. Scope
 
-**In scope:**
+**In scope (MVP):**
 
 - A single-player, browser-based rhythm game
 - A curated starter library of songs with pre-generated charts
-- Difficulty scaling
 - Scoring, streaks, and session stats
-- A jazz-inspired visual and audio identity
+- Story mode where user plays harder songs
+- A jazz-inspired visual and audio identity, set in NYC
 
-**Not in scope (for now):**
+**In scope (Stretch):**
+
+- User accounts, leaderboards with persistent storage
+- Multiplayer (online)
+- Easy/medium/hard level for each song
+- Voice/audio karaoke
+
+**Not in scope:**
 
 - An audio analysis pipeline that converts any uploaded song into a playable note chart
-- User accounts, leaderboards, or persistent profiles
-- Multiplayer / ensemble mode
 - Streaming songs via Spotify or YouTube
 - Mobile (touch targets and keyboard requirements make this a desktop-browser experience first)
 - A chart editor for community-created note maps
@@ -270,6 +275,7 @@ This produces the richest, most musical charts. Each difficulty tier can emphasi
 
 ### Phase 1: Proof of Concept (Wednesday Morning)
 
+- [ ] Establish interface types that each sub-process will need
 - [ ] Static note stream falling on screen (PixiJS)
 - [ ] Keyboard input detection with timing evaluation
 - [ ] Hardcoded note chart for one 10 second clip — prove the core loop feels good
@@ -320,6 +326,7 @@ This produces the richest, most musical charts. Each difficulty tier can emphasi
 ## Learning Lessons
 
 - Generating a beatmap and PLAYING a beatmap are NOT the same. Make sure there are not too many notes to hit.
+- How to pull down a remote branch: git fetch origin git switch branch-name
 
 ---
 
