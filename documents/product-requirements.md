@@ -48,6 +48,54 @@ Build a browser-based rhythm game where music is converted into a stream of fall
 - User-uploaded songs stay client-side (never stored on our servers) to avoid DMCA exposure.
 - No filesystem access (user uploads via file picker), no low-level audio device control, WebGL for rendering.
 
+## System Design
+
+```mermaid
+flowchart LR
+  subgraph B["Browser Client (Desktop)"]
+    UI["React + TypeScript UI"]
+    UP["File Picker (MP3/WAV/FLAC)"]
+    AW["Audio Analysis Worker (Essentia.js WASM)"]
+    CG["Chart Generator (heuristics + difficulty mapper)"]
+    TE["Timing Engine (Tone.js + hit windows)"]
+    PX["Renderer (PixiJS/WebGL)"]
+    KB["Keyboard Input (DF/JK + expanded sets)"]
+    RS["Run Stats (score, streak, accuracy, last session local)"]
+  end
+
+  subgraph S["Backend (MVP)"]
+    EX["Express: static app + API"]
+    CL["Curated Library (metadata + pre-generated charts)"]
+    EV["Anonymous Event Ingest (optional)"]
+  end
+
+  UI --> UP
+  UP --> AW
+  AW --> CG
+  CG --> TE
+  KB --> TE
+  TE --> PX
+  TE --> RS
+
+  UI <--> EX
+  EX <--> CL
+  RS -. "session metrics only (no account)" .-> EV
+  UP -. "user audio remains client-side" .- EX
+
+```
+
+│ Layer │ Tool │ Purpose │
+├───────────┼────────────────────┼──────────────────────────────────────────────────────────┤
+│ Analysis │ Essentia.js (WASM) │ Beat tracking, onset detection, pitch — runs client-side │
+├───────────┼────────────────────┼──────────────────────────────────────────────────────────┤
+│ Playback │ Tone.js │ Precise audio scheduling and sync │
+├───────────┼────────────────────┼──────────────────────────────────────────────────────────┤
+│ Rendering │ PixiJS │ Note stream, visual effects │
+├───────────┼────────────────────┼──────────────────────────────────────────────────────────┤
+│ Frontend │ React + TypeScript │ UI, state, upload flow │
+├───────────┼────────────────────┼──────────────────────────────────────────────────────────┤
+│ Backend │ Express │ Serve the app, eventually proxy to ML service │
+
 ## 5. Target Audience & User Stories
 
 **Primary audience:** Casual gamers — people who enjoy rhythm games but aren't grinding for perfect scores. Wordle crowd.
