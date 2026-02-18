@@ -1,7 +1,17 @@
 import type { Scene, GameContext, Renderer } from "../engine/types.js";
+import type { Manager, RhythmWorld } from "./types.js";
 
 export class RhythmScene implements Scene {
-private world!: 
+private world!: GameContext;
+private managers: Manager[];
+
+  init(context: GameContext): void {
+    // Create simple manager
+    this.managers = [];
+    let firstManager = new SimpleManager(); 
+    this.managers.push(firstManager);
+
+  }
 
   update(dt: number): void {
     for (const m of this.managers) m.update?.(this.world, dt);
@@ -28,4 +38,11 @@ private world!:
     for (const m of this.managers) m.destroy?.();
   }
 
+}
+
+export class SimpleManager implements Manager {
+    render(world: RhythmWorld, renderer: Renderer): void {
+        renderer.drawText("HELLO WORLD", 40, 40,{fontSize: 20, color:0xffffff});
+        
+    }
 }
