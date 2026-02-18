@@ -1,0 +1,10 @@
+stateDiagram-v2
+    [*] --> ready
+    ready --> loading: Any key press
+    loading --> playing: Audio loaded & started
+    playing --> paused: Escape key
+    playing --> results: Song ends
+    paused --> playing: Escape/Enter (resume)
+    paused --> ready: Q (quit)
+    results --> loading: R/Enter (restart)
+    results --> ready: Q/Escape (quit)

@@ -1,0 +1,27 @@
+sequenceDiagram
+    participant User
+    participant Input
+    participant Game
+    participant RhythmScene
+    participant AudioPlayer
+    participant Renderer
+
+    Note over Game: Game Loop (every 50ms)
+    Game->>AudioPlayer: songTime?
+    AudioPlayer-->>Game: currentTime
+    Game->>RhythmScene: update(0.05)
+    RhythmScene->>RhythmScene: Spawn notes where songTime + 2s ≥ note.time
+    RhythmScene->>RhythmScene: Detect misses (songTime > note.time + 150ms)
+    RhythmScene->>RhythmScene: Check hold completions
+    Game->>Renderer: clear()
+    Game->>RhythmScene: render(renderer)
+    RhythmScene->>Renderer: drawLanes, drawReceptors, drawNotes, drawHUD
+
+    Note over User: Player presses D/F/J/K
+    User->>Input: keydown event
+    Input->>AudioPlayer: songTime?
+    AudioPlayer-->>Input: timestamp
+    Input->>RhythmScene: onKeyDown(key, timestamp)
+    RhythmScene->>RhythmScene: tryHitNote(lane, songTime)
+    RhythmScene->>RhythmScene: judge(|hitDiff|) → perfect/great/good/miss
+    RhythmScene->>RhythmScene: Update score += points × multiplier(combo)

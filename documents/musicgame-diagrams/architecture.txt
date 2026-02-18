@@ -1,0 +1,116 @@
+================================================================================
+                     MUSIC GAME ARCHITECTURE DIAGRAMS
+================================================================================
+
+
+1. SYSTEM ARCHITECTURE
+================================================================================
+
+  ┌─────────────────────────────────────────────────────────────────────────────┐
+  │  ENTRY                                                                      │
+  │  main.ts — bootstrap()                                                      │
+  └──────┬──────────────┬──────────────┬──────────────┬─────────────────────────┘
+         │              │              │              │
+         ▼              ▼              ▼              ▼
+  ┌─────────────┐ ┌───────────┐ ┌───────────┐ ┌─────────────────┐
+  │  Game.ts    │ │createPlayer│ │RhythmScene│ │beatmaps/        │
+  │  Game loop  │ │  Factory   │ │  .ts      │ │all-star.ts      │
+  │  50ms ticks │ │            │ │           │ │430+ notes       │
+  └──┬──┬──┬────┘ └──┬────┬───┘ └───────────┘ └─────────────────┘
+     │  │  │         │    │
+     │  │  │         ▼    ▼
+     │  │  │  ┌────────────────┐  ┌────────────────┐
+     │  │  │  │ AudioManager   │  │ MidiManager    │
+     │  │  │  │ Web Audio API  │  │ spessasynth    │
+     │  │  │  │ .mp3/.ogg      │  │ .mid + .sf2    │
+     │  │  │  └────────────────┘  └────────────────┘
+     │  │  │
+     ▼  ▼  ▼
+  ┌──────────┐ ┌──────────┐ ┌──────────────────────┐
+  │Renderer  │ │ Input.ts │ │ types.ts             │
+  │PixiJS    │ │ Keyboard │ │ Scene, AudioPlayer   │
+  │Grid→Pixel│ │ Events   │ │ Renderer interfaces  │
+  └──────────┘ └──────────┘ └──────────────────────┘
+
+  ┌─────────────────────────────────────────────────────────────────────────────┐
+  │  GAME LAYER (RhythmScene imports)                                           │
+  │                                                                             │
+  │  rhythm/types.ts          rhythm/scoring.ts        rhythm/visuals.ts        │
+  │  ├─ BeatmapEntry          ├─ judge()               ├─ drawLanes()          │
+  │  ├─ ActiveNote            │  perfect ≤50ms          ├─ drawReceptors()     │
+  │  ├─ SongManifest          │  great   ≤100ms         ├─ drawNote()          │
+  │  ├─ LANE_KEYS [D,F,J,K]  │  good    ≤150ms         ├─ drawHoldNote()     │
+  │  ├─ RECEPTOR_Y = 540     │  miss    >150ms          ├─ drawProgressBar()  │
+  │  └─ SCROLL_SPEED = 270   └─ getMultiplier()        └─ drawOverlay()       │
+  │                              1x/2x/3x/4x                                   │
+  └─────────────────────────────────────────────────────────────────────────────┘
+
+
+2. GAME LOOP & INPUT SEQUENCE
+================================================================================
+
+  ┌──────────────────── GAME LOOP (every 50ms) ────────────────────┐
+  │                                                                 │
+  │  Game ──── songTime? ────► AudioPlayer                         │
+  │  Game ◄─── currentTime ── AudioPlayer                          │
+  │                                                                 │
+  │  Game ──── update(0.05) ──► RhythmScene                        │
+  │                              ├─ Spawn notes (songTime+2s ≥ t)  │
+  │                              ├─ Detect misses (>150ms late)    │
+  │                              └─ Check hold completions         │
+  │                                                                 │
+  │  Game ──── clear() ────────► Renderer                          │
+  │  Game ──── render() ───────► RhythmScene                       │
+  │                              ├─ drawLanes & receptors          │
+  │                              ├─ drawNotes (scrolling)          │
+  │                              ├─ drawJudgment feedback          │
+  │                              └─ drawHUD (score/combo/timer)    │
+  └─────────────────────────────────────────────────────────────────┘
+
+  ┌──────────────────── PLAYER INPUT ──────────────────────────────┐
+  │                                                                 │
+  │  User ─── keydown ──────► Input                                │
+  │                            ├─ timestamp = audioPlayer.songTime │
+  │                            └─── onKeyDown(key, ts) ──►        │
+  │                                                                 │
+  │                              RhythmScene                       │
+  │                              ├─ tryHitNote(lane, songTime)     │
+  │                              ├─ judge(|hitDiff|)               │
+  │                              │  → perfect / great / good / miss│
+  │                              └─ score += pts × multiplier      │
+  └─────────────────────────────────────────────────────────────────┘
+
+
+3. GAME STATE MACHINE
+================================================================================
+
+                        ┌───────────────┐
+                        │               │
+              ┌────────►│    ready      │◄──────────────────┐
+              │         │               │                    │
+              │         └───────┬───────┘                    │
+              │                 │ Any key                    │
+              │                 ▼                            │
+              │         ┌───────────────┐                    │
+              │         │               │                    │
+              │         │   loading     │                    │
+              │         │               │                    │
+              │         └───────┬───────┘                    │
+              │                 │ Audio loaded               │
+              │                 ▼                            │
+              │         ┌───────────────┐                    │
+         Q    │         │               │  Song ends         │  Q/Escape
+      (quit)  │    ┌───►│   playing     ├────────────┐      │
+              │    │    │               │            │      │
+              │    │    └───────┬───────┘            │      │
+              │    │            │ Escape             │      │
+              │    │            ▼                    ▼      │
+              │    │    ┌───────────────┐    ┌──────────────┐│
+              │    │    │               │    │              ││
+              └────┤    │   paused      │    │   results    ├┘
+                   │    │               │    │              │
+                   │    └───────────────┘    └──────┬───────┘
+                   │     Escape/Enter                │
+                   │     (resume)                    │ R/Enter
+                   └─────────────────────────────────┘
+                                                (restart → loading)

@@ -1,0 +1,50 @@
+graph TD
+    subgraph Entry
+        main["main.ts<br/>bootstrap()"]
+    end
+
+    subgraph Engine Layer
+        Game["Game.ts<br/>Fixed-timestep loop (50ms ticks)<br/>Error boundaries"]
+        Renderer["Renderer.ts<br/>PixiJS wrapper<br/>Grid → pixel conversion"]
+        Input["Input.ts<br/>Keyboard event delegation<br/>Timestamps from songTime"]
+        Types["types.ts<br/>Scene, AudioPlayer, Renderer interfaces<br/>Constants"]
+    end
+
+    subgraph Audio Layer
+        createPlayer["createPlayer.ts<br/>Factory: .mid → MidiManager<br/>else → AudioManager"]
+        AudioManager["AudioManager.ts<br/>Web Audio API<br/>Decode & play audio files"]
+        MidiManager["MidiManager.ts<br/>spessasynth_lib<br/>SoundFont + MIDI sequencer"]
+    end
+
+    subgraph Game Layer
+        RhythmScene["RhythmScene.ts<br/>State machine: ready → loading → playing → results<br/>Note spawning, hit detection, hold logic"]
+        RTypes["rhythm/types.ts<br/>BeatmapEntry, ActiveNote<br/>SongManifest, LANE_KEYS"]
+        Scoring["rhythm/scoring.ts<br/>judge(): perfect/great/good/miss<br/>getMultiplier(): 1x–4x"]
+        Visuals["rhythm/visuals.ts<br/>drawLanes, drawReceptors<br/>drawNote, drawHoldNote"]
+    end
+
+    subgraph Data
+        Beatmap["beatmaps/all-star.ts<br/>430+ BeatmapEntry notes"]
+    end
+
+    main --> Game
+    main --> createPlayer
+    main --> RhythmScene
+    main --> Beatmap
+
+    Game --> Renderer
+    Game --> Input
+    Game --> Types
+
+    createPlayer --> AudioManager
+    createPlayer --> MidiManager
+
+    Input -->|"onKeyDown(key, timestamp)"| RhythmScene
+    Game -->|"update(dt) / render(renderer)"| RhythmScene
+
+    RhythmScene --> RTypes
+    RhythmScene --> Scoring
+    RhythmScene --> Visuals
+    RhythmScene -->|"songTime, play/pause"| createPlayer
+
+    Beatmap --> RhythmScene
