@@ -1,30 +1,45 @@
-// singleton class that instantiates the Audio Primitive.
-
-import { PolySynth } from "tone";
 import type { SongMap } from "../midi/parser";
-import { Midi } from "@tonejs/midi";
-import * as Tone from "tone"; // audio engine (Transport, PolySynth, Frequency)
+import * as Tone from "tone";
 
-// This is what 'loads' the midi song in
-
+/**
+ * Audio engine singleton — owns the Tone.js synth and Transport.
+ *
+ * Lifecycle:
+ *   1. `loadSong(songMap)` — schedule every note onto the Transport timeline.
+ *   2. `play()`            — unlock browser audio (first call) and start playback.
+ *   3. `pause()` / `play()` — pause and resume from the same position.
+ *
+ * The Transport is the single source of truth for song position.
+ * Scenes should call `getCurrentTime()` each frame to sync visuals with audio.
+ */
 export class Audio {
+  /** Parsed MIDI data currently loaded (null until loadSong is called). */
+  private songMap: SongMap | null = null;
+
+  /** Polyphonic synth routed to the default audio output. */
+  private synth: Tone.PolySynth;
+
   constructor() {
     this.synth = new Tone.PolySynth(Tone.Synth).toDestination();
   }
-  private songMap: SongMap | null = null;
-  private synth: Tone.PolySynth;
 
+  /**
+   * Load a parsed SongMap and schedule all its notes on the Transport.
+   * Calling this again with a new song cancels the previous schedule.
+   */
   loadSong(song: SongMap) {
     this.songMap = song;
 
-    // Reset timing and song logic (new play)
+    // Clear any previously scheduled notes and reset the playhead.
     Tone.getTransport().cancel();
     Tone.getTransport().seconds = 0;
 
+    // Schedule every note as a triggerAttackRelease on the Transport timeline.
+    // Transport calls back with the precise audio-context time for each note.
     for (const note of this.songMap.notes) {
       Tone.getTransport().schedule((time) => {
         this.synth.triggerAttackRelease(
-          Tone.Frequency(note.noteNumber, "midi").toNote(),
+          Tone.Frequency(note.noteNumber, "midi").toNote(), // MIDI pitch -> e.g. "C4"
           note.duration,
           time,
           note.velocity,
@@ -33,19 +48,26 @@ export class Audio {
     }
   }
 
+  /**
+   * Start or resume playback.
+   * Must be called from a user gesture (click/keypress) so the browser
+   * allows `Tone.start()` to unlock the AudioContext.
+   */
   async play() {
     if (!this.songMap) return;
     await Tone.start();
-    Tone.getTransport().start(); // resumes if paused, restarts if new
+    Tone.getTransport().start();
   }
 
+  /** Pause playback. Call `play()` again to resume from the same position. */
   pause() {
     Tone.getTransport().pause();
   }
 
-  // this will return the current time the song is at
-  // Since the graphics read from the songMap as well,
-  // this is the true 'source of truth'.
+  /**
+   * Current song position in seconds — the single source of truth.
+   * RhythmScene reads this each frame to position notes on screen.
+   */
   getCurrentTime(): number {
     return Tone.getTransport().seconds;
   }
