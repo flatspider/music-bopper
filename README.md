@@ -1,35 +1,38 @@
-# React + TypeScript + Vite
+# Music Bopper
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- Single-player desktop web game
+- Curated starter songs
+- Falling-note gameplay across 4 lanes
+- Scoring, combo streaks, and end-of-song summary
+- Story progression with harder songs
 
-Currently, two official plugins are available:
+## Visual Vibe
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Jazz-club energy
+- Blues, blacks, warm highlights, and neon accents
+- Reactive environment: stronger performance makes the world feel more alive
 
-## React Compiler
+## Run On Your Machine (Bun)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Prerequisites
 
-## Expanding the ESLint configuration
+- Bun installed ([https://bun.sh](https://bun.sh))
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Install dependencies
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+```bash
+bun install
+```
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Start development server
 
+```bash
+bun run dev
+```
+
+Then open the local URL shown in terminal (usually `http://localhost:5173`).
+
+### Build for production
       // Other configs...
     ],
     languageOptions: {
@@ -70,4 +73,19 @@ export default defineConfig([
     },
   },
 ]);
+=======
+```bash
+bun run build
+```
+
+### Preview production build
+
+```bash
+bun run preview
+```
+
+### Run lint checks
+
+```bash
+bun run lint
 ```

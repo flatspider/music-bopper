@@ -1,7 +1,7 @@
 # Product Requirements Document: Rhythm Typing Game
 
-**Working title:** TBD: Music Bopper
-**Date:** 2026-02-17
+**Working title:** Music Bopper
+**Last Update:** 2026-02-18
 **Authors:** Conor McManamon, Lily Guo, Josh Upadhyay
 **Status:** Living Document
 
@@ -47,14 +47,15 @@ Build a browser-based rhythm game where music is converted into a stream of fall
 ## 4. Constraints
 
 - Built in web browser.
-- Audio latency needs to be managed. ML-based transcription will be hard for clientside to do.
+- Audio latency needs to be managed.
+- ML-based transcription will be hard for clientside to do.
 - Song analysis needs backend. Curated library must use royalty-free, Creative Commons, or original recordings.
 - User-uploaded songs stay client-side (never stored on our servers) to avoid DMCA exposure.
 - No filesystem access (user uploads via file picker), no low-level audio device control, WebGL for rendering.
 
 Music is heavy. Keep only song metadata in initial bundle (title, duration, difficulty, cover art URL). Lazy-load audio/chart only when selected. Cache downloaded files for replay (Cache Storage/IndexedDB), with an LRU cap (for example 300-500MB).
 Store charts separately from audio (charts are tiny, audio is heavy).
-Offer “download for offline” explicitly instead of silently caching everything.
+Offer “download for offline” explicitly instead of caching everything.
 
 ## 5. Tech Stack
 
@@ -70,7 +71,7 @@ Offer “download for offline” explicitly instead of silently caching everythi
 ├───────────┼────────────────────┼──────────────────────────────────────────────────────────┤
 │ Backend │ Express │ Serve the app, eventually proxy to ML service │
 
-## 6a. MVP (no server) System Design
+## 6a. MVP (no db) System Design
 
 ```mermaid
 flowchart LR
