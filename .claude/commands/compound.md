@@ -1,7 +1,7 @@
 ---
 name: workflows:compound
 description: Document a recently solved problem to compound your team's knowledge
-argument-hint: "[optional: brief context about the fix]"
+argument-hint: '[optional: brief context about the fix]'
 ---
 
 # /compound
@@ -36,33 +36,38 @@ Phase 1 subagents return TEXT DATA to the orchestrator. They must NOT use Write,
 Launch these subagents IN PARALLEL. Each returns text data to the orchestrator.
 
 #### 1. **Context Analyzer**
-   - Extracts conversation history
-   - Identifies problem type, component, symptoms
-   - Validates against schema
-   - Returns: YAML frontmatter skeleton
+
+- Extracts conversation history
+- Identifies problem type, component, symptoms
+- Validates against schema
+- Returns: YAML frontmatter skeleton
 
 #### 2. **Solution Extractor**
-   - Analyzes all investigation steps
-   - Identifies root cause
-   - Extracts working solution with code examples
-   - Returns: Solution content block
+
+- Analyzes all investigation steps
+- Identifies root cause
+- Extracts working solution with code examples
+- Returns: Solution content block
 
 #### 3. **Related Docs Finder**
-   - Searches `docs/solutions/` for related documentation
-   - Identifies cross-references and links
-   - Returns: Links and relationships
+
+- Searches `docs/solutions/` for related documentation
+- Identifies cross-references and links
+- Returns: Links and relationships
 
 #### 4. **Prevention Strategist**
-   - Develops prevention strategies
-   - Creates best practices guidance
-   - Generates test cases if applicable
-   - Returns: Prevention/testing content
+
+- Develops prevention strategies
+- Creates best practices guidance
+- Generates test cases if applicable
+- Returns: Prevention/testing content
 
 #### 5. **Category Classifier**
-   - Determines optimal `docs/solutions/` category
-   - Validates category against schema
-   - Suggests filename based on slug
-   - Returns: Final path and filename
+
+- Determines optimal `docs/solutions/` category
+- Validates category against schema
+- Suggests filename based on slug
+- Returns: Final path and filename
 
 </parallel_tasks>
 
@@ -124,12 +129,13 @@ This creates a compounding knowledge system:
 
 <auto_invoke>
 <trigger_phrases>
+
 - "that worked"
 - "it's fixed"
 - "working now"
 - "problem solved"
-</trigger_phrases>
-</auto_invoke>
+  </trigger_phrases>
+  </auto_invoke>
 
 ## Routes To
 

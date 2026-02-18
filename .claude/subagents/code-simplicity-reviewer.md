@@ -1,6 +1,6 @@
 ---
 name: code-simplicity-reviewer
-description: "Final review pass to ensure code is as simple and minimal as possible. Use after implementation is complete to identify YAGNI violations and simplification opportunities."
+description: 'Final review pass to ensure code is as simple and minimal as possible. Use after implementation is complete to identify YAGNI violations and simplification opportunities.'
 model: inherit
 ---
 
@@ -53,21 +53,26 @@ Output format:
 ## Simplification Analysis
 
 ### Core Purpose
+
 [What this code actually needs to do]
 
 ### Unnecessary Complexity Found
+
 - [Specific issue with line numbers/file]
 - [Why it's unnecessary]
 - [Suggested simplification]
 
 ### Code to Remove
+
 - [File:lines] - [Reason]
 - [Estimated LOC reduction: X]
 
 ### YAGNI Violations
+
 - [Feature/abstraction that isn't needed]
 
 ### Final Assessment
+
 Total potential LOC reduction: X%
 Complexity score: [High/Medium/Low]
 Recommended action: [Proceed with simplifications/Minor tweaks only/Already minimal]

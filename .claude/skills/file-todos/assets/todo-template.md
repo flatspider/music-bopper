@@ -1,7 +1,7 @@
 ---
 status: pending
 priority: p2
-issue_id: "XXX"
+issue_id: 'XXX'
 tags: []
 dependencies: []
 ---
@@ -29,9 +29,11 @@ Investigation results, root cause analysis, and key discoveries.
 **Approach:** Describe the solution clearly.
 
 **Pros:**
+
 - Benefit 1
 
 **Cons:**
+
 - Drawback 1
 
 **Effort:** 2-3 hours
@@ -45,9 +47,11 @@ Investigation results, root cause analysis, and key discoveries.
 **Approach:** Describe the solution clearly.
 
 **Pros:**
+
 - Benefit 1
 
 **Cons:**
+
 - Drawback 1
 
 **Effort:** 4-6 hours
@@ -61,9 +65,11 @@ Investigation results, root cause analysis, and key discoveries.
 ## Technical Details
 
 **Affected files:**
+
 - `path/to/file.ext:line` - description
 
 **Related components:**
+
 - Component name (relationship)
 
 ## Resources
@@ -84,8 +90,10 @@ Investigation results, root cause analysis, and key discoveries.
 **By:** Claude Code
 
 **Actions:**
+
 - Initial findings documented
 - Solution approaches drafted
 
 **Learnings:**
+
 - Key insights for future work

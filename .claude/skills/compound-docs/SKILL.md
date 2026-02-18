@@ -50,7 +50,7 @@ This skill captures problem solutions immediately after confirmation, creating s
 - Simple typos
 - Obvious syntax errors
 - Trivial fixes immediately corrected
-</step>
+  </step>
 
 <step number="2" required="true" depends_on="1">
 ### Step 2: Gather Context
@@ -94,7 +94,7 @@ Format: `[sanitized-symptom]-[module]-[YYYYMMDD].md`
 - Replace spaces with hyphens
 - Remove special characters except hyphens
 - Truncate to reasonable length (< 80 chars)
-</step>
+  </step>
 
 <step number="5" required="true" depends_on="4" blocking="true">
 ### Step 5: Validate YAML Schema

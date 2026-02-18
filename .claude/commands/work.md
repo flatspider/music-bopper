@@ -1,7 +1,7 @@
 ---
 name: workflows:work
 description: Execute work plans efficiently while maintaining quality and finishing features
-argument-hint: "[plan file, specification, or todo file path]"
+argument-hint: '[plan file, specification, or todo file path]'
 ---
 
 # Work Plan Execution Command
@@ -21,7 +21,6 @@ This command takes a work document (plan, specification, or todo file) and execu
 ### Phase 1: Quick Start
 
 1. **Read Plan and Clarify**
-
    - Read the work document completely
    - Review any references or links provided in the plan
    - If anything is unclear or ambiguous, ask clarifying questions now
@@ -50,10 +49,12 @@ This command takes a work document (plan, specification, or todo file) and execu
    **If on the default branch**, choose how to proceed:
 
    **Option A: Create a new branch**
+
    ```bash
    git pull origin [default_branch]
    git checkout -b feature-branch-name
    ```
+
    Use a meaningful name based on the work (e.g., `feat/user-authentication`, `fix/email-validation`).
 
    **Option B: Continue on the default branch**
@@ -93,16 +94,17 @@ This command takes a work document (plan, specification, or todo file) and execu
 
    After completing each task, evaluate whether to create an incremental commit:
 
-   | Commit when... | Don't commit when... |
-   |----------------|---------------------|
-   | Logical unit complete (model, service, component) | Small part of a larger unit |
-   | Tests pass + meaningful progress | Tests failing |
-   | About to switch contexts (backend → frontend) | Purely scaffolding with no behavior |
-   | About to attempt risky/uncertain changes | Would need a "WIP" commit message |
+   | Commit when...                                    | Don't commit when...                |
+   | ------------------------------------------------- | ----------------------------------- |
+   | Logical unit complete (model, service, component) | Small part of a larger unit         |
+   | Tests pass + meaningful progress                  | Tests failing                       |
+   | About to switch contexts (backend → frontend)     | Purely scaffolding with no behavior |
+   | About to attempt risky/uncertain changes          | Would need a "WIP" commit message   |
 
    **Heuristic:** "Can I write a commit message that describes a complete, valuable change? If yes, commit. If the message would be 'WIP' or 'partial X', wait."
 
    **Commit workflow:**
+
    ```bash
    # 1. Verify tests pass (use project's test command)
    # 2. Stage only files related to this logical unit (not `git add .`)
@@ -112,7 +114,6 @@ This command takes a work document (plan, specification, or todo file) and execu
    ```
 
 3. **Follow Existing Patterns**
-
    - The plan should reference similar code - read those files first
    - Match naming conventions exactly
    - Reuse existing components where possible
@@ -120,7 +121,6 @@ This command takes a work document (plan, specification, or todo file) and execu
    - When in doubt, grep for similar implementations
 
 4. **Test Continuously**
-
    - Run relevant tests after each significant change
    - Don't wait until the end to test
    - Fix failures immediately
@@ -197,6 +197,7 @@ This command takes a work document (plan, specification, or todo file) and execu
 3. **Update Plan Status**
 
    If the input document has YAML frontmatter with a `status` field, update it to `completed`:
+
    ```
    status: active  →  status: completed
    ```

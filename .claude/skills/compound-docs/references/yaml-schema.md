@@ -34,9 +34,9 @@ date: 2026-02-15
 problem_type: performance_issue
 component: rendering_pipeline
 symptoms:
-  - "Frame drops below 30fps during particle effects"
-  - "GPU memory spikes during scene transitions"
-root_cause: "Unoptimized particle batch rendering"
+  - 'Frame drops below 30fps during particle effects'
+  - 'GPU memory spikes during scene transitions'
+root_cause: 'Unoptimized particle batch rendering'
 resolution_type: code_fix
 severity: high
 tags: [performance, rendering, particles]
