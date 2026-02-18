@@ -42,4 +42,11 @@ export class Audio {
   pause() {
     Tone.getTransport().pause();
   }
+
+  // this will return the current time the song is at
+  // Since the graphics read from the songMap as well,
+  // this is the true 'source of truth'.
+  getCurrentTime(): number {
+    return Tone.getTransport().seconds;
+  }
 }
