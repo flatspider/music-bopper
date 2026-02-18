@@ -47,7 +47,8 @@ Build a browser-based rhythm game where music is converted into a stream of fall
 ## 4. Constraints
 
 - Built in web browser.
-- Audio latency needs to be managed. ML-based transcription will be hard for clientside to do.
+- Audio latency needs to be managed.
+- ML-based transcription will be hard for clientside to do.
 - Song analysis needs backend. Curated library must use royalty-free, Creative Commons, or original recordings.
 - User-uploaded songs stay client-side (never stored on our servers) to avoid DMCA exposure.
 - No filesystem access (user uploads via file picker), no low-level audio device control, WebGL for rendering.
@@ -70,7 +71,7 @@ Offer “download for offline” explicitly instead of silently caching everythi
 ├───────────┼────────────────────┼──────────────────────────────────────────────────────────┤
 │ Backend │ Express │ Serve the app, eventually proxy to ML service │
 
-## 6a. MVP (no server) System Design
+## 6a. MVP (no db) System Design
 
 ```mermaid
 flowchart LR
