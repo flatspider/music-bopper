@@ -324,6 +324,10 @@ This produces the richest, most musical charts. Each difficulty tier can emphasi
 
 **Latency calibration UX.** Rhythm games live and die on sync. Most serious rhythm games (osu!, StepMania) require manual offset calibration. Can we make this invisible to casual players? Auto-detection via a "tap along to this beat" onboarding step is the leading idea.
 
+## Technical Reference
+
+See [Technical Notes: Note Rendering & Timing](technical-notes.md) for implementation details on how JSON note data becomes on-screen visuals, the scroll/spawn model, and audio-visual sync.
+
 ## Learning Lessons
 
 - Generating a beatmap and PLAYING a beatmap are NOT the same. Make sure there are not too many notes to hit.
