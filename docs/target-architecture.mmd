@@ -1,0 +1,53 @@
+flowchart TD
+  subgraph ENGINE["<b>Level 1: Game Engine</b> (framework — scene agnostic)"]
+    GL["Game Loop<br/>(fixed timestep)"]
+    REN["Renderer<br/>(PixiJS)"]
+    INP["Input Router<br/>(raw keyboard events)"]
+    SC["SceneConfig<br/>(tickRate, canvas)"]
+  end
+
+  subgraph SCENES["<b>Level 2: Scenes</b> (one active at a time)"]
+    subgraph MENU["MainMenuScene"]
+      MS1["· Song list<br/>· Difficulty (easy/med/hard)<br/>· Strategy picker<br/>· Play button"]
+    end
+
+    subgraph RHYTHM["RhythmScene (coordinator — delegates to managers)"]
+      subgraph WORLD["<b>RhythmWorld</b> (shared state — pure data, no methods)"]
+        W1["songTime | score | combo | maxCombo"]
+        W2["gameNotes[] | noteState[] | activeKeys"]
+        W3["difficultyConfig: scrollSpeed, noteFilter, hitWindow"]
+      end
+
+      subgraph MANAGERS["<b>Level 3: Managers</b> (scene-scoped, created on init)"]
+        IM["<b>InputManager</b><br/>onKeyDown(key) → lane<br/>tryHit(lane)<br/>manages activeKeys"]
+        GM["<b>GameplayManager</b><br/>update(dt)<br/>missDetection()<br/>song start/end"]
+        AM["<b>AudioManager</b><br/>schedule(notes)<br/>play() / stop()<br/>Tone.js synth"]
+        RM["<b>RenderManager</b><br/>lanes + scrolling notes<br/>HUD + countdown<br/>results screen"]
+      end
+    end
+  end
+
+  subgraph MIDI["MIDI Pipeline (data layer)"]
+    P["parser.ts<br/>MIDI → RawNote[]"] --> ST["strategies.ts<br/>percentile | track"]
+    ST --> AU["audio.ts<br/>Tone.js PolySynth"]
+  end
+
+  GL -->|"update(dt)"| RHYTHM
+  GL -->|"render()"| RHYTHM
+  INP -->|"onKeyDown(raw key)"| MENU
+  INP -->|"onKeyDown(raw key)"| RHYTHM
+  MENU -->|"song selected → loadScene()"| RHYTHM
+
+  WORLD -.->|"R/W"| IM
+  WORLD -.->|"R/W"| GM
+  WORLD -.->|"Read"| AM
+  WORLD -.->|"Read"| RM
+
+  MIDI -->|"GameNote[]"| WORLD
+
+  style ENGINE fill:#dbeafe,stroke:#3b82f6
+  style MENU fill:#f3e8ff,stroke:#a855f7
+  style RHYTHM fill:#fff7ed,stroke:#f97316
+  style WORLD fill:#dcfce7,stroke:#22c55e
+  style MANAGERS fill:#fef9c3,stroke:#eab308
+  style MIDI fill:#f1f5f9,stroke:#94a3b8
