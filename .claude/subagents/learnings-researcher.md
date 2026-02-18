@@ -1,6 +1,6 @@
 ---
 name: learnings-researcher
-description: "Searches docs/solutions/ for relevant past solutions by frontmatter metadata. Use before implementing features or fixing problems to surface institutional knowledge and prevent repeated mistakes."
+description: 'Searches docs/solutions/ for relevant past solutions by frontmatter metadata. Use before implementing features or fixing problems to surface institutional knowledge and prevent repeated mistakes.'
 model: haiku
 ---
 
@@ -22,6 +22,7 @@ The `docs/solutions/` directory contains documented solutions with YAML frontmat
 ### Step 1: Extract Keywords from Feature Description
 
 From the feature/task description, identify:
+
 - **Module names**: e.g., "BriefSystem", "EmailProcessing", "payments"
 - **Technical terms**: e.g., "N+1", "caching", "authentication"
 - **Problem indicators**: e.g., "slow", "error", "timeout", "memory"
@@ -29,15 +30,15 @@ From the feature/task description, identify:
 
 ### Step 2: Category-Based Narrowing (Optional)
 
-| Feature Type | Search Directory |
-|--------------|------------------|
-| Performance work | `docs/solutions/performance-issues/` |
-| Database changes | `docs/solutions/database-issues/` |
-| Bug fix | `docs/solutions/runtime-errors/`, `docs/solutions/logic-errors/` |
-| Security | `docs/solutions/security-issues/` |
-| UI work | `docs/solutions/ui-bugs/` |
-| Integration | `docs/solutions/integration-issues/` |
-| General/unclear | `docs/solutions/` (all) |
+| Feature Type     | Search Directory                                                 |
+| ---------------- | ---------------------------------------------------------------- |
+| Performance work | `docs/solutions/performance-issues/`                             |
+| Database changes | `docs/solutions/database-issues/`                                |
+| Bug fix          | `docs/solutions/runtime-errors/`, `docs/solutions/logic-errors/` |
+| Security         | `docs/solutions/security-issues/`                                |
+| UI work          | `docs/solutions/ui-bugs/`                                        |
+| Integration      | `docs/solutions/integration-issues/`                             |
+| General/unclear  | `docs/solutions/` (all)                                          |
 
 ### Step 3: Grep Pre-Filter
 
@@ -76,6 +77,7 @@ Only for files that pass the filter, read the complete document.
 
 ```markdown
 ### [Title from document]
+
 - **File**: docs/solutions/[category]/[filename].md
 - **Module**: [module from frontmatter]
 - **Problem Type**: [problem_type]
@@ -90,27 +92,33 @@ Only for files that pass the filter, read the complete document.
 ## Institutional Learnings Search Results
 
 ### Search Context
+
 - **Feature/Task**: [Description of what's being implemented]
 - **Keywords Used**: [tags, modules, symptoms searched]
 - **Files Scanned**: [X total files]
 - **Relevant Matches**: [Y files]
 
 ### Critical Patterns (Always Check)
+
 [Any matching patterns from critical-patterns.md]
 
 ### Relevant Learnings
+
 [Distilled summaries]
 
 ### Recommendations
+
 - [Specific actions to take based on learnings]
 
 ### No Matches
+
 [If no relevant learnings found, explicitly state this]
 ```
 
 ## Integration Points
 
 This agent is designed to be invoked by:
+
 - `/workflows:plan` - To inform planning with institutional knowledge
 - `/workflows:review` - To check for known patterns in reviewed code
 - Manual invocation before starting work on a feature

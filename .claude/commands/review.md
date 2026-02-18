@@ -1,7 +1,7 @@
 ---
 name: workflows:review
 description: Perform exhaustive code reviews using multi-agent analysis
-argument-hint: "[PR number, GitHub URL, branch name, or latest]"
+argument-hint: '[PR number, GitHub URL, branch name, or latest]'
 ---
 
 # Review Command
@@ -42,7 +42,7 @@ The following paths are pipeline artifacts and must never be flagged for deletio
 
 - `docs/plans/*.md` — Plan files created by `/workflows:plan`
 - `docs/solutions/*.md` — Solution documents created during the pipeline
-</protected_artifacts>
+  </protected_artifacts>
 
 #### Load Review Agents
 
@@ -59,6 +59,7 @@ Task {agent-name}(PR content + review context from settings body)
 ```
 
 Additionally, always run this regardless of settings:
+
 - Task learnings-researcher(PR content) - Search docs/solutions/ for past issues related to this PR's modules and patterns
 
 </parallel_tasks>
@@ -108,6 +109,7 @@ Use the file-todos skill to create todo files for ALL findings immediately.
 - Follow naming convention: `{issue_id}-pending-{priority}-{description}.md`
 
 **Examples:**
+
 ```
 001-pending-p1-path-traversal-vulnerability.md
 002-pending-p1-api-response-validation.md
@@ -126,15 +128,18 @@ After creating all todo files, present comprehensive summary:
 **Branch:** [branch-name]
 
 ### Findings Summary:
+
 - **Total Findings:** [X]
 - **CRITICAL (P1):** [count] - BLOCKS MERGE
 - **IMPORTANT (P2):** [count] - Should Fix
 - **NICE-TO-HAVE (P3):** [count] - Enhancements
 
 ### Created Todo Files:
+
 [list all created todo files]
 
 ### Next Steps:
+
 1. Address P1 Findings (CRITICAL - must be fixed before merge)
 2. Triage All Todos: `ls todos/*-pending-*.md`
 ```

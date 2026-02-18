@@ -18,6 +18,7 @@ Prompt the user to choose an input mode:
 3. **Codebase exploration** — the user points you at a project directory and you analyze the code
 
 For **verbal or image input**, also help the user reason about what they're trying to understand:
+
 - Is their mental model too high-level? Maybe they need the mechanical details drawn out.
 - Are they mixing concerns? Architecture and sequence flow are often better as separate diagrams.
 - Are they stuck on how parts connect? Drawing it can be the escape route.
@@ -29,18 +30,21 @@ Ask clarifying questions before generating. Be a thinking partner, not just a re
 Every system can be drawn at different depths. Before writing any Mermaid code, figure out what level the user needs. These levels can be combined in one diagram.
 
 **Architecture level** — what are the parts, who's responsible for what.
+
 - Nodes are components/modules with role descriptions ("Express Server", "React App")
 - Edges show data flow direction ("POST /api/move", "fetches state")
 - Good for: orientation, explaining a system to someone new, planning
 
 **Mechanical level** — how execution actually flows at runtime.
+
 - Nodes include specific functions/methods (`loadScene()`, `loop()`, `requestAnimationFrame()`)
 - Edges reference actual function calls (`scene.onKeyDown()`, `scene.update()`)
 - Shows initialization sequences (numbered: 1a, 1b, 1c...) separate from runtime loops
 - Shows cycles: event loops, render cycles, polling intervals
-- Good for: debugging, understanding *why* code executes in a certain order, bridging diagrams back to code
+- Good for: debugging, understanding _why_ code executes in a certain order, bridging diagrams back to code
 
 **Deciding which level:**
+
 - If the user is new to a codebase or explaining to someone else → architecture
 - If the user is debugging, confused about execution order, or studying how something works → mechanical
 - If the user provides an image or reference diagram → match that diagram's level
@@ -61,6 +65,7 @@ Use these prompts to decide what to include. Not all will apply to every system.
 ### Step 2: Choose the diagram type
 
 Pick the Mermaid diagram type that best fits what the user needs:
+
 - `graph TD` or `graph LR` — architecture, system overview, data flow
 - `sequenceDiagram` — request/response flows, function call chains, event ordering
 - `stateDiagram-v2` — state machines, lifecycle transitions
@@ -72,6 +77,7 @@ If the user's description mixes concerns, suggest splitting into multiple diagra
 ### Step 3: Write the Mermaid code
 
 Follow these constraints (library limitations):
+
 - **Single-line node labels only.** The library cannot render multi-line text inside nodes. Keep labels short and descriptive.
 - **No semicolons.** Each statement must be on its own line. The graph header (`graph TD`, `sequenceDiagram`, etc.) must be on its own line.
 - **One edge per line.** Write `A --> B` and `B --> C` on separate lines, not `A --> B --> C`.
@@ -79,6 +85,7 @@ Follow these constraints (library limitations):
 ### Step 4: Decide on labeling
 
 Use judgment based on diagram complexity:
+
 - **Simple diagrams (under 5 nodes):** Use descriptive labels directly, no legend needed.
 - **Medium diagrams:** Use short labels with a legend. Ask the user if they prefer A/B/C, 1/2/3, or another scheme.
 - **Complex diagrams:** Use hierarchical labels (A1, A2, B1, B2 or 1A, 1B, 2A, 2B) with a legend. Group related nodes under the same prefix.
@@ -94,11 +101,13 @@ bun scripts/mermaid-diagram.ts "<mermaid-code>" "<name>" "<legend>"
 ```
 
 Arguments:
+
 - **mermaid-code** (required): The Mermaid diagram string
 - **name** (optional): A descriptive filename, defaults to timestamp. Use kebab-case (e.g., `ttt-architecture`, `auth-flow`).
 - **legend** (optional): Legend text with `\n` separating lines. First line is bolded as the title in the SVG.
 
 This produces three output files:
+
 - `scripts/output/diagrams/<name>.svg` — rendered SVG
 - `scripts/output/diagrams/<name>.txt` — ASCII art with legend
 - `scripts/output/markdown/<name>.md` — Mermaid source with links to SVG and TXT
@@ -198,6 +207,7 @@ bun scripts/mermaid-diagram.ts 'graph LR
 ```
 
 Key patterns in this example:
+
 - **Nested subgraphs** for runtime environment: `Browser > Game > Scene`
 - **External actor** (`User`) placed outside all subgraphs
 - **Numbered temporal phases**: 1x = bootstrap, 2x = game loop, 3 = user input
