@@ -1,7 +1,7 @@
 import { Application } from "pixi.js";
 import { Game } from "./engine/Game.js";
-import { CANVAS_WIDTH, CANVAS_HEIGHT } from "./engine/types.js";
-import { RhythmScene } from "./scenes/rhythmgame/RhythmScene.js";
+import { CANVAS_WIDTH, CANVAS_HEIGHT } from "./engine/types.ts";
+import { RhythmScene } from "./scenes/RhythmScene.ts";
 
 async function bootstrap() {
   const app = new Application();
