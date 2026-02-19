@@ -6,7 +6,16 @@ import type { Renderer } from "../engine/types";
 
 // -- Shared Constants
 
-// key direction, 
+// -- Keys and Lanes
+
+export type Lane = "D" | "F" | "J" | "K";
+
+export const KEY_LANE: Record<string, Lane> = {
+    KeyD: "D",
+    KeyF: "F",
+    KeyJ: "J",
+    KeyK: "K"
+}
 
 // --- Game State --- 
 

@@ -1,6 +1,5 @@
 import { Midi } from "@tonejs/midi";
-
-export type Lane = "D" | "F" | "J" | "K";
+import { type Lane } from "../scenes/types.ts"
 
 export const LANES: Lane[] = ["D", "F", "J", "K"];
 
