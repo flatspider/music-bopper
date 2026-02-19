@@ -2,7 +2,6 @@ import { Audio } from "../engine/Audio.js";
 import type { Scene, GameContext, Renderer } from "../engine/types.js";
 import type { Manager, RhythmWorld } from "./types.js";
 import { LANES, type GameNote, type Lane, type SongMap } from "../midi/parser.js";
-import { Graphics } from "pixi.js";
 
 
 // Temporary local data while wiring LaneManager:
@@ -128,7 +127,6 @@ export class LaneManager implements Manager {
         // 1) lane guide (full height skinny column)
         // 2) hit zone (short rectangle near bottom)
         // 3) notes filtered by visibility
-        let rectangle1 = new Graphics();
 
         let centerX = this.x + 2;
         let hitZoneX = centerX - (this.noteWidth / 2);
@@ -136,17 +134,17 @@ export class LaneManager implements Manager {
         // Draw the notes
         this.notes.forEach((note)=> {
             let noteScreenY = this.hitZoneY - (note.time - this.songTime) * this.scrollSpeed
-
-            rectangle1.rect(this.x,noteScreenY, 12,4);
+            // Not clear where renderer comes from
+            // This is the note
+            renderer.drawRect(this.x, noteScreenY, 12, 4, 0x0000FF);
         });
 
+        // This is the skinny rectangle
+        renderer.drawRect(this.x, this.visibleTop, 4, this.visibleBottom, 0xFFFFFF);
 
-        rectangle1.rect(this.x, this.visibleTop, 4, this.visibleBottom).fill("white");
-        rectangle1.rect(hitZoneX, this.hitZoneY, this.noteWidth, this.hitZoneHeight).fill("yellow");
-        renderer.stage.addChild(rectangle1);
-
-       
-
+        // This is the yellow hitzone
+        renderer.drawRect(hitZoneX, this.hitZoneY, this.noteWidth, this.hitZoneHeight, 0xFFFF00);
+        
     }
 
 }
