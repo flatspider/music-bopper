@@ -80,6 +80,7 @@ export class LaneManager implements Manager {
     private readonly hitZoneHeight: number;
     private readonly visibleTop: number;
     private readonly visibleBottom: number;
+    private songTime: number = 0;
 
     constructor(notes: GameNote[], laneKey: Lane) {
         this.notes = notes;
@@ -114,6 +115,9 @@ export class LaneManager implements Manager {
         // Update does math, changes states, marks notes as missed
         // Need to know what time it is in the world
         // Move the notes down based on song time, check for misses
+
+        // Update the songtime with the cumulative elapsed time between renders
+        this.songTime = this.songTime + dt;
     }
     render(world: RhythmWorld, renderer: Renderer): void {
         // Assembles the drawings. Takes the current state and draws it on the screen
