@@ -26,8 +26,14 @@ export class Input {
             // STEP 5a: Filter out repeat events (OS sends these when a key is held down).
             //   Check e.repeat — if true, return early and do nothing.
 
+            if(e.repeat){
+                return
+            }
+
             // STEP 5b: Track the key in the held set.
             //   Add e.code to this.held here.
+
+            
 
             this.scene?.onKeyDown(e.code);
         }
