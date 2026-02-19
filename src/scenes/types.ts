@@ -29,6 +29,9 @@ export interface RhythmWorld {
     player: {};
 }
 
+// Need to add more fields to RhythmWorld interface in the scene/types.ts
+// eg songTime, notes, and score fields
+
 // --- Manager Interface ---
 
 export interface Manager {
