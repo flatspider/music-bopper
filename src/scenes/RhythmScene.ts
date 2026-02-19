@@ -1,16 +1,18 @@
 import type { Scene, GameContext, Renderer } from "../engine/types.js";
+import { AudioManager } from "../managers/AudioManager.js";
 import type { Manager, RhythmWorld } from "./types.js";
 
 export class RhythmScene implements Scene {
-private world!: GameContext;
-private managers: Manager[];
+  private world!: GameContext;
+  private managers: Manager[];
 
   init(context: GameContext): void {
     // Create simple manager
     this.managers = [];
-    let firstManager = new SimpleManager(); 
+    let firstManager = new SimpleManager();
+    let audioManager = new AudioManager();
     this.managers.push(firstManager);
-
+    this.managers.push(audioManager);
   }
 
   update(dt: number): void {
@@ -30,19 +32,17 @@ private managers: Manager[];
     for (const m of this.managers) m.onKeyUp?.(this.world, key);
   }
 
-   onKeyHold(key: string): void {
+  onKeyHold(key: string): void {
     for (const m of this.managers) m.onKeyHold?.(this.world, key);
   }
 
   destroy(): void {
     for (const m of this.managers) m.destroy?.();
   }
-
 }
 
 export class SimpleManager implements Manager {
-    render(world: RhythmWorld, renderer: Renderer): void {
-        renderer.drawText("HELLO WORLD", 40, 40,{fontSize: 20, color:0xffffff});
-        
-    }
+  render(world: RhythmWorld, renderer: Renderer): void {
+    renderer.drawText("HELLO WORLD", 40, 40, { fontSize: 20, color: 0xffffff });
+  }
 }
