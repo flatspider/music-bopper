@@ -50,13 +50,24 @@ export class Audio {
 
   /**
    * Start or resume playback.
-   * Must be called from a user gesture (click/keypress) so the browser
-   * allows `Tone.start()` to unlock the AudioContext.
+   * This will play synchronously
    */
-  async play() {
+  play() {
     if (!this.songMap) return;
-    await Tone.start();
     Tone.getTransport().start();
+  }
+
+  /**
+   * Audio must be triggered from a user event, hence we use "unlock"
+   * This means when the user presses play /pause, we unlock audio, then we can start
+   * Allows us to add a countdown (321) if needed, etc.
+   * === CLAUDE SAYS ===
+   * Unlock (Tone.start()) — This is a browser security requirement, not a game concept.
+   * Browsers block all audio output until the user interacts with the page (click, keypress). Tone.start() tells the browser "the user has engaged, please allow sound now." It's a one-time gate — once unlocked, it stays unlocked for the rest of the page session. It produces no sound itself.
+   */
+  async unlock() {
+    // AudioContext needs ot be "unlocked", which is async. Claude recommends separating it into a separate function
+    await Tone.start();
   }
 
   /** Pause playback. Call `play()` again to resume from the same position. */
