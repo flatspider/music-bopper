@@ -6,6 +6,7 @@ import { Graphics } from "pixi.js";
 
 
 // Temporary local data while wiring LaneManager:
+// Maybe change time to targetTime
 const songMap: SongMap = {
   name: "Dummy Groove",
   duration: 6,
@@ -80,6 +81,7 @@ export class LaneManager implements Manager {
     private readonly hitZoneHeight: number;
     private readonly visibleTop: number;
     private readonly visibleBottom: number;
+    // songTime will eventually live on RhythmWorld
     private songTime: number = 0;
 
     constructor(notes: GameNote[], laneKey: Lane) {
@@ -129,11 +131,22 @@ export class LaneManager implements Manager {
         let rectangle1 = new Graphics();
 
         let centerX = this.x + 2;
-        let hitZoneX = centerX - (this.noteWidth / 2)
+        let hitZoneX = centerX - (this.noteWidth / 2);
+
+        // Draw the notes
+        this.notes.forEach((note)=> {
+            let noteScreenY = this.hitZoneY - (note.time - this.songTime) * this.scrollSpeed
+
+            rectangle1.rect(this.x,noteScreenY, 12,4);
+        });
+
 
         rectangle1.rect(this.x, this.visibleTop, 4, this.visibleBottom).fill("white");
         rectangle1.rect(hitZoneX, this.hitZoneY, this.noteWidth, this.hitZoneHeight).fill("yellow");
         renderer.stage.addChild(rectangle1);
+
+       
+
     }
 
 }
