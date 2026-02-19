@@ -13,14 +13,14 @@ const songMap: SongMap = {
   bpm: 120,
   notes: [
     { time: 0.8, lane: "D", duration: 0.12, velocity: 0.9, noteNumber: 48 },
-    { time: 1.1, lane: "F", duration: 0.12, velocity: 0.85, noteNumber: 52 },
-    { time: 1.1, lane: "J", duration: 0.12, velocity: 0.88, noteNumber: 57 },
-    { time: 1.6, lane: "K", duration: 0.12, velocity: 0.92, noteNumber: 60 },
+    { time: 1.5, lane: "F", duration: 0.12, velocity: 0.85, noteNumber: 52 },
+    { time: 2.1, lane: "J", duration: 0.12, velocity: 0.88, noteNumber: 57 },
+    { time: 2.1, lane: "K", duration: 0.12, velocity: 0.92, noteNumber: 60 },
 
-    { time: 2.0, lane: "D", duration: 0.15, velocity: 0.95, noteNumber: 50 },
-    { time: 2.5, lane: "F", duration: 0.15, velocity: 0.87, noteNumber: 53 },
-    { time: 2.8, lane: "J", duration: 0.15, velocity: 0.9, noteNumber: 58 },
-    { time: 3.8, lane: "K", duration: 0.15, velocity: 0.93, noteNumber: 62 },
+    { time: 3.0, lane: "D", duration: 0.15, velocity: 0.95, noteNumber: 50 },
+    { time: 3.5, lane: "F", duration: 0.15, velocity: 0.87, noteNumber: 53 },
+    { time: 3.8, lane: "J", duration: 0.15, velocity: 0.9, noteNumber: 58 },
+    { time: 4.8, lane: "K", duration: 0.15, velocity: 0.93, noteNumber: 62 },
   ],
 };
 
@@ -75,10 +75,13 @@ export class RhythmScene implements Scene {
 // Lookup for lanes defined outside of the class
 const keyLookup = { "D": "KeyD", "F": "KeyF", "J": "KeyJ", "K": "KeyK" };
 
+// Set in milliseconds 
+const hitWindow = {"good": 350, "better": 250, "Perfect": 150}
+
 
 // Each lane manager gets a list of corresponding notes for its input keys
 export class LaneManager implements Manager {
-    private readonly notes: GameNote[];
+    private notes: GameNote[];
     private readonly laneKey: Lane;
     private readonly laneIndex: number;
     private readonly x: number;
@@ -100,7 +103,7 @@ export class LaneManager implements Manager {
         this.laneKey = laneKey;
         this.laneIndex = LANES.indexOf(laneKey);
 
-        // Literal guesses on size
+        // Dialing in size
         this.noteWidth = 64;
         this.noteHeight = 28;
         this.hitZoneHeight = 14;
@@ -114,23 +117,37 @@ export class LaneManager implements Manager {
         // Space in between
         const laneSpacing = 72;
         const firstLaneX = 160;
+
         // Calculate the x 
         this.x = firstLaneX + this.laneIndex * laneSpacing;
 
         this.isPressed = false;
 
-
-
     }
-
-
-    // Know where you are in the song
-    // Calculate where the notes should be
-    // noteScreenY = hiZoneY - (note.targetTime - songTime) * scrollSpeed
 
     onKeyDown(world: RhythmWorld, key: string): void {
         if (key !== keyLookup[this.laneKey]) return;
         this.isPressed = true;
+
+        let closestDist = Infinity;
+        let closestNote: GameNote | null = null;
+
+        for(const note of this.notes) {
+            const distanceFromNote = Math.abs(note.time - this.songTime);
+
+            if(distanceFromNote < closestDist) {
+                closestDist = distanceFromNote;
+                closestNote = note;
+            }
+        }
+        if(!closestNote) return;
+
+        if(closestDist < 0.15) {
+            console.log("GREAT");
+        } else {
+            console.log("TOO FAR");
+        }
+
     }
 
     onKeyUp(world: RhythmWorld, key: string): void {
