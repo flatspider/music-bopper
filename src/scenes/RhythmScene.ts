@@ -1,5 +1,6 @@
 import { Audio } from "../engine/Audio.js";
 import type { Scene, GameContext, Renderer } from "../engine/types.js";
+import { AudioManager } from "../managers/AudioManager.js";
 import type { Manager, RhythmWorld } from "./types.js";
 import { LANES, type GameNote, type Lane, type SongMap } from "../midi/parser.js";
 
@@ -24,12 +25,14 @@ const songMap: SongMap = {
 };
 
 export class RhythmScene implements Scene {
-private world!: GameContext;
-private managers: Manager[];
+  private world!: GameContext;
+  private managers: Manager[];
 
   init(context: GameContext): void {
     this.managers = [];
     let currentSong = new Audio();
+    let firstManager = new SimpleManager();
+    let audioManager = new AudioManager();
 
     //let songMap = [];
 
@@ -38,6 +41,9 @@ private managers: Manager[];
         let musicLane = new LaneManager(notes, lane);
         this.managers.push(musicLane);
     });
+    
+    this.managers.push(firstManager);
+    this.managers.push(audioManager);
   }
 
   update(dt: number): void {
@@ -57,14 +63,13 @@ private managers: Manager[];
     for (const m of this.managers) m.onKeyUp?.(this.world, key);
   }
 
-   onKeyHold(key: string): void {
+  onKeyHold(key: string): void {
     for (const m of this.managers) m.onKeyHold?.(this.world, key);
   }
 
   destroy(): void {
     for (const m of this.managers) m.destroy?.();
   }
-
 }
 
 // Each lane manager gets a list of corresponding notes for its input keys
