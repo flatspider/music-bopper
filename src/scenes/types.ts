@@ -1,6 +1,5 @@
 import type { Renderer } from "../engine/types";
 
-
 // Shared types go here
 
 // Gamestate, direction
@@ -28,5 +27,6 @@ export interface Manager {
     render?(world: RhythmWorld, renderer: Renderer): void;
     onKeyDown?(world: RhythmWorld, key: string): void;
     onKeyUp?(world: RhythmWorld, key: string): void;
+    onKeyHold?(world: RhythmWorld, key:string): void;
     destroy?(): void;
 }
