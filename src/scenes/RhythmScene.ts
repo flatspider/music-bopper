@@ -1,7 +1,27 @@
 import { Audio } from "../engine/Audio.js";
-import type { Scene, GameContext, Renderer, Audio } from "../engine/types.js";
+import type { Scene, GameContext, Renderer } from "../engine/types.js";
 import type { Manager, RhythmWorld } from "./types.js";
-import { LANES, type GameNote, type Lane } from "../midi/parser.js";
+import { LANES, type GameNote, type Lane, type SongMap } from "../midi/parser.js";
+import { Graphics } from "pixi.js";
+
+
+// Temporary local data while wiring LaneManager:
+const songMap: SongMap = {
+  name: "Dummy Groove",
+  duration: 6,
+  bpm: 120,
+  notes: [
+    { time: 0.8, lane: "D", duration: 0.12, velocity: 0.9, noteNumber: 48 },
+    { time: 1.1, lane: "F", duration: 0.12, velocity: 0.85, noteNumber: 52 },
+    { time: 1.4, lane: "J", duration: 0.12, velocity: 0.88, noteNumber: 57 },
+    { time: 1.7, lane: "K", duration: 0.12, velocity: 0.92, noteNumber: 60 },
+
+    { time: 2.2, lane: "D", duration: 0.15, velocity: 0.95, noteNumber: 50 },
+    { time: 2.5, lane: "F", duration: 0.15, velocity: 0.87, noteNumber: 53 },
+    { time: 2.8, lane: "J", duration: 0.15, velocity: 0.9, noteNumber: 58 },
+    { time: 3.1, lane: "K", duration: 0.15, velocity: 0.93, noteNumber: 62 },
+  ],
+};
 
 export class RhythmScene implements Scene {
 private world!: GameContext;
@@ -11,18 +31,13 @@ private managers: Manager[];
     this.managers = [];
     let currentSong = new Audio();
 
-    let songMap = currentSong.loadSong(src/assets/midi/json/COLTRANE.Countdown.json);
+    //let songMap = [];
 
     LANES.forEach(lane => {
         let notes = songMap.notes.filter((n)=>n.lane === lane);
         let musicLane = new LaneManager(notes, lane);
         this.managers.push(musicLane);
     });
-
-    let firstManager = new SimpleManager(); 
-    
-    this.managers.push(firstManager);
-    
   }
 
   update(dt: number): void {
@@ -50,13 +65,6 @@ private managers: Manager[];
     for (const m of this.managers) m.destroy?.();
   }
 
-}
-
-export class SimpleManager implements Manager {
-    render(world: RhythmWorld, renderer: Renderer): void {
-        renderer.drawText("HELLO WORLD", 40, 40,{fontSize: 20, color:0xffffff});
-        
-    }
 }
 
 // Each lane manager gets a list of corresponding notes for its input keys
@@ -89,8 +97,10 @@ export class LaneManager implements Manager {
         this.visibleTop = 0;
         this.visibleBottom = 600;
 
+        // Space in between
         const laneSpacing = 72;
         const firstLaneX = 160;
+        // Calculate the x 
         this.x = firstLaneX + this.laneIndex * laneSpacing;
 
     }
@@ -100,16 +110,26 @@ export class LaneManager implements Manager {
     // Calculate where the notes should be
     // noteScreenY = hiZoneY - (note.targetTime - songTime) * scrollSpeed
 
-
     update(world: RhythmWorld, dt: number): void {
+        // Update does math, changes states, marks notes as missed
         // Need to know what time it is in the world
         // Move the notes down based on song time, check for misses
     }
     render(world: RhythmWorld, renderer: Renderer): void {
+        // Assembles the drawings. Takes the current state and draws it on the screen
+        // Just reads and paints
         // First pass draw targets:
         // 1) lane guide (full height skinny column)
         // 2) hit zone (short rectangle near bottom)
         // 3) notes filtered by visibility
+        let rectangle1 = new Graphics();
+
+        let centerX = this.x + 2;
+        let hitZoneX = centerX - (this.noteWidth / 2)
+
+        rectangle1.rect(this.x, this.visibleTop, 4, this.visibleBottom).fill("white");
+        rectangle1.rect(hitZoneX, this.hitZoneY, this.noteWidth, this.hitZoneHeight).fill("yellow");
+        renderer.stage.addChild(rectangle1);
     }
 
 }
