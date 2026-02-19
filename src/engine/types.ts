@@ -1,4 +1,4 @@
-// --- GAME CONSTANTS -- 
+// --- GAME CONSTANTS --
 
 // Notes should be dynamic to canvas size
 export const CANVAS_WIDTH = 600;
@@ -11,23 +11,24 @@ export const MAX_ACCUMULATOR_MS = 1000;
 // --- Interfaces ---
 
 export interface GameContext {
-    canvasWidth: number;
-    canvasHeight: number;
+  canvasWidth: number;
+  canvasHeight: number;
+  loadScene?: (scene: Scene) => void;
 }
 
 export interface Renderer {
-   drawRect(
+  drawRect(
     gridX: number,
     gridY: number,
     widthCells: number,
     heightCells: number,
-    color: number
+    color: number,
   ): void;
   drawText(
     text: string,
     pixelX: number,
     pixelY: number,
-    options?: {fontSize?: number; color?: number; anchor?: number}
+    options?: { fontSize?: number; color?: number; anchor?: number },
   ): void;
   clear(): void;
   // May not modify stage direct. Inline import.
@@ -35,19 +36,18 @@ export interface Renderer {
 }
 
 export interface Scene {
-    init(context: GameContext): void;
-    update(dt: number): void;
-    render(renderer: Renderer): void;
-    onKeyDown(key : string):void;
-    onKeyUp(key: string): void;
-    onKeyHold(key: string): void;
-    destroy(): void;
+  init(context: GameContext): void;
+  update(dt: number): void;
+  render(renderer: Renderer): void;
+  onKeyDown(key: string): void;
+  onKeyUp(key: string): void;
+  onKeyHold(key: string): void;
+  destroy(): void;
 }
 
 // Needs detail
 export interface Audio {
-    play(): void;
-    pause(): void;
-    resume(): void;
+  play(): void;
+  pause(): void;
+  resume(): void;
 }
-

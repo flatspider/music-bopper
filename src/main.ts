@@ -1,7 +1,7 @@
 import { Application } from "pixi.js";
 import { Game } from "./engine/Game.js";
 import { CANVAS_WIDTH, CANVAS_HEIGHT } from "./engine/types.ts";
-import { RhythmScene } from "./scenes/RhythmScene.ts";
+import { SongSelectScene } from "./scenes/SongSelectScene.ts";
 
 async function bootstrap() {
   const app = new Application();
@@ -16,7 +16,7 @@ async function bootstrap() {
   container.appendChild(app.canvas);
 
   const game = new Game(app);
-  game.loadScene(new RhythmScene());
+  game.loadScene(new SongSelectScene());
 }
 
 bootstrap().catch(console.error);
