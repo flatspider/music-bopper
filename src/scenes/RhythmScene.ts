@@ -1,7 +1,7 @@
 import { Audio } from "../engine/Audio.js";
 import type { Scene, GameContext, Renderer, Audio } from "../engine/types.js";
 import type { Manager, RhythmWorld } from "./types.js";
-import { LANES } from "../midi/parser.js";
+import { LANES, type GameNote, type Lane } from "../midi/parser.js";
 
 export class RhythmScene implements Scene {
 private world!: GameContext;
@@ -59,19 +59,57 @@ export class SimpleManager implements Manager {
     }
 }
 
-
 // Each lane manager gets a list of corresponding notes for its input keys
 export class LaneManager implements Manager {
+    private readonly notes: GameNote[];
+    private readonly laneKey: Lane;
+    private readonly laneIndex: number;
+    private readonly x: number;
+    private readonly scrollSpeed: number;
+    private readonly hitZoneY: number;
+    private readonly noteWidth: number;
+    private readonly noteHeight: number;
+    private readonly hitZoneHeight: number;
+    private readonly visibleTop: number;
+    private readonly visibleBottom: number;
+
+    constructor(notes: GameNote[], laneKey: Lane) {
+        this.notes = notes;
+        this.laneKey = laneKey;
+        this.laneIndex = LANES.indexOf(laneKey);
+
+        // Literal guesses on size
+        this.noteWidth = 16;
+        this.noteHeight = 28;
+        this.hitZoneHeight = 14;
+        this.scrollSpeed = 300;
+        this.hitZoneY = 540;
+
+        // Map the canvas height
+        this.visibleTop = 0;
+        this.visibleBottom = 600;
+
+        const laneSpacing = 72;
+        const firstLaneX = 160;
+        this.x = firstLaneX + this.laneIndex * laneSpacing;
+
+    }
+
+
     // Know where you are in the song
     // Calculate where the notes should be
     // noteScreenY = hiZoneY - (note.targetTime - songTime) * scrollSpeed
-    // If it scrolls past and was not hit
 
-    update(): void {
+
+    update(world: RhythmWorld, dt: number): void {
+        // Need to know what time it is in the world
         // Move the notes down based on song time, check for misses
     }
     render(world: RhythmWorld, renderer: Renderer): void {
-
+        // First pass draw targets:
+        // 1) lane guide (full height skinny column)
+        // 2) hit zone (short rectangle near bottom)
+        // 3) notes filtered by visibility
     }
 
 }
