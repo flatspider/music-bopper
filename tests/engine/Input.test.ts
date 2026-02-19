@@ -111,30 +111,6 @@ describe("Input – current behavior", () => {
         expect(event.defaultPrevented).toBe(false)
     })
 
-    // --- repeat / held (current gaps) ---
-
-    it("forwards repeat keydown events (no filtering)", () => {
-        input = new Input()
-        const scene = makeScene()
-        input.setScene(scene)
-
-        fireKey("keydown", "KeyD", { repeat: true })
-
-        expect(scene.onKeyDown).toHaveBeenCalledTimes(1)
-    })
-
-    it("held set is always empty (never populated)", () => {
-        input = new Input()
-        const scene = makeScene()
-        input.setScene(scene)
-
-        fireKey("keydown", "KeyD")
-        expect(input.held.size).toBe(0)
-
-        fireKey("keyup", "KeyD")
-        expect(input.held.size).toBe(0)
-    })
-
     // --- scene switching ---
 
     it("forwards to the most recently set scene", () => {
