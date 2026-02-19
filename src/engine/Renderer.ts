@@ -19,7 +19,16 @@ export class Renderer implements IRenderer {
             
         }
         drawText(text: string, pixelX: number, pixelY: number, options?: { fontSize?: number; color?: number; anchor?: number }): void {
-            
+            const newText = new Text({
+                text: text,
+                style: {
+                    fontSize: options?.fontSize,
+                    fill: options?.color,
+                },
+                x: pixelX,
+                y: pixelY,
+            });
+            this.drawContainer.addChild(newText);
         }
         clear(): void {
             this.drawContainer.removeChildren();
