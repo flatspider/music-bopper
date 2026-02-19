@@ -133,10 +133,12 @@ export class LaneManager implements Manager {
 
         // Draw the notes
         this.notes.forEach((note)=> {
-            let noteScreenY = this.hitZoneY - (note.time - this.songTime) * this.scrollSpeed
+            let targetNoteTime = note.time;
+            // This a fake songTime. Will be replaced by Audio.getCurrentTime
+            let noteScreenY = this.hitZoneY - (targetNoteTime - this.songTime) * this.scrollSpeed
             // Not clear where renderer comes from
             // This is the note
-            renderer.drawRect(this.x, noteScreenY, 12, 4, 0x0000FF);
+            renderer.drawRect(this.x, noteScreenY, 12, 4, 0xFFFFFF);
         });
 
         // This is the skinny rectangle
