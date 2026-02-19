@@ -33,7 +33,7 @@ export class Input {
             // STEP 5b: Track the key in the held set.
             //   Add e.code to this.held here.
 
-            
+            this.held.add(e.code); // empty Set never null or undefined, doesn't need optional chaining
 
             this.scene?.onKeyDown(e.code);
         }
@@ -45,6 +45,8 @@ export class Input {
 
             // STEP 5c: Remove the key from the held set.
             //   Delete e.code from this.held here.
+
+            this.held.delete(e.code); // remove from held Set
 
             this.scene?.onKeyUp(e.code);
         }
