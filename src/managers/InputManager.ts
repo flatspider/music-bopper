@@ -1,44 +1,59 @@
 import type { Manager, RhythmWorld, Lane } from "../scenes/types.js"
 import { KEY_LANE } from "../scenes/types.js";
+import { resetWorld} from "../scenes/RhythmWorld.js";
 
 export class InputManager implements Manager {
     onKeyDown(world: RhythmWorld, key: string): void {
-        // Step 1: Handle state transitions.
-        //   Any key while "start" → "playing" (press any key to start)
-        //   Any key while "gameOver" → "start" (return to menu)
-        //   Escape while "playing" → "pause"
-        //   Escape while "pause" → "playing" (resume)
-        //   Return early after any state transition.
-
-        if (key) {
-            if (world.state === "start") {
-                world.state = "playing";
-            } else if (world.state == "gameOver") {
-                resetWorld(world)
-                world.state "start"
+        // Step 1: Handle state transitions
+        if (key === "Escape") {
+            if (world.state === "playing") {
+                world.state = "pause"
+            } else if (world.state === "pause") {
+                world.state = "playing"
             }
+            return
         }
 
-        // Step 2: If the game isn't in "playing" state, ignore all other keys.
-        //   (Same pattern as Snake: if (world.state !== "playing") return)
+        if (world.state === "start") {
+            world.state = "playing"
+            return
+        }
 
-        // Step 3: Look up the lane for this key using KEY_LANE.
-        //   If the key isn't D/F/J/K, lane will be undefined — return early.
+        if (world.state === "gameOver") {
+            resetWorld(world)
+            return
+        }
 
-        // Step 4 (future): Hit detection.
-        //   Once world.songTime and world.notes exist, this is where you'd:
-        //   - Find the closest unhit note in this lane
-        //   - Compare world.songTime to note.time
-        //   - Assign a grade (perfect/great/good/miss)
-        //   For now, just console.log the lane to verify it works.
+        console.log(`InputManager state: ${world.state}`)
+
+        // Step 2: If the game isn't in "playing" state, ignore all other keys
+        if (world.state !== "playing") return
+
+        // Step 3: If the key isn't D/F/J/K, lane will be undefined — return early
+        const lane = KEY_LANE[key]
+        if (!lane) return
+
+        // Step 4 (future): Record the raw input into world state.
+        //   Once world.songTime and a world.lastInput field exist:
+        //   - Write { lane, time: world.songTime } into world state
+        //   - GameplayManager will read this in update() to do the actual
+        //     hit detection, grading, and scoring.
+        //   InputManager says "lane D was pressed at this time."
+
+        console.log(`InputManager key: ${key} and lane: ${lane}`,)
+
     }
 
-    onKeyUp(world: RhythmWorld, key: string): void {
-        // Future: Hold note release detection.
-        // Check if the player held long enough for a hold note.
+    // Below need the hit ditection with world.songTime and world.notes
+    // using _world to tell Typescript that we are not using it yet
+
+    onKeyUp(_world: RhythmWorld, key: string): void {
+        // Future: Hold note release detection. Check if the player held long enough for a hold note.
+        console.log(`InputManager keyUp: ${key}`)
     }
 
-    onKeyHold(world: RhythmWorld, key: string): void {
+    onKeyHold(_world: RhythmWorld, key: string): void {
         // Future: Visual feedback while key is held.
+        console.log(`InputManager keyHold: ${key}`,)
     }
 }
