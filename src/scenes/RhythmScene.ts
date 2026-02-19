@@ -24,6 +24,8 @@ const songMap: SongMap = {
   ],
 };
 
+
+
 export class RhythmScene implements Scene {
   private world!: GameContext;
   private managers: Manager[];
@@ -75,7 +77,8 @@ export class RhythmScene implements Scene {
 // Lookup for lanes defined outside of the class
 const keyLookup = { "D": "KeyD", "F": "KeyF", "J": "KeyJ", "K": "KeyK" };
 
-// Set in milliseconds 
+// Earning points condition
+// Less than 350 note gap returns "good" points
 const hitWindow = {"good": 350, "better": 250, "Perfect": 150}
 
 
@@ -192,7 +195,7 @@ export class LaneManager implements Manager {
 
         // This is the yellow hitzone with press logic
 
-        if(this.isPressed === true) {
+        if(this.isPressed) {
         renderer.drawRect(hitZoneX, this.hitZoneY, this.noteWidth, this.hitZoneHeight, 0xD65A4A);
 
         } else {
