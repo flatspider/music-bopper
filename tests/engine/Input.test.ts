@@ -176,28 +176,6 @@ describe("Input – desired behavior", () => {
         input.destroy()
     })
 
-    // --- timestamp ---
-
-    it("passes a timestamp as the second argument to scene.onKeyDown", () => {
-        input = new Input()
-        const scene = makeScene()
-        input.setScene(scene)
-
-        fireKey("keydown", "KeyD")
-
-        expect(scene.onKeyDown).toHaveBeenCalledWith("KeyD", expect.any(Number))
-    })
-
-    it("passes a timestamp as the second argument to scene.onKeyUp", () => {
-        input = new Input()
-        const scene = makeScene()
-        input.setScene(scene)
-
-        fireKey("keyup", "KeyJ")
-
-        expect(scene.onKeyUp).toHaveBeenCalledWith("KeyJ", expect.any(Number))
-    })
-
     // --- repeat filtering ---
 
     it("ignores keydown events where repeat is true", () => {

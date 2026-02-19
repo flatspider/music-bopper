@@ -22,6 +22,13 @@ export class Input {
             if(GAME_KEYS.has(e.code)) {
                 e.preventDefault();
             }
+
+            // STEP 5a: Filter out repeat events (OS sends these when a key is held down).
+            //   Check e.repeat — if true, return early and do nothing.
+
+            // STEP 5b: Track the key in the held set.
+            //   Add e.code to this.held here.
+
             this.scene?.onKeyDown(e.code);
         }
 
@@ -29,6 +36,10 @@ export class Input {
             if(GAME_KEYS.has(e.code)) {
                 e.preventDefault();
             }
+
+            // STEP 5c: Remove the key from the held set.
+            //   Delete e.code from this.held here.
+
             this.scene?.onKeyUp(e.code);
         }
         window.addEventListener("keydown", this.onKeyDown);
