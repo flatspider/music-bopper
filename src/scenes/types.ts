@@ -1,3 +1,4 @@
+import type { Game } from "../engine/Game";
 import type { Renderer } from "../engine/types";
 
 // Shared types go here
@@ -19,14 +20,31 @@ export const KEY_LANE: Record<string, Lane> = {
 
 // --- Game State --- 
 
-export type GameState = "start" | "playing" | "pause" | "gameOver" 
+// --- Game State ---
 
+export type GameState =
+  | "start"
+  | "playing"
+  | "pause"
+  | "gameOver"
+  | "songSelect";
 
 // --- Game World ---
 
-export interface RhythmWorld {
-    state: GameState;
-    player: {};
+// this is the shared interface between the Worlds
+// doing this allows us to map Manager interface to be shared
+export interface GameWorld {
+  state: GameState;
+  player: {};
+}
+
+// rhythmworld still contains state, player, we just can avoid repeating it here!
+export interface RhythmWorld extends GameWorld {}
+
+// also contains state and player
+export interface SongSelectWorld extends GameWorld {
+  currentCardHighlight: number; // current highlighted songCard
+  selectedSong: string; // song User selects (loaded into RhythmScene, RhythmWorld)
 }
 
 // Need to add more fields to RhythmWorld interface in the scene/types.ts
