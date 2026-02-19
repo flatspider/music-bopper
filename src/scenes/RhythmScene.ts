@@ -14,13 +14,13 @@ const songMap: SongMap = {
   notes: [
     { time: 0.8, lane: "D", duration: 0.12, velocity: 0.9, noteNumber: 48 },
     { time: 1.1, lane: "F", duration: 0.12, velocity: 0.85, noteNumber: 52 },
-    { time: 1.4, lane: "J", duration: 0.12, velocity: 0.88, noteNumber: 57 },
-    { time: 1.7, lane: "K", duration: 0.12, velocity: 0.92, noteNumber: 60 },
+    { time: 1.1, lane: "J", duration: 0.12, velocity: 0.88, noteNumber: 57 },
+    { time: 1.6, lane: "K", duration: 0.12, velocity: 0.92, noteNumber: 60 },
 
-    { time: 2.2, lane: "D", duration: 0.15, velocity: 0.95, noteNumber: 50 },
+    { time: 2.0, lane: "D", duration: 0.15, velocity: 0.95, noteNumber: 50 },
     { time: 2.5, lane: "F", duration: 0.15, velocity: 0.87, noteNumber: 53 },
     { time: 2.8, lane: "J", duration: 0.15, velocity: 0.9, noteNumber: 58 },
-    { time: 3.1, lane: "K", duration: 0.15, velocity: 0.93, noteNumber: 62 },
+    { time: 3.8, lane: "K", duration: 0.15, velocity: 0.93, noteNumber: 62 },
   ],
 };
 
@@ -31,8 +31,7 @@ export class RhythmScene implements Scene {
   init(context: GameContext): void {
     this.managers = [];
     let currentSong = new Audio();
-    let firstManager = new SimpleManager();
-    let audioManager = new AudioManager();
+    //let audioManager = new AudioManager();
 
     //let songMap = [];
 
@@ -42,8 +41,7 @@ export class RhythmScene implements Scene {
         this.managers.push(musicLane);
     });
     
-    this.managers.push(firstManager);
-    this.managers.push(audioManager);
+    //this.managers.push(audioManager);
   }
 
   update(dt: number): void {
@@ -141,9 +139,12 @@ export class LaneManager implements Manager {
             let targetNoteTime = note.time;
             // This a fake songTime. Will be replaced by Audio.getCurrentTime
             let noteScreenY = this.hitZoneY - (targetNoteTime - this.songTime) * this.scrollSpeed
-            // Not clear where renderer comes from
-            // This is the note
-            renderer.drawRect(this.x, noteScreenY, 12, 4, 0xFFFFFF);
+            
+            // Glow layer. X position, y position, radius, gold, opacity
+            renderer.drawCircle(this.x, noteScreenY,20, 0xFFD700, 0.25);
+
+            // Inner note layer. X position, y position, radius, cream white, opacity
+            renderer.drawCircle(this.x, noteScreenY,14, 0xFFF8DC, 1);
         });
 
         // This is the skinny rectangle
