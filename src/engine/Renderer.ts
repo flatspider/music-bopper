@@ -15,14 +15,31 @@ export class Renderer implements IRenderer {
     this.app.stage.addChild(this.drawContainer);
   }
 
+  drawCircle(
+    pixelX: number,
+    pixelY: number,
+    radius: number,
+    color: number,
+    alpha: number,
+  ): void {
+    let circleDrawing = new Graphics();
+    circleDrawing
+      .circle(pixelX, pixelY, radius)
+      .fill({ color: color, alpha: alpha });
+    this.drawContainer.addChild(circleDrawing);
+  }
+
   drawRect(
     gridX: number,
     gridY: number,
     widthCells: number,
     heightCells: number,
     color: number,
-  ): void {}
-
+  ): void {
+    let drawing = new Graphics();
+    drawing.rect(gridX, gridY, widthCells, heightCells).fill(color);
+    this.drawContainer.addChild(drawing);
+  }
   drawRoundedRect(
     x: number,
     y: number,
@@ -36,7 +53,6 @@ export class Renderer implements IRenderer {
     g.fill(color);
     this.drawContainer.addChild(g);
   }
-
   drawText(
     text: string,
     pixelX: number,

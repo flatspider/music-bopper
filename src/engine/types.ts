@@ -1,5 +1,7 @@
 // --- GAME CONSTANTS --
 
+import type { AlphaFilter } from "pixi.js";
+
 // Notes should be dynamic to canvas size
 export const CANVAS_WIDTH = 600;
 export const CANVAS_HEIGHT = 600;
@@ -30,6 +32,7 @@ export interface Renderer {
     pixelY: number,
     options?: { fontSize?: number; color?: number; anchor?: number },
   ): void;
+  drawCircle(pixelX: number, pixelY: number, radius: number, color: number, alpha: number): void;
   clear(): void;
   // May not modify stage direct. Inline import.
   readonly stage: import("pixi.js").Container;
