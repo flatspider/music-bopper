@@ -1,16 +1,24 @@
 import type { Scene, GameContext, Renderer } from "../engine/types";
 import { SongSelectManager } from "../managers/SongSelectManager";
-import type { Manager, RhythmWorld } from "./types";
+import type { Manager, RhythmWorld, SongSelectWorld } from "./types";
 
 export class SongSelectScene implements Scene {
-  private world!: GameContext;
+  private world!: SongSelectWorld;
   private managers: Manager[];
 
   init(context: GameContext): void {
     // Create simple manager
     this.managers = [];
-    let firstManager = new SongSelectManager();
-    this.managers.push(firstManager);
+
+    // songSelectWorld
+    this.world = {
+      state: "songSelect",
+      player: {},
+      currentCardHighlight: 0,
+      selectedSong: ",",
+    };
+
+    this.managers.push(new SongSelectManager());
   }
 
   update(dt: number): void {
@@ -36,11 +44,5 @@ export class SongSelectScene implements Scene {
 
   destroy(): void {
     for (const m of this.managers) m.destroy?.();
-  }
-}
-
-export class SimpleManager implements Manager {
-  render(world: RhythmWorld, renderer: Renderer): void {
-    renderer.drawText("HELLO WORLD", 40, 40, { fontSize: 20, color: 0xffffff });
   }
 }

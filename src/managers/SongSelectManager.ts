@@ -1,47 +1,71 @@
 import { SONG_LIST } from "../assets/midi/songlist";
 import type { Renderer } from "../engine/Renderer";
-import type { Manager, RhythmWorld } from "../scenes/types";
+
+import type { GameWorld, Manager, SongSelectWorld } from "../scenes/types";
+import type { MidiSongJson } from "../types/miditypes";
 
 export class SongSelectManager implements Manager {
-  songModules: typeof SONG_LIST;
-  constructor() {
-    this.songModules = SONG_LIST;
-    this.world = SongSelectWorld;
-  }
+  private songModules = SONG_LIST;
 
-  onKeyDown(world: RhythmWorld, key: string): void {
+  onKeyDown(world: GameWorld, key: string): void {
+    const ssWorld = world as SongSelectWorld;
+
+    const songCount = Object.keys(this.songModules).length;
+
     if (key == "ArrowUp") {
+      // check if last item, use modulo to return to first
+      ssWorld.currentCardHighlight =
+        (ssWorld.currentCardHighlight - 1 + songCount) % songCount;
+
       // select the Song below. If last one, loop around to top
     } else if (key == "ArrowDown") {
       // select song above. If first, loop around to bottom
+      ssWorld.currentCardHighlight =
+        (ssWorld.currentCardHighlight + 1) % songCount;
     } else if (key == "Enter") {
-      this.world.loadScene(); // then load in the specific RhythmScene... init with RhythmWorld with the right song
+      const songSelectWorld = world as SongSelectWorld;
+      const keys = Object.keys(this.songModules);
+
+      songSelectWorld.selectedSong = keys[songSelectWorld.currentCardHighlight];
+
+      // then load in the specific RhythmScene... init with RhythmWorld with the right song
     }
   }
 
-  private songCard() {
-    // will return a rect with the data we need. This will be used in the forEach to generate the songCards and displayed in render()
+  private songCard(
+    renderer: Renderer,
+    song: MidiSongJson,
+    x: number,
+    y: number,
+    isSelected: boolean,
+  ) {
+    const width = 400;
+    const height = 60;
+    const radius = 12;
+
+    // jazz palette: gold highlight vs smoky blue
+    const bgColor = isSelected ? 0xd4af37 : 0x2a3a5c;
+    const textColor = isSelected ? 0x1a1a2e : 0xfff5e1;
+
+    // rect first (background)
+    renderer.drawRoundedRect(x, y, width, height, radius, bgColor);
+    // text on top (positioned within the rect)
+    renderer.drawText(song.name, x + 20, y + 18, {
+      fontSize: 20,
+      color: textColor,
+    });
   }
 
-  render(world: RhythmWorld, renderer: Renderer): void {
-    // forEach midi song in /midi
-
-    // display some sort of object with the renderer
-    // populate it with the song title, name
-
-    // add an optional argument for prev score
-
-    // display equal sizes, would be nice to have a stacked vertical list
-    Object.values(this.songModules).forEach((song, idx) => {
-      const yPos = 40 + idx * 40;
-      renderer.drawText(
-        `Song: ${song.name}`,
-        40, // x stays fixed
-        yPos, // y increases per song
-        {
-          fontSize: 20,
-          color: 0xffffff,
-        },
+  render(world: SongSelectWorld, renderer: Renderer): void {
+    // Songs are on values of the songModules
+    const songs = Object.values(this.songModules);
+    songs.forEach((song, idx) => {
+      this.songCard(
+        renderer,
+        song,
+        40,
+        40 + idx * 80,
+        idx === world.currentCardHighlight,
       );
     });
   }
