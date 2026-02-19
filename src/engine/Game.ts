@@ -27,6 +27,7 @@ export class Game {
   private context: GameContext = {
     canvasWidth: CANVAS_WIDTH,
     canvasHeight: CANVAS_HEIGHT,
+    loadScene: (scene: Scene) => this.loadScene(scene),
   };
 
   constructor(app: Application) {
