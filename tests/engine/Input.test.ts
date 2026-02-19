@@ -165,3 +165,84 @@ describe("Input – current behavior", () => {
         expect(scene.onKeyDown).toHaveBeenCalledTimes(1) // no new call
     })
 })
+
+// Step 3 – These tests describe desired behavior that Input.ts does NOT yet support.
+// They will FAIL until Input.ts is updated in step 5.
+
+describe("Input – desired behavior", () => {
+    let input: Input
+
+    afterEach(() => {
+        input.destroy()
+    })
+
+    // --- timestamp ---
+
+    it("passes a timestamp as the second argument to scene.onKeyDown", () => {
+        input = new Input()
+        const scene = makeScene()
+        input.setScene(scene)
+
+        fireKey("keydown", "KeyD")
+
+        expect(scene.onKeyDown).toHaveBeenCalledWith("KeyD", expect.any(Number))
+    })
+
+    it("passes a timestamp as the second argument to scene.onKeyUp", () => {
+        input = new Input()
+        const scene = makeScene()
+        input.setScene(scene)
+
+        fireKey("keyup", "KeyJ")
+
+        expect(scene.onKeyUp).toHaveBeenCalledWith("KeyJ", expect.any(Number))
+    })
+
+    // --- repeat filtering ---
+
+    it("ignores keydown events where repeat is true", () => {
+        input = new Input()
+        const scene = makeScene()
+        input.setScene(scene)
+
+        fireKey("keydown", "KeyD")                          // first press
+        fireKey("keydown", "KeyD", { repeat: true })        // OS repeat
+        fireKey("keydown", "KeyD", { repeat: true })        // OS repeat
+
+        expect(scene.onKeyDown).toHaveBeenCalledTimes(1)    // only the first press
+    })
+
+    // --- held set ---
+
+    it("adds key to held set on keydown", () => {
+        input = new Input()
+
+        fireKey("keydown", "KeyD")
+
+        expect(input.held.has("KeyD")).toBe(true)
+    })
+
+    it("removes key from held set on keyup", () => {
+        input = new Input()
+
+        fireKey("keydown", "KeyD")
+        fireKey("keyup", "KeyD")
+
+        expect(input.held.has("KeyD")).toBe(false)
+    })
+
+    it("tracks multiple held keys simultaneously", () => {
+        input = new Input()
+
+        fireKey("keydown", "KeyD")
+        fireKey("keydown", "KeyF")
+
+        expect(input.held.has("KeyD")).toBe(true)
+        expect(input.held.has("KeyF")).toBe(true)
+
+        fireKey("keyup", "KeyD")
+
+        expect(input.held.has("KeyD")).toBe(false)
+        expect(input.held.has("KeyF")).toBe(true)
+    })
+})
