@@ -54,6 +54,7 @@ export class RhythmScene implements Scene {
   }
 
   onKeyDown(key: string): void {
+    
     for (const m of this.managers) m.onKeyDown?.(this.world, key);
   }
 
@@ -69,6 +70,11 @@ export class RhythmScene implements Scene {
     for (const m of this.managers) m.destroy?.();
   }
 }
+
+
+// Lookup for lanes defined outside of the class
+const keyLookup = { "D": "KeyD", "F": "KeyF", "J": "KeyJ", "K": "KeyK" };
+
 
 // Each lane manager gets a list of corresponding notes for its input keys
 export class LaneManager implements Manager {
@@ -86,13 +92,16 @@ export class LaneManager implements Manager {
     // songTime will eventually live on RhythmWorld
     private songTime: number = 0;
 
+    //Managing key press
+    private isPressed: boolean;
+
     constructor(notes: GameNote[], laneKey: Lane) {
         this.notes = notes;
         this.laneKey = laneKey;
         this.laneIndex = LANES.indexOf(laneKey);
 
         // Literal guesses on size
-        this.noteWidth = 16;
+        this.noteWidth = 64;
         this.noteHeight = 28;
         this.hitZoneHeight = 14;
         this.scrollSpeed = 300;
@@ -108,12 +117,26 @@ export class LaneManager implements Manager {
         // Calculate the x 
         this.x = firstLaneX + this.laneIndex * laneSpacing;
 
+        this.isPressed = false;
+
+
+
     }
 
 
     // Know where you are in the song
     // Calculate where the notes should be
     // noteScreenY = hiZoneY - (note.targetTime - songTime) * scrollSpeed
+
+    onKeyDown(world: RhythmWorld, key: string): void {
+        if (key !== keyLookup[this.laneKey]) return;
+        this.isPressed = true;
+    }
+
+    onKeyUp(world: RhythmWorld, key: string): void {
+        if (key !== keyLookup[this.laneKey]) return;
+        this.isPressed = false;   
+    }
 
     update(world: RhythmWorld, dt: number): void {
         // Update does math, changes states, marks notes as missed
@@ -150,8 +173,14 @@ export class LaneManager implements Manager {
         // This is the skinny rectangle
         renderer.drawRect(this.x, this.visibleTop, 4, this.visibleBottom, 0xFFFFFF);
 
-        // This is the yellow hitzone
-        renderer.drawRect(hitZoneX, this.hitZoneY, this.noteWidth, this.hitZoneHeight, 0xFFFF00);
+        // This is the yellow hitzone with press logic
+
+        if(this.isPressed === true) {
+        renderer.drawRect(hitZoneX, this.hitZoneY, this.noteWidth, this.hitZoneHeight, 0xD65A4A);
+
+        } else {
+        renderer.drawRect(hitZoneX, this.hitZoneY, this.noteWidth, this.hitZoneHeight, 0xFFE066);
+        }
         
     }
 
