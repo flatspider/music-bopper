@@ -14,6 +14,12 @@ export class Renderer implements IRenderer {
             this.drawContainer = new Container();
             this.app.stage.addChild(this.drawContainer);
         }
+
+        drawCircle(pixelX: number, pixelY: number, radius: number, color: number, alpha: number): void {
+            let circleDrawing = new Graphics();
+            circleDrawing.circle(pixelX,pixelY,radius).fill({color: color, alpha: alpha});
+            this.drawContainer.addChild(circleDrawing);
+        }
         
         drawRect(gridX: number, gridY: number, widthCells: number, heightCells: number, color: number): void {
             let drawing = new Graphics();

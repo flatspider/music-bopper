@@ -13,16 +13,18 @@ const songMap: SongMap = {
   bpm: 120,
   notes: [
     { time: 0.8, lane: "D", duration: 0.12, velocity: 0.9, noteNumber: 48 },
-    { time: 1.1, lane: "F", duration: 0.12, velocity: 0.85, noteNumber: 52 },
-    { time: 1.4, lane: "J", duration: 0.12, velocity: 0.88, noteNumber: 57 },
-    { time: 1.7, lane: "K", duration: 0.12, velocity: 0.92, noteNumber: 60 },
+    { time: 1.5, lane: "F", duration: 0.12, velocity: 0.85, noteNumber: 52 },
+    { time: 2.1, lane: "J", duration: 0.12, velocity: 0.88, noteNumber: 57 },
+    { time: 2.1, lane: "K", duration: 0.12, velocity: 0.92, noteNumber: 60 },
 
-    { time: 2.2, lane: "D", duration: 0.15, velocity: 0.95, noteNumber: 50 },
-    { time: 2.5, lane: "F", duration: 0.15, velocity: 0.87, noteNumber: 53 },
-    { time: 2.8, lane: "J", duration: 0.15, velocity: 0.9, noteNumber: 58 },
-    { time: 3.1, lane: "K", duration: 0.15, velocity: 0.93, noteNumber: 62 },
+    { time: 3.0, lane: "D", duration: 0.15, velocity: 0.95, noteNumber: 50 },
+    { time: 3.5, lane: "F", duration: 0.15, velocity: 0.87, noteNumber: 53 },
+    { time: 3.8, lane: "J", duration: 0.15, velocity: 0.9, noteNumber: 58 },
+    { time: 4.8, lane: "K", duration: 0.15, velocity: 0.93, noteNumber: 62 },
   ],
 };
+
+
 
 export class RhythmScene implements Scene {
   private world!: GameContext;
@@ -31,8 +33,7 @@ export class RhythmScene implements Scene {
   init(context: GameContext): void {
     this.managers = [];
     let currentSong = new Audio();
-    let firstManager = new SimpleManager();
-    let audioManager = new AudioManager();
+    //let audioManager = new AudioManager();
 
     //let songMap = [];
 
@@ -42,8 +43,7 @@ export class RhythmScene implements Scene {
         this.managers.push(musicLane);
     });
     
-    this.managers.push(firstManager);
-    this.managers.push(audioManager);
+    //this.managers.push(audioManager);
   }
 
   update(dt: number): void {
@@ -56,6 +56,7 @@ export class RhythmScene implements Scene {
   }
 
   onKeyDown(key: string): void {
+    
     for (const m of this.managers) m.onKeyDown?.(this.world, key);
   }
 
@@ -72,9 +73,18 @@ export class RhythmScene implements Scene {
   }
 }
 
+
+// Lookup for lanes defined outside of the class
+const keyLookup = { "D": "KeyD", "F": "KeyF", "J": "KeyJ", "K": "KeyK" };
+
+// Earning points condition
+// Less than 350 note gap returns "good" points
+const hitWindow = {"good": 350, "better": 250, "Perfect": 150}
+
+
 // Each lane manager gets a list of corresponding notes for its input keys
 export class LaneManager implements Manager {
-    private readonly notes: GameNote[];
+    private notes: GameNote[];
     private readonly laneKey: Lane;
     private readonly laneIndex: number;
     private readonly x: number;
@@ -88,13 +98,16 @@ export class LaneManager implements Manager {
     // songTime will eventually live on RhythmWorld
     private songTime: number = 0;
 
+    //Managing key press
+    private isPressed: boolean;
+
     constructor(notes: GameNote[], laneKey: Lane) {
         this.notes = notes;
         this.laneKey = laneKey;
         this.laneIndex = LANES.indexOf(laneKey);
 
-        // Literal guesses on size
-        this.noteWidth = 16;
+        // Dialing in size
+        this.noteWidth = 64;
         this.noteHeight = 28;
         this.hitZoneHeight = 14;
         this.scrollSpeed = 300;
@@ -107,15 +120,43 @@ export class LaneManager implements Manager {
         // Space in between
         const laneSpacing = 72;
         const firstLaneX = 160;
+
         // Calculate the x 
         this.x = firstLaneX + this.laneIndex * laneSpacing;
 
+        this.isPressed = false;
+
     }
 
+    onKeyDown(world: RhythmWorld, key: string): void {
+        if (key !== keyLookup[this.laneKey]) return;
+        this.isPressed = true;
 
-    // Know where you are in the song
-    // Calculate where the notes should be
-    // noteScreenY = hiZoneY - (note.targetTime - songTime) * scrollSpeed
+        let closestDist = Infinity;
+        let closestNote: GameNote | null = null;
+
+        for(const note of this.notes) {
+            const distanceFromNote = Math.abs(note.time - this.songTime);
+
+            if(distanceFromNote < closestDist) {
+                closestDist = distanceFromNote;
+                closestNote = note;
+            }
+        }
+        if(!closestNote) return;
+
+        if(closestDist < 0.15) {
+            console.log("GREAT");
+        } else {
+            console.log("TOO FAR");
+        }
+
+    }
+
+    onKeyUp(world: RhythmWorld, key: string): void {
+        if (key !== keyLookup[this.laneKey]) return;
+        this.isPressed = false;   
+    }
 
     update(world: RhythmWorld, dt: number): void {
         // Update does math, changes states, marks notes as missed
@@ -141,16 +182,25 @@ export class LaneManager implements Manager {
             let targetNoteTime = note.time;
             // This a fake songTime. Will be replaced by Audio.getCurrentTime
             let noteScreenY = this.hitZoneY - (targetNoteTime - this.songTime) * this.scrollSpeed
-            // Not clear where renderer comes from
-            // This is the note
-            renderer.drawRect(this.x, noteScreenY, 12, 4, 0xFFFFFF);
+            
+            // Glow layer. X position, y position, radius, gold, opacity
+            renderer.drawCircle(this.x, noteScreenY,20, 0xFFD700, 0.25);
+
+            // Inner note layer. X position, y position, radius, cream white, opacity
+            renderer.drawCircle(this.x, noteScreenY,14, 0xFFF8DC, 1);
         });
 
         // This is the skinny rectangle
         renderer.drawRect(this.x, this.visibleTop, 4, this.visibleBottom, 0xFFFFFF);
 
-        // This is the yellow hitzone
-        renderer.drawRect(hitZoneX, this.hitZoneY, this.noteWidth, this.hitZoneHeight, 0xFFFF00);
+        // This is the yellow hitzone with press logic
+
+        if(this.isPressed) {
+        renderer.drawRect(hitZoneX, this.hitZoneY, this.noteWidth, this.hitZoneHeight, 0xD65A4A);
+
+        } else {
+        renderer.drawRect(hitZoneX, this.hitZoneY, this.noteWidth, this.hitZoneHeight, 0xFFE066);
+        }
         
     }
 
