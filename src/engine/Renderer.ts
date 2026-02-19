@@ -16,7 +16,9 @@ export class Renderer implements IRenderer {
         }
         
         drawRect(gridX: number, gridY: number, widthCells: number, heightCells: number, color: number): void {
-            
+            let drawing = new Graphics();
+            drawing.rect(gridX, gridY, widthCells, heightCells).fill(color);
+            this.drawContainer.addChild(drawing);
         }
         drawText(text: string, pixelX: number, pixelY: number, options?: { fontSize?: number; color?: number; anchor?: number }): void {
             const newText = new Text({
