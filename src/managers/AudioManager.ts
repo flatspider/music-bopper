@@ -34,6 +34,9 @@ export class AudioManager implements Manager {
   onKeyDown(world: RhythmWorld, key: string): void {
     if (world.state == "start" && key === "Space") {
       this.audio.unlock();
+
+      // Let the world now we are now 'playing'. User is prompted for spacebar to start..
+      world.state = "playing";
     }
   }
 

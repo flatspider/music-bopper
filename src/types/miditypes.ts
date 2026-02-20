@@ -3,6 +3,8 @@
 // distinct from @tonejs/midi's MidiJSON/NoteJSON types.
 // See: public/midi/json/*.json
 
+import type { Lane } from "../midi/parser";
+
 export interface MidiSongJson {
   name: string;
   bpm: number;
@@ -31,6 +33,8 @@ export interface MidiFlatNote {
   velocity: number; // 0-1 normalized
   track: string; // track name reference
   channel: number; // MIDI channel
+  lane: Lane;
+  noteNumber: number; // match to songMap
 }
 
 // Derived type for the song selection screen

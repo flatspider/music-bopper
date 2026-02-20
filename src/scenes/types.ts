@@ -29,7 +29,9 @@ export interface GameWorld {
 }
 
 // rhythmworld still contains state, player, we just can avoid repeating it here!
-export interface RhythmWorld extends GameWorld {}
+export interface RhythmWorld extends GameWorld {
+  songTime: number; // from audio, shared music timing
+}
 
 // also contains state and player
 export interface SongSelectWorld extends GameWorld {

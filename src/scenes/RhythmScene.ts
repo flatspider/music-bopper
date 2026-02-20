@@ -1,31 +1,8 @@
-import { SONG_LIST, SongId } from "../assets/midi/songlist.js";
-import type { Scene, GameContext, Renderer } from "../engine/types.js";
-import type { Manager, RhythmWorld } from "./types.js";
-import {
-  LANES,
-  type GameNote,
-  type Lane,
-  type SongMap,
-} from "../midi/parser.js";
-
-// Temporary local data while wiring LaneManager:
-// Maybe change time to targetTime
-const songMap: SongMap = {
-  name: "Dummy Groove",
-  duration: 6,
-  bpm: 120,
-  notes: [
-    { time: 0.8, lane: "D", duration: 0.12, velocity: 0.9, noteNumber: 48 },
-    { time: 1.5, lane: "F", duration: 0.12, velocity: 0.85, noteNumber: 52 },
-    { time: 2.1, lane: "J", duration: 0.12, velocity: 0.88, noteNumber: 57 },
-    { time: 2.1, lane: "K", duration: 0.12, velocity: 0.92, noteNumber: 60 },
-
-    { time: 3.0, lane: "D", duration: 0.15, velocity: 0.95, noteNumber: 50 },
-    { time: 3.5, lane: "F", duration: 0.15, velocity: 0.87, noteNumber: 53 },
-    { time: 3.8, lane: "J", duration: 0.15, velocity: 0.9, noteNumber: 58 },
-    { time: 4.8, lane: "K", duration: 0.15, velocity: 0.93, noteNumber: 62 },
-  ],
-};
+import { SONG_LIST, SongId } from "../assets/midi/songlist";
+import type { Scene, GameContext, Renderer } from "../engine/types";
+import type { Manager, RhythmWorld } from "./types";
+import { LANES, type GameNote, type Lane } from "../midi/parser";
+import { AudioManager } from "../managers/AudioManager.js";
 
 export class RhythmScene implements Scene {
   private world!: RhythmWorld;
@@ -38,24 +15,27 @@ export class RhythmScene implements Scene {
 
   init(context: GameContext): void {
     this.managers = [];
-    let currentSong = new Audio();
-    //let audioManager = new AudioManager();
 
-    //let songMap = [];
+    // 1. Get song data (MidiSongJson is structurally compatible with SongMap)
     const song = SONG_LIST[this.songId];
 
+    // 2. Create AudioManager and load song — push first so it writes world.songTime before LaneManagers read it
+    const audioManager = new AudioManager();
+    audioManager.loadSong(song);
+    this.managers.push(audioManager);
+
+    // 3. Create LaneManagers from real song data
     LANES.forEach((lane) => {
-      let notes = songMap.notes.filter((n) => n.lane === lane);
-      let musicLane = new LaneManager(notes, lane);
-      this.managers.push(musicLane);
+      const notes = song.notes.filter((n) => n.lane === lane);
+      this.managers.push(new LaneManager(notes, lane));
     });
 
+    // 4. Init world — "start" state waits for Space to unlock audio
     this.world = {
-      state: "playing",
+      state: "start",
       player: {},
+      songTime: 0,
     };
-
-    //this.managers.push(audioManager);
   }
 
   update(dt: number): void {
@@ -64,7 +44,15 @@ export class RhythmScene implements Scene {
 
   render(renderer: Renderer): void {
     renderer.clear();
+
     for (const m of this.managers) m.render?.(this.world, renderer);
+
+    if (this.world.state == "start") {
+      renderer.drawText("Press SPACE to start when ready!", 40, 40, {
+        fontSize: 20,
+        color: 0xffffff,
+      });
+    }
   }
 
   onKeyDown(key: string): void {
@@ -110,7 +98,6 @@ export class LaneManager implements Manager {
   private readonly hitZoneHeight: number;
   private readonly visibleTop: number;
   private readonly visibleBottom: number;
-  // songTime will eventually live on RhythmWorld
   private songTime: number = 0;
 
   //Managing key press
@@ -171,13 +158,13 @@ export class LaneManager implements Manager {
     this.isPressed = false;
   }
 
-  update(world: RhythmWorld, dt: number): void {
+  update(world: RhythmWorld, _dt: number): void {
     // Update does math, changes states, marks notes as missed
     // Need to know what time it is in the world
     // Move the notes down based on song time, check for misses
 
-    // Update the songtime with the cumulative elapsed time between renders
-    this.songTime = this.songTime + dt;
+    // Read audio clock from world — single source of truth
+    this.songTime = (world as RhythmWorld).songTime;
   }
   render(world: RhythmWorld, renderer: Renderer): void {
     // Assembles the drawings. Takes the current state and draws it on the screen
@@ -190,19 +177,23 @@ export class LaneManager implements Manager {
     let centerX = this.x + 2;
     let hitZoneX = centerX - this.noteWidth / 2;
 
-    // Draw the notes
-    this.notes.forEach((note) => {
-      let targetNoteTime = note.time;
-      // This a fake songTime. Will be replaced by Audio.getCurrentTime
-      let noteScreenY =
-        this.hitZoneY - (targetNoteTime - this.songTime) * this.scrollSpeed;
+    // Draw only visible notes (cull off-screen to avoid rendering all 1750)
+    const buffer = 40;
+    for (const note of this.notes) {
+      const noteScreenY =
+        this.hitZoneY - (note.time - this.songTime) * this.scrollSpeed;
+
+      // Skip notes below the screen (already passed)
+      if (noteScreenY > this.visibleBottom + buffer) continue;
+      // Skip notes above the screen (far in the future) — and stop early since notes are sorted by time
+      if (noteScreenY < this.visibleTop - buffer) break;
 
       // Glow layer. X position, y position, radius, gold, opacity
       renderer.drawCircle(this.x, noteScreenY, 20, 0xffd700, 0.25);
 
       // Inner note layer. X position, y position, radius, cream white, opacity
       renderer.drawCircle(this.x, noteScreenY, 14, 0xfff8dc, 1);
-    });
+    }
 
     // This is the skinny rectangle
     renderer.drawRect(this.x, this.visibleTop, 4, this.visibleBottom, 0xffffff);
