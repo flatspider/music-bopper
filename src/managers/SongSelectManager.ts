@@ -1,6 +1,6 @@
 import { SONG_LIST, type SongId } from "../assets/midi/songlist";
 import CarnivalData from "../assets/midi/json/Carnival-Or-Manha-De-Carnival-(Jazz-Gitaar-Trio).json";
-import { BgMusicPlayer } from "../engine/BgMusicPlayer";
+import { BgMusicPlayer } from "../managers/BgMusicPlayer";
 import type { Renderer } from "../engine/Renderer";
 import { CANVAS_WIDTH, CANVAS_HEIGHT } from "../engine/types";
 import type { GameWorld, Manager, SongSelectWorld } from "../scenes/types";
@@ -223,7 +223,13 @@ export class SongSelectManager implements Manager {
     }
 
     // Accent color block (left side)
-    renderer.drawRect(8, y + 4, ACCENT_WIDTH - 16, CARD_HEIGHT - 8, meta.accentColor);
+    renderer.drawRect(
+      8,
+      y + 4,
+      ACCENT_WIDTH - 16,
+      CARD_HEIGHT - 8,
+      meta.accentColor,
+    );
 
     // Song title (bold, uppercase)
     renderer.drawText(song.name.toUpperCase(), TEXT_PAD_LEFT, y + 12, {
