@@ -28,7 +28,7 @@ export interface SongMap {
  * Assign a MIDI note number to a lane based on pitch quartiles.
  * Low notes → D (left), high notes → K (right), mirroring piano layout.
  */
-function assignLane(
+export function assignLane(
   noteNumber: number,
   min: number,
   range: number

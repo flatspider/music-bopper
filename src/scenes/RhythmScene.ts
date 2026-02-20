@@ -1,7 +1,7 @@
 import { SONG_LIST, SongId } from "../assets/midi/songlist";
 import type { Scene, GameContext, Renderer } from "../engine/types";
 import type { Manager, RhythmWorld, Lane } from "./types";
-import { LANES, type GameNote, type SongMap } from "../midi/parser";
+import { LANES, assignLane, type GameNote } from "../midi/parser";
 import { AudioManager } from "../managers/AudioManager.js";
 import { InputManager } from "../managers/InputManager.js";
 import { GameplayManager } from "../managers/GameplayManager.js";
@@ -20,19 +20,29 @@ export class RhythmScene implements Scene {
     // 1. Get song data
     const song = SONG_LIST[this.songId];
 
-    // 2. Build notes by lane for the world
+    // 2. Normalize notes — some JSON files have lane/noteNumber, some only have midi
+    const rawNotes = song.notes as Array<Record<string, any>>;
+    const minMidi = Math.min(...rawNotes.map((n) => n.midi ?? n.noteNumber ?? 60));
+    const maxMidi = Math.max(...rawNotes.map((n) => n.midi ?? n.noteNumber ?? 60));
+    const range = maxMidi - minMidi;
+
+    const allNotes: GameNote[] = rawNotes.map((n) => {
+      const noteNumber = n.noteNumber ?? n.midi ?? 60;
+      const lane = n.lane ?? assignLane(noteNumber, minMidi, range);
+      return {
+        time: n.time,
+        lane,
+        duration: n.duration,
+        velocity: n.velocity,
+        noteNumber,
+        status: "active" as const,
+      };
+    });
+
+    // 3. Distribute to lanes
     const notesByLane: Record<Lane, GameNote[]> = { D: [], F: [], J: [], K: [] };
-    for (const lane of LANES) {
-      notesByLane[lane] = song.notes
-        .filter((n) => n.lane === lane)
-        .map((n) => ({
-          time: n.time,
-          lane: n.lane,
-          duration: n.duration,
-          velocity: n.velocity,
-          noteNumber: n.noteNumber,
-          status: "active" as const,
-        }));
+    for (const note of allNotes) {
+      notesByLane[note.lane].push(note);
     }
 
     // 3. Init world
@@ -55,7 +65,12 @@ export class RhythmScene implements Scene {
     //    GameplayManager next (drains pendingInputs, updates score)
     //    LaneManagers last (read note statuses for rendering)
     const audioManager = new AudioManager();
-    audioManager.loadSong(song as unknown as SongMap);
+    audioManager.loadSong({
+      name: song.name,
+      duration: song.duration,
+      bpm: song.bpm,
+      notes: allNotes,
+    });
 
     this.managers = [
       audioManager,
