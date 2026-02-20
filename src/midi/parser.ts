@@ -3,12 +3,18 @@ import { type Lane } from "../scenes/types.ts"
 
 export const LANES: Lane[] = ["D", "F", "J", "K"];
 
+export type NoteStatus = "active" | "hit" | "missed";
+
+export type HitGrade = "perfect" | "great" | "good";
+
 export interface GameNote {
   time: number; // absolute seconds from start
   lane: Lane;
   duration: number; // seconds
   velocity: number; // 0-1 (normalized)
   noteNumber: number; // original MIDI pitch
+  status: NoteStatus; // tracking whether note was hit, missed, or still active
+  hitGrade?: HitGrade; // set when status becomes "hit"
 }
 
 export interface SongMap {
@@ -22,7 +28,7 @@ export interface SongMap {
  * Assign a MIDI note number to a lane based on pitch quartiles.
  * Low notes → D (left), high notes → K (right), mirroring piano layout.
  */
-function assignLane(
+export function assignLane(
   noteNumber: number,
   min: number,
   range: number
@@ -80,6 +86,7 @@ export function parseMidi(data: ArrayBuffer, name?: string): SongMap {
     duration: n.duration,
     velocity: n.velocity,
     noteNumber: n.midi,
+    status: "active" as const,
   }));
 
   // Sort by time (stable sort preserves pitch order for simultaneous notes)
