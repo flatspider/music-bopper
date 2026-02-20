@@ -78,6 +78,40 @@ export class RhythmScene implements Scene {
         fontSize: 20,
         color: 0xffffff,
       });
+      return;
+    }
+
+    // Score (top-right)
+    renderer.drawText(`${this.world.score}`, 560, 30, {
+      fontSize: 28,
+      color: 0xffffff,
+      anchor: 1,
+    });
+
+    // Combo (below score, only when active)
+    if (this.world.combo > 1) {
+      renderer.drawText(`${this.world.combo}x combo`, 560, 60, {
+        fontSize: 16,
+        color: 0xffe066,
+        anchor: 1,
+      });
+    }
+
+    // Hit grade feedback — flash for 0.4s after each hit
+    if (this.world.lastHitResult) {
+      const age = this.world.songTime - this.world.lastHitResult.time;
+      if (age < 0.4) {
+        const grade = this.world.lastHitResult.grade;
+        const label = grade.toUpperCase() + "!";
+        const color = grade === "perfect" ? 0xffd700
+                    : grade === "great"   ? 0x44cc44
+                    :                       0xaaaaaa;
+        renderer.drawText(label, 300, 480, {
+          fontSize: 24,
+          color,
+          anchor: 0.5,
+        });
+      }
     }
   }
 
