@@ -1,5 +1,5 @@
-import type { Game } from "../engine/Game";
 import type { Renderer } from "../engine/types";
+import type { HitGrade, GameNote } from "../midi/parser";
 
 // Shared types go here
 
@@ -41,6 +41,13 @@ export interface GameWorld {
 // rhythmworld still contains state, player, we just can avoid repeating it here!
 export interface RhythmWorld extends GameWorld {
   songTime: number; // from audio, shared music timing
+  score: number;
+  combo: number;
+  maxCombo: number;
+  hitCounts: Record<HitGrade | "missed", number>;
+  lastHitResult: { grade: HitGrade; time: number } | null; // for on-screen feedback
+  notes: Record<Lane, GameNote[]>; // all notes by lane, shared between managers
+  pendingInputs: { lane: Lane; time: number }[]; // InputManager writes, GameplayManager drains
 }
 
 // also contains state and player
@@ -48,9 +55,6 @@ export interface SongSelectWorld extends GameWorld {
   currentCardHighlight: number; // current highlighted songCard
   selectedSong: string; // song User selects (loaded into RhythmScene, RhythmWorld)
 }
-
-// Need to add more fields to RhythmWorld interface in the scene/types.ts
-// eg songTime, notes, and score fields
 
 // --- Manager Interface ---
 

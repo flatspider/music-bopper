@@ -1,7 +1,3 @@
-# Attention
-
-Do not write any code in this project.
-
 # Music Bopper
 
 A rhythm game built with Vite + React + TypeScript. Players match beats by pressing keys (D, F, J, K) in time with music.
