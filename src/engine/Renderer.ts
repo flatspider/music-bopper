@@ -1,4 +1,12 @@
-import { Application, Container, Graphics, Text, TextStyle } from "pixi.js";
+import {
+  Application,
+  Container,
+  Graphics,
+  Text,
+  TextStyle,
+  type TextStyleFontWeight,
+  type TextStyleFontStyle,
+} from "pixi.js";
 import type { Renderer as IRenderer } from "./types.ts";
 
 export class Renderer implements IRenderer {
@@ -53,18 +61,45 @@ export class Renderer implements IRenderer {
     g.fill(color);
     this.drawContainer.addChild(g);
   }
+  drawLine(
+    x1: number,
+    y1: number,
+    x2: number,
+    y2: number,
+    color: number,
+    width: number = 1,
+  ): void {
+    const g = new Graphics();
+    g.moveTo(x1, y1).lineTo(x2, y2).stroke({ color, width });
+    this.drawContainer.addChild(g);
+  }
+
   drawText(
     text: string,
     pixelX: number,
     pixelY: number,
-    options?: { fontSize?: number; color?: number; anchor?: number },
+    options?: {
+      fontSize?: number;
+      color?: number;
+      anchor?: number;
+      fontWeight?: TextStyleFontWeight;
+      fontStyle?: TextStyleFontStyle;
+      fontFamily?: string;
+      letterSpacing?: number;
+    },
   ): void {
+    const style: Record<string, unknown> = {};
+    if (options?.fontSize != null) style.fontSize = options.fontSize;
+    if (options?.color != null) style.fill = options.color;
+    if (options?.fontWeight) style.fontWeight = options.fontWeight;
+    if (options?.fontStyle) style.fontStyle = options.fontStyle;
+    if (options?.fontFamily) style.fontFamily = options.fontFamily;
+    if (options?.letterSpacing != null)
+      style.letterSpacing = options.letterSpacing;
+
     const newText = new Text({
       text: text,
-      style: {
-        fontSize: options?.fontSize,
-        fill: options?.color,
-      },
+      style,
       x: pixelX,
       y: pixelY,
     });
