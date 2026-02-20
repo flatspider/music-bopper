@@ -44,6 +44,11 @@ export class RhythmScene implements Scene {
       state: "start",
       player: {},
       songTime: 0,
+      score: 0,
+      combo: 0,
+      maxCombo: 0,
+      hitCounts: { perfect: 0, great: 0, good: 0, missed: 0 },
+      lastHitResult: null,
     };
   }
 
