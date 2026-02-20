@@ -17,6 +17,8 @@ export class AudioManager implements Manager {
 
   update(world: RhythmWorld, dt: number) {
     // check if gameState changed, then play/pause
+
+    world.songTime = this.audio.getCurrentTime(); // update shared time with Audio time
     if (this.lastState !== world.state) {
       if (world.state == "playing") {
         this.audio.play();
@@ -28,8 +30,7 @@ export class AudioManager implements Manager {
     }
   }
 
-  // This will unlock the audio.
-  // We have to decide where the game will actually 'start' (GamePlayManager?)
+  // makes audio ready to be played (see Audio about unlock)
   onKeyDown(world: RhythmWorld, key: string): void {
     if (world.state == "start" && key === "Space") {
       this.audio.unlock();
