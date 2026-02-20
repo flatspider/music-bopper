@@ -1,4 +1,4 @@
-import type { SongMap } from "../midi/parser";
+import type { MidiSongJson } from "../types/miditypes";
 import * as Tone from "tone";
 
 /**
@@ -14,38 +14,64 @@ import * as Tone from "tone";
  */
 export class Audio {
   /** Parsed MIDI data currently loaded (null until loadSong is called). */
-  private songMap: SongMap | null = null;
+  private songMap: MidiSongJson | null = null;
 
-  /** Polyphonic synth routed to the default audio output. */
+  /** Polyphonic synth for pitched instruments (channels 1-8). */
   private synth: Tone.PolySynth;
+  /** Membrane synth for kicks and toms (channel 9, MIDI < 47). */
+  private kick: Tone.MembraneSynth;
+  /** Noise synth for hi-hats, cymbals, snare (channel 9, MIDI >= 47). */
+  private hat: Tone.NoiseSynth;
 
   constructor() {
     this.synth = new Tone.PolySynth(Tone.Synth).toDestination();
     this.synth.maxPolyphony = 64;
+
+    this.kick = new Tone.MembraneSynth().toDestination();
+    this.kick.volume.value = -10;
+
+    this.hat = new Tone.NoiseSynth({
+      envelope: { attack: 0.001, decay: 0.1, sustain: 0 },
+    }).toDestination();
+    this.hat.volume.value = -10;
   }
 
   /**
-   * Load a parsed SongMap and schedule all its notes on the Transport.
+   * Load a parsed MidiSongJson and schedule all its notes on the Transport.
    * Calling this again with a new song cancels the previous schedule.
    */
-  loadSong(song: SongMap) {
+  loadSong(song: MidiSongJson) {
     this.songMap = song;
 
     // Clear any previously scheduled notes and reset the playhead.
     Tone.getTransport().cancel();
     Tone.getTransport().seconds = 0;
 
-    // Schedule every note as a triggerAttackRelease on the Transport timeline.
-    // Transport calls back with the precise audio-context time for each note.
+    // Schedule every note, routing by channel + MIDI pitch:
+    //   channel 9 = percussion → kick (MembraneSynth) or hat (NoiseSynth)
+    //   all other channels      → pitched PolySynth
     for (const note of this.songMap.notes) {
-      Tone.getTransport().schedule((time) => {
-        this.synth.triggerAttackRelease(
-          Tone.Frequency(note.noteNumber, "midi").toNote(), // MIDI pitch -> e.g. "C4"
-          note.duration,
-          time,
-          note.velocity,
-        );
-      }, note.time);
+      if (note.channel === 9) {
+        // Percussion: split by MIDI pitch — low = kick/toms, high = hat/cymbal/snare
+        if (note.noteNumber < 47) {
+          Tone.getTransport().schedule((time) => {
+            this.kick.triggerAttackRelease("C2", note.duration, time, note.velocity);
+          }, note.time);
+        } else {
+          Tone.getTransport().schedule((time) => {
+            this.hat.triggerAttackRelease(note.duration, time);
+          }, note.time);
+        }
+      } else {
+        Tone.getTransport().schedule((time) => {
+          this.synth.triggerAttackRelease(
+            Tone.Frequency(note.noteNumber, "midi").toNote(),
+            note.duration,
+            time,
+            note.velocity,
+          );
+        }, note.time);
+      }
     }
   }
 

@@ -1,5 +1,5 @@
 import { Audio } from "../engine/Audio";
-import type { SongMap } from "../midi/parser";
+import type { MidiSongJson } from "../types/miditypes";
 import type { GameState, Manager, RhythmWorld } from "../scenes/types";
 
 export class AudioManager implements Manager {
@@ -11,7 +11,7 @@ export class AudioManager implements Manager {
     this.lastState = "start";
   }
 
-  loadSong(songmap: SongMap) {
+  loadSong(songmap: MidiSongJson) {
     this.audio.loadSong(songmap);
   }
 

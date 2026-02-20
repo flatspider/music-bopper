@@ -1,4 +1,4 @@
-import { SONG_LIST, SongId } from "../assets/midi/songlist";
+import { SONG_LIST, CHART_TRACKS, SongId } from "../assets/midi/songlist";
 import type { Scene, GameContext, Renderer } from "../engine/types";
 import type { Manager, RhythmWorld, Lane } from "./types";
 import { LANES, assignLane, type GameNote } from "../midi/parser";
@@ -20,18 +20,23 @@ export class RhythmScene implements Scene {
     // 1. Get song data
     const song = SONG_LIST[this.songId];
 
-    // 2. Normalize notes — some JSON files have lane/noteNumber, some only have midi
-    const rawNotes = song.notes as Array<Record<string, any>>;
+    // 2. Filter to chart tracks (if configured), otherwise use all notes
+    const chartTrackNames = CHART_TRACKS[this.songId];
+    let rawNotes = song.notes as Array<Record<string, any>>;
+    if (chartTrackNames) {
+      rawNotes = rawNotes.filter((n) => chartTrackNames.includes(n.track));
+    }
+
+    // 3. Recompute lanes based on filtered pitch range (so notes spread across all 4 lanes)
     const minMidi = Math.min(...rawNotes.map((n) => n.midi ?? n.noteNumber ?? 60));
     const maxMidi = Math.max(...rawNotes.map((n) => n.midi ?? n.noteNumber ?? 60));
     const range = maxMidi - minMidi;
 
-    const allNotes: GameNote[] = rawNotes.map((n) => {
+    let chartNotes: GameNote[] = rawNotes.map((n) => {
       const noteNumber = n.noteNumber ?? n.midi ?? 60;
-      const lane = n.lane ?? assignLane(noteNumber, minMidi, range);
       return {
         time: n.time,
-        lane,
+        lane: assignLane(noteNumber, minMidi, range),
         duration: n.duration,
         velocity: n.velocity,
         noteNumber,
@@ -39,13 +44,29 @@ export class RhythmScene implements Scene {
       };
     });
 
-    // 3. Distribute to lanes
+    // 4. Thin quick-succession notes — drop every 3rd note within 0.12s of its predecessor (~30% removal)
+    chartNotes.sort((a, b) => a.time - b.time);
+    const thinned: GameNote[] = [];
+    let quickRun = 0;
+    for (let i = 0; i < chartNotes.length; i++) {
+      const gap = i > 0 ? chartNotes[i].time - chartNotes[i - 1].time : Infinity;
+      if (gap < 0.12) {
+        quickRun++;
+        if (quickRun % 3 === 0) continue;
+      } else {
+        quickRun = 0;
+      }
+      thinned.push(chartNotes[i]);
+    }
+    chartNotes = thinned;
+
+    // 5. Distribute to lanes
     const notesByLane: Record<Lane, GameNote[]> = { D: [], F: [], J: [], K: [] };
-    for (const note of allNotes) {
+    for (const note of chartNotes) {
       notesByLane[note.lane].push(note);
     }
 
-    // 3. Init world
+    // 6. Init world
     this.world = {
       state: "start",
       player: {},
@@ -59,18 +80,13 @@ export class RhythmScene implements Scene {
       pendingInputs: [],
     };
 
-    // 4. Create managers — order matters:
+    // 7. Create managers — order matters:
     //    AudioManager first (writes songTime before others read it)
     //    InputManager next (writes pendingInputs)
     //    GameplayManager next (drains pendingInputs, updates score)
     //    LaneManagers last (read note statuses for rendering)
     const audioManager = new AudioManager();
-    audioManager.loadSong({
-      name: song.name,
-      duration: song.duration,
-      bpm: song.bpm,
-      notes: allNotes,
-    });
+    audioManager.loadSong(song);
 
     this.managers = [
       audioManager,
