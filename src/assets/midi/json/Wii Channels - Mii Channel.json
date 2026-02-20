@@ -1,0 +1,5461 @@
+{
+  "name": "Wii Channel - Mii Theme",
+  "bpm": 120,
+  "duration": 99.75,
+  "ppq": 1024,
+  "totalNotes": 544,
+  "noteRange": {
+    "min": 37,
+    "max": 81
+  },
+  "tracks": [
+    {
+      "name": "SmartMusic SoftSynth",
+      "instrument": "bright acoustic piano",
+      "channel": 0,
+      "noteCount": 544
+    }
+  ],
+  "notes": [
+    {
+      "time": 0.005,
+      "duration": 0.209,
+      "midi": 62,
+      "noteNumber": 62,
+      "velocity": 0.46,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 0.005,
+      "duration": 0.209,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.57,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 0.005,
+      "duration": 0.209,
+      "midi": 47,
+      "noteNumber": 47,
+      "velocity": 0.53,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 0.515,
+      "duration": 0.096,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 0.515,
+      "duration": 0.096,
+      "midi": 69,
+      "noteNumber": 69,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 0.761,
+      "duration": 0.099,
+      "midi": 69,
+      "noteNumber": 69,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 0.761,
+      "duration": 0.099,
+      "midi": 73,
+      "noteNumber": 73,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "K"
+    },
+    {
+      "time": 1.259,
+      "duration": 0.096,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 1.259,
+      "duration": 0.096,
+      "midi": 69,
+      "noteNumber": 69,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 1.752,
+      "duration": 0.097,
+      "midi": 62,
+      "noteNumber": 62,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 1.752,
+      "duration": 0.097,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 2.002,
+      "duration": 0.114,
+      "midi": 62,
+      "noteNumber": 62,
+      "velocity": 0.53,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 2.002,
+      "duration": 0.114,
+      "midi": 56,
+      "noteNumber": 56,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 2.267,
+      "duration": 0.098,
+      "midi": 62,
+      "noteNumber": 62,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 2.267,
+      "duration": 0.098,
+      "midi": 56,
+      "noteNumber": 56,
+      "velocity": 0.39,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 2.515,
+      "duration": 0.096,
+      "midi": 62,
+      "noteNumber": 62,
+      "velocity": 0.5,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 2.515,
+      "duration": 0.096,
+      "midi": 56,
+      "noteNumber": 56,
+      "velocity": 0.4,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 3.752,
+      "duration": 0.277,
+      "midi": 61,
+      "noteNumber": 61,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 3.752,
+      "duration": 0.277,
+      "midi": 53,
+      "noteNumber": 53,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 4.002,
+      "duration": 0.114,
+      "midi": 62,
+      "noteNumber": 62,
+      "velocity": 0.45,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 4.002,
+      "duration": 0.297,
+      "midi": 47,
+      "noteNumber": 47,
+      "velocity": 0.39,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 4.002,
+      "duration": 0.19,
+      "midi": 54,
+      "noteNumber": 54,
+      "velocity": 0.5,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 4.267,
+      "duration": 0.098,
+      "midi": 62,
+      "noteNumber": 62,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 4.267,
+      "duration": 0.098,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 4.515,
+      "duration": 0.096,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 4.515,
+      "duration": 0.096,
+      "midi": 69,
+      "noteNumber": 69,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 4.761,
+      "duration": 0.099,
+      "midi": 69,
+      "noteNumber": 69,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 4.761,
+      "duration": 0.099,
+      "midi": 73,
+      "noteNumber": 73,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "K"
+    },
+    {
+      "time": 5.259,
+      "duration": 0.096,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 5.259,
+      "duration": 0.096,
+      "midi": 69,
+      "noteNumber": 69,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 5.752,
+      "duration": 0.097,
+      "midi": 62,
+      "noteNumber": 62,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 5.752,
+      "duration": 0.097,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 6.002,
+      "duration": 0.759,
+      "midi": 64,
+      "noteNumber": 64,
+      "velocity": 0.46,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 6.002,
+      "duration": 0.759,
+      "midi": 68,
+      "noteNumber": 68,
+      "velocity": 0.46,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 6.002,
+      "duration": 0.759,
+      "midi": 76,
+      "noteNumber": 76,
+      "velocity": 0.57,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "K"
+    },
+    {
+      "time": 6.002,
+      "duration": 0.759,
+      "midi": 56,
+      "noteNumber": 56,
+      "velocity": 0.53,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 6.761,
+      "duration": 0.234,
+      "midi": 63,
+      "noteNumber": 63,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 6.761,
+      "duration": 0.234,
+      "midi": 67,
+      "noteNumber": 67,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 6.761,
+      "duration": 0.249,
+      "midi": 75,
+      "noteNumber": 75,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "K"
+    },
+    {
+      "time": 6.761,
+      "duration": 0.234,
+      "midi": 55,
+      "noteNumber": 55,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 7.01,
+      "duration": 0.195,
+      "midi": 62,
+      "noteNumber": 62,
+      "velocity": 0.45,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 7.01,
+      "duration": 0.195,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.45,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 7.01,
+      "duration": 0.195,
+      "midi": 74,
+      "noteNumber": 74,
+      "velocity": 0.56,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "K"
+    },
+    {
+      "time": 7.01,
+      "duration": 0.195,
+      "midi": 54,
+      "noteNumber": 54,
+      "velocity": 0.51,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 8.002,
+      "duration": 0.114,
+      "midi": 68,
+      "noteNumber": 68,
+      "velocity": 0.53,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 8.002,
+      "duration": 0.114,
+      "midi": 45,
+      "noteNumber": 45,
+      "velocity": 0.53,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 8.515,
+      "duration": 0.096,
+      "midi": 73,
+      "noteNumber": 73,
+      "velocity": 0.5,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "K"
+    },
+    {
+      "time": 8.515,
+      "duration": 0.096,
+      "midi": 61,
+      "noteNumber": 61,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 8.515,
+      "duration": 0.082,
+      "midi": 64,
+      "noteNumber": 64,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 8.761,
+      "duration": 0.099,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 9.259,
+      "duration": 0.096,
+      "midi": 73,
+      "noteNumber": 73,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "K"
+    },
+    {
+      "time": 9.259,
+      "duration": 0.096,
+      "midi": 52,
+      "noteNumber": 52,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 9.752,
+      "duration": 0.097,
+      "midi": 68,
+      "noteNumber": 68,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 9.752,
+      "duration": 0.097,
+      "midi": 56,
+      "noteNumber": 56,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 10.267,
+      "duration": 0.098,
+      "midi": 73,
+      "noteNumber": 73,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "K"
+    },
+    {
+      "time": 10.267,
+      "duration": 0.098,
+      "midi": 61,
+      "noteNumber": 61,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 10.267,
+      "duration": 0.098,
+      "midi": 64,
+      "noteNumber": 64,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 10.761,
+      "duration": 0.278,
+      "midi": 67,
+      "noteNumber": 67,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 10.761,
+      "duration": 0.278,
+      "midi": 55,
+      "noteNumber": 55,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 11.01,
+      "duration": 0.212,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.45,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 11.01,
+      "duration": 0.212,
+      "midi": 54,
+      "noteNumber": 54,
+      "velocity": 0.45,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 11.506,
+      "duration": 0.096,
+      "midi": 64,
+      "noteNumber": 64,
+      "velocity": 0.5,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 11.506,
+      "duration": 0.096,
+      "midi": 61,
+      "noteNumber": 61,
+      "velocity": 0.5,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 12.002,
+      "duration": 0.114,
+      "midi": 54,
+      "noteNumber": 54,
+      "velocity": 0.46,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 12.002,
+      "duration": 0.114,
+      "midi": 60,
+      "noteNumber": 60,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 12.002,
+      "duration": 0.114,
+      "midi": 38,
+      "noteNumber": 38,
+      "velocity": 0.52,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 12.267,
+      "duration": 0.098,
+      "midi": 54,
+      "noteNumber": 54,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 12.267,
+      "duration": 0.098,
+      "midi": 60,
+      "noteNumber": 60,
+      "velocity": 0.5,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 12.267,
+      "duration": 0.098,
+      "midi": 38,
+      "noteNumber": 38,
+      "velocity": 0.48,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 12.515,
+      "duration": 0.096,
+      "midi": 54,
+      "noteNumber": 54,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 12.515,
+      "duration": 0.082,
+      "midi": 60,
+      "noteNumber": 60,
+      "velocity": 0.51,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 12.515,
+      "duration": 0.096,
+      "midi": 38,
+      "noteNumber": 38,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 13.506,
+      "duration": 0.096,
+      "midi": 54,
+      "noteNumber": 54,
+      "velocity": 0.34,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 13.506,
+      "duration": 0.096,
+      "midi": 60,
+      "noteNumber": 60,
+      "velocity": 0.42,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 13.506,
+      "duration": 0.096,
+      "midi": 38,
+      "noteNumber": 38,
+      "velocity": 0.39,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 13.753,
+      "duration": 0.097,
+      "midi": 54,
+      "noteNumber": 54,
+      "velocity": 0.33,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 13.753,
+      "duration": 0.097,
+      "midi": 60,
+      "noteNumber": 60,
+      "velocity": 0.41,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 13.753,
+      "duration": 0.097,
+      "midi": 38,
+      "noteNumber": 38,
+      "velocity": 0.39,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 14.002,
+      "duration": 0.114,
+      "midi": 54,
+      "noteNumber": 54,
+      "velocity": 0.37,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 14.002,
+      "duration": 0.129,
+      "midi": 60,
+      "noteNumber": 60,
+      "velocity": 0.48,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 14.002,
+      "duration": 0.114,
+      "midi": 38,
+      "noteNumber": 38,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 15.01,
+      "duration": 0.495,
+      "midi": 56,
+      "noteNumber": 56,
+      "velocity": 0.45,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 15.01,
+      "duration": 0.495,
+      "midi": 59,
+      "noteNumber": 59,
+      "velocity": 0.45,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 15.01,
+      "duration": 0.495,
+      "midi": 63,
+      "noteNumber": 63,
+      "velocity": 0.56,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 15.506,
+      "duration": 0.494,
+      "midi": 55,
+      "noteNumber": 55,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 15.506,
+      "duration": 0.494,
+      "midi": 58,
+      "noteNumber": 58,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 15.506,
+      "duration": 0.494,
+      "midi": 62,
+      "noteNumber": 62,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 16.002,
+      "duration": 0.212,
+      "midi": 62,
+      "noteNumber": 62,
+      "velocity": 0.46,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 16.002,
+      "duration": 0.212,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.57,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 16.002,
+      "duration": 0.25,
+      "midi": 54,
+      "noteNumber": 54,
+      "velocity": 0.46,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 16.002,
+      "duration": 0.25,
+      "midi": 57,
+      "noteNumber": 57,
+      "velocity": 0.46,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 16.002,
+      "duration": 0.25,
+      "midi": 61,
+      "noteNumber": 61,
+      "velocity": 0.57,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 16.515,
+      "duration": 0.096,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 16.515,
+      "duration": 0.096,
+      "midi": 69,
+      "noteNumber": 69,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 16.761,
+      "duration": 0.099,
+      "midi": 69,
+      "noteNumber": 69,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 16.761,
+      "duration": 0.099,
+      "midi": 73,
+      "noteNumber": 73,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "K"
+    },
+    {
+      "time": 17.259,
+      "duration": 0.096,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 17.259,
+      "duration": 0.096,
+      "midi": 69,
+      "noteNumber": 69,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 17.753,
+      "duration": 0.277,
+      "midi": 63,
+      "noteNumber": 63,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 17.753,
+      "duration": 0.247,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 17.753,
+      "duration": 0.247,
+      "midi": 62,
+      "noteNumber": 62,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 18.002,
+      "duration": 0.114,
+      "midi": 64,
+      "noteNumber": 64,
+      "velocity": 0.45,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 18.002,
+      "duration": 0.114,
+      "midi": 56,
+      "noteNumber": 56,
+      "velocity": 0.39,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 18.002,
+      "duration": 0.114,
+      "midi": 62,
+      "noteNumber": 62,
+      "velocity": 0.46,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 18.267,
+      "duration": 0.098,
+      "midi": 64,
+      "noteNumber": 64,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 18.267,
+      "duration": 0.098,
+      "midi": 56,
+      "noteNumber": 56,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 18.267,
+      "duration": 0.098,
+      "midi": 62,
+      "noteNumber": 62,
+      "velocity": 0.5,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 18.515,
+      "duration": 0.096,
+      "midi": 64,
+      "noteNumber": 64,
+      "velocity": 0.5,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 18.515,
+      "duration": 0.096,
+      "midi": 56,
+      "noteNumber": 56,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 18.515,
+      "duration": 0.082,
+      "midi": 62,
+      "noteNumber": 62,
+      "velocity": 0.51,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 19.01,
+      "duration": 0.099,
+      "midi": 68,
+      "noteNumber": 68,
+      "velocity": 0.45,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 19.01,
+      "duration": 0.099,
+      "midi": 76,
+      "noteNumber": 76,
+      "velocity": 0.53,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "K"
+    },
+    {
+      "time": 19.259,
+      "duration": 0.096,
+      "midi": 68,
+      "noteNumber": 68,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 19.259,
+      "duration": 0.096,
+      "midi": 76,
+      "noteNumber": 76,
+      "velocity": 0.5,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "K"
+    },
+    {
+      "time": 19.506,
+      "duration": 0.096,
+      "midi": 68,
+      "noteNumber": 68,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 19.506,
+      "duration": 0.082,
+      "midi": 76,
+      "noteNumber": 76,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "K"
+    },
+    {
+      "time": 20.002,
+      "duration": 0.212,
+      "midi": 47,
+      "noteNumber": 47,
+      "velocity": 0.53,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 20.267,
+      "duration": 0.098,
+      "midi": 62,
+      "noteNumber": 62,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 20.267,
+      "duration": 0.098,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 20.515,
+      "duration": 0.096,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 20.515,
+      "duration": 0.096,
+      "midi": 69,
+      "noteNumber": 69,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 20.761,
+      "duration": 0.099,
+      "midi": 69,
+      "noteNumber": 69,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 20.761,
+      "duration": 0.099,
+      "midi": 73,
+      "noteNumber": 73,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "K"
+    },
+    {
+      "time": 21.261,
+      "duration": 0.097,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 21.261,
+      "duration": 0.097,
+      "midi": 69,
+      "noteNumber": 69,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 21.765,
+      "duration": 0.101,
+      "midi": 62,
+      "noteNumber": 62,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 21.765,
+      "duration": 0.101,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 22.023,
+      "duration": 1.013,
+      "midi": 64,
+      "noteNumber": 64,
+      "velocity": 0.46,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 22.023,
+      "duration": 1.013,
+      "midi": 68,
+      "noteNumber": 68,
+      "velocity": 0.46,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 22.023,
+      "duration": 1.013,
+      "midi": 73,
+      "noteNumber": 73,
+      "velocity": 0.57,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "K"
+    },
+    {
+      "time": 22.023,
+      "duration": 1.013,
+      "midi": 52,
+      "noteNumber": 52,
+      "velocity": 0.53,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 23.036,
+      "duration": 0.195,
+      "midi": 62,
+      "noteNumber": 62,
+      "velocity": 0.45,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 23.036,
+      "duration": 0.195,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.45,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 23.036,
+      "duration": 0.195,
+      "midi": 71,
+      "noteNumber": 71,
+      "velocity": 0.56,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "K"
+    },
+    {
+      "time": 23.036,
+      "duration": 0.195,
+      "midi": 50,
+      "noteNumber": 50,
+      "velocity": 0.51,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 24.028,
+      "duration": 0.25,
+      "midi": 71,
+      "noteNumber": 71,
+      "velocity": 0.53,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "K"
+    },
+    {
+      "time": 24.028,
+      "duration": 0.512,
+      "midi": 52,
+      "noteNumber": 52,
+      "velocity": 0.53,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 24.293,
+      "duration": 0.233,
+      "midi": 67,
+      "noteNumber": 67,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 24.541,
+      "duration": 0.231,
+      "midi": 62,
+      "noteNumber": 62,
+      "velocity": 0.5,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 24.541,
+      "duration": 0.096,
+      "midi": 59,
+      "noteNumber": 59,
+      "velocity": 0.5,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 24.787,
+      "duration": 0.483,
+      "midi": 61,
+      "noteNumber": 61,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 24.787,
+      "duration": 0.483,
+      "midi": 45,
+      "noteNumber": 45,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 25.285,
+      "duration": 0.231,
+      "midi": 71,
+      "noteNumber": 71,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "K"
+    },
+    {
+      "time": 25.285,
+      "duration": 0.096,
+      "midi": 57,
+      "noteNumber": 57,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 25.285,
+      "duration": 0.096,
+      "midi": 61,
+      "noteNumber": 61,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 25.532,
+      "duration": 0.231,
+      "midi": 67,
+      "noteNumber": 67,
+      "velocity": 0.5,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 25.779,
+      "duration": 0.232,
+      "midi": 61,
+      "noteNumber": 61,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 26.028,
+      "duration": 0.25,
+      "midi": 69,
+      "noteNumber": 69,
+      "velocity": 0.53,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 26.028,
+      "duration": 0.512,
+      "midi": 50,
+      "noteNumber": 50,
+      "velocity": 0.53,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 26.293,
+      "duration": 0.233,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 26.541,
+      "duration": 0.231,
+      "midi": 60,
+      "noteNumber": 60,
+      "velocity": 0.5,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 26.541,
+      "duration": 0.096,
+      "midi": 57,
+      "noteNumber": 57,
+      "velocity": 0.5,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 26.787,
+      "duration": 0.483,
+      "midi": 59,
+      "noteNumber": 59,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 26.787,
+      "duration": 0.483,
+      "midi": 43,
+      "noteNumber": 43,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 27.285,
+      "duration": 0.231,
+      "midi": 65,
+      "noteNumber": 65,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 27.285,
+      "duration": 0.096,
+      "midi": 55,
+      "noteNumber": 55,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 27.285,
+      "duration": 0.096,
+      "midi": 59,
+      "noteNumber": 59,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 27.532,
+      "duration": 0.231,
+      "midi": 62,
+      "noteNumber": 62,
+      "velocity": 0.5,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 27.779,
+      "duration": 0.232,
+      "midi": 59,
+      "noteNumber": 59,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 28.028,
+      "duration": 0.114,
+      "midi": 54,
+      "noteNumber": 54,
+      "velocity": 0.46,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 28.028,
+      "duration": 0.114,
+      "midi": 61,
+      "noteNumber": 61,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 28.028,
+      "duration": 0.114,
+      "midi": 47,
+      "noteNumber": 47,
+      "velocity": 0.37,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 28.028,
+      "duration": 0.114,
+      "midi": 52,
+      "noteNumber": 52,
+      "velocity": 0.48,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 28.293,
+      "duration": 0.098,
+      "midi": 54,
+      "noteNumber": 54,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 28.293,
+      "duration": 0.098,
+      "midi": 61,
+      "noteNumber": 61,
+      "velocity": 0.5,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 28.293,
+      "duration": 0.098,
+      "midi": 47,
+      "noteNumber": 47,
+      "velocity": 0.33,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 28.293,
+      "duration": 0.098,
+      "midi": 52,
+      "noteNumber": 52,
+      "velocity": 0.41,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 28.541,
+      "duration": 0.096,
+      "midi": 54,
+      "noteNumber": 54,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 28.541,
+      "duration": 0.082,
+      "midi": 61,
+      "noteNumber": 61,
+      "velocity": 0.51,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 28.541,
+      "duration": 0.096,
+      "midi": 47,
+      "noteNumber": 47,
+      "velocity": 0.34,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 28.541,
+      "duration": 0.111,
+      "midi": 52,
+      "noteNumber": 52,
+      "velocity": 0.42,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 29.779,
+      "duration": 0.277,
+      "midi": 70,
+      "noteNumber": 70,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 29.779,
+      "duration": 0.277,
+      "midi": 49,
+      "noteNumber": 49,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 30.028,
+      "duration": 0.157,
+      "midi": 71,
+      "noteNumber": 71,
+      "velocity": 0.45,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "K"
+    },
+    {
+      "time": 30.028,
+      "duration": 0.157,
+      "midi": 50,
+      "noteNumber": 50,
+      "velocity": 0.45,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 30.293,
+      "duration": 0.277,
+      "midi": 73,
+      "noteNumber": 73,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "K"
+    },
+    {
+      "time": 30.293,
+      "duration": 0.277,
+      "midi": 55,
+      "noteNumber": 55,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 30.541,
+      "duration": 0.139,
+      "midi": 74,
+      "noteNumber": 74,
+      "velocity": 0.45,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "K"
+    },
+    {
+      "time": 30.541,
+      "duration": 0.139,
+      "midi": 56,
+      "noteNumber": 56,
+      "velocity": 0.45,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 30.787,
+      "duration": 0.278,
+      "midi": 78,
+      "noteNumber": 78,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "K"
+    },
+    {
+      "time": 30.787,
+      "duration": 0.278,
+      "midi": 61,
+      "noteNumber": 61,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 31.036,
+      "duration": 0.141,
+      "midi": 81,
+      "noteNumber": 81,
+      "velocity": 0.45,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "K"
+    },
+    {
+      "time": 31.036,
+      "duration": 0.141,
+      "midi": 67,
+      "noteNumber": 67,
+      "velocity": 0.45,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 33.036,
+      "duration": 0.515,
+      "midi": 57,
+      "noteNumber": 57,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 33.532,
+      "duration": 0.513,
+      "midi": 58,
+      "noteNumber": 58,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 34.028,
+      "duration": 0.789,
+      "midi": 59,
+      "noteNumber": 59,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 34.028,
+      "duration": 0.512,
+      "midi": 52,
+      "noteNumber": 52,
+      "velocity": 0.53,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 34.541,
+      "duration": 0.231,
+      "midi": 52,
+      "noteNumber": 52,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 34.541,
+      "duration": 0.246,
+      "midi": 55,
+      "noteNumber": 55,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 34.787,
+      "duration": 0.278,
+      "midi": 58,
+      "noteNumber": 58,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 34.787,
+      "duration": 0.483,
+      "midi": 47,
+      "noteNumber": 47,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 35.037,
+      "duration": 1.482,
+      "midi": 59,
+      "noteNumber": 59,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 35.286,
+      "duration": 0.74,
+      "midi": 52,
+      "noteNumber": 52,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 35.286,
+      "duration": 0.74,
+      "midi": 55,
+      "noteNumber": 55,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 36.028,
+      "duration": 0.25,
+      "midi": 45,
+      "noteNumber": 45,
+      "velocity": 0.53,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 36.293,
+      "duration": 0.494,
+      "midi": 52,
+      "noteNumber": 52,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 36.293,
+      "duration": 0.494,
+      "midi": 55,
+      "noteNumber": 55,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 36.541,
+      "duration": 0.276,
+      "midi": 57,
+      "noteNumber": 57,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 36.787,
+      "duration": 0.278,
+      "midi": 58,
+      "noteNumber": 58,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 36.787,
+      "duration": 0.744,
+      "midi": 52,
+      "noteNumber": 52,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 37.037,
+      "duration": 0.278,
+      "midi": 59,
+      "noteNumber": 59,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 37.286,
+      "duration": 0.512,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 37.532,
+      "duration": 0.494,
+      "midi": 54,
+      "noteNumber": 54,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 37.532,
+      "duration": 0.494,
+      "midi": 55,
+      "noteNumber": 55,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 37.532,
+      "duration": 0.494,
+      "midi": 59,
+      "noteNumber": 59,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 37.779,
+      "duration": 0.277,
+      "midi": 61,
+      "noteNumber": 61,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 38.028,
+      "duration": 0.789,
+      "midi": 59,
+      "noteNumber": 59,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 38.028,
+      "duration": 0.512,
+      "midi": 50,
+      "noteNumber": 50,
+      "velocity": 0.53,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 38.541,
+      "duration": 0.231,
+      "midi": 54,
+      "noteNumber": 54,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 38.541,
+      "duration": 0.246,
+      "midi": 57,
+      "noteNumber": 57,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 38.788,
+      "duration": 0.278,
+      "midi": 58,
+      "noteNumber": 58,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 38.788,
+      "duration": 0.483,
+      "midi": 45,
+      "noteNumber": 45,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 39.037,
+      "duration": 2,
+      "midi": 59,
+      "noteNumber": 59,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 39.286,
+      "duration": 0.493,
+      "midi": 54,
+      "noteNumber": 54,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 39.286,
+      "duration": 0.493,
+      "midi": 57,
+      "noteNumber": 57,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 39.779,
+      "duration": 0.232,
+      "midi": 49,
+      "noteNumber": 49,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 40.028,
+      "duration": 0.25,
+      "midi": 50,
+      "noteNumber": 50,
+      "velocity": 0.53,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 40.293,
+      "duration": 0.494,
+      "midi": 54,
+      "noteNumber": 54,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 40.293,
+      "duration": 0.494,
+      "midi": 57,
+      "noteNumber": 57,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 40.788,
+      "duration": 0.744,
+      "midi": 45,
+      "noteNumber": 45,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 41.037,
+      "duration": 0.515,
+      "midi": 59,
+      "noteNumber": 59,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 41.532,
+      "duration": 0.513,
+      "midi": 60,
+      "noteNumber": 60,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 41.532,
+      "duration": 0.494,
+      "midi": 54,
+      "noteNumber": 54,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 41.532,
+      "duration": 0.494,
+      "midi": 57,
+      "noteNumber": 57,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 42.028,
+      "duration": 0.789,
+      "midi": 61,
+      "noteNumber": 61,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 42.028,
+      "duration": 0.512,
+      "midi": 42,
+      "noteNumber": 42,
+      "velocity": 0.53,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 42.541,
+      "duration": 0.231,
+      "midi": 51,
+      "noteNumber": 51,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 42.541,
+      "duration": 0.246,
+      "midi": 59,
+      "noteNumber": 59,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 42.788,
+      "duration": 0.278,
+      "midi": 60,
+      "noteNumber": 60,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 42.788,
+      "duration": 0.498,
+      "midi": 49,
+      "noteNumber": 49,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 43.037,
+      "duration": 1.504,
+      "midi": 61,
+      "noteNumber": 61,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 43.286,
+      "duration": 0.493,
+      "midi": 49,
+      "noteNumber": 49,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 43.286,
+      "duration": 0.493,
+      "midi": 58,
+      "noteNumber": 58,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 43.779,
+      "duration": 0.232,
+      "midi": 41,
+      "noteNumber": 41,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 44.028,
+      "duration": 0.25,
+      "midi": 42,
+      "noteNumber": 42,
+      "velocity": 0.53,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 44.293,
+      "duration": 0.494,
+      "midi": 49,
+      "noteNumber": 49,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 44.293,
+      "duration": 0.494,
+      "midi": 58,
+      "noteNumber": 58,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 44.541,
+      "duration": 0.276,
+      "midi": 61,
+      "noteNumber": 61,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 44.788,
+      "duration": 0.278,
+      "midi": 60,
+      "noteNumber": 60,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 44.788,
+      "duration": 0.744,
+      "midi": 37,
+      "noteNumber": 37,
+      "velocity": 0.48,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 45.037,
+      "duration": 0.278,
+      "midi": 61,
+      "noteNumber": 61,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 45.286,
+      "duration": 0.512,
+      "midi": 68,
+      "noteNumber": 68,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 45.532,
+      "duration": 0.494,
+      "midi": 49,
+      "noteNumber": 49,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 45.532,
+      "duration": 0.494,
+      "midi": 58,
+      "noteNumber": 58,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 45.779,
+      "duration": 0.277,
+      "midi": 63,
+      "noteNumber": 63,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 46.028,
+      "duration": 0.789,
+      "midi": 61,
+      "noteNumber": 61,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 46.028,
+      "duration": 0.512,
+      "midi": 42,
+      "noteNumber": 42,
+      "velocity": 0.53,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 46.541,
+      "duration": 0.231,
+      "midi": 54,
+      "noteNumber": 54,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 46.541,
+      "duration": 0.246,
+      "midi": 57,
+      "noteNumber": 57,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 46.788,
+      "duration": 0.278,
+      "midi": 63,
+      "noteNumber": 63,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 46.788,
+      "duration": 0.483,
+      "midi": 47,
+      "noteNumber": 47,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 47.037,
+      "duration": 0.72,
+      "midi": 59,
+      "noteNumber": 59,
+      "velocity": 0.45,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 47.286,
+      "duration": 0.74,
+      "midi": 54,
+      "noteNumber": 54,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 47.286,
+      "duration": 0.74,
+      "midi": 57,
+      "noteNumber": 57,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 47.779,
+      "duration": 0.277,
+      "midi": 61,
+      "noteNumber": 61,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 48.028,
+      "duration": 0.157,
+      "midi": 62,
+      "noteNumber": 62,
+      "velocity": 0.45,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 48.028,
+      "duration": 1.008,
+      "midi": 40,
+      "noteNumber": 40,
+      "velocity": 0.52,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 48.293,
+      "duration": 0.194,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 48.293,
+      "duration": 0.194,
+      "midi": 69,
+      "noteNumber": 69,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 48.788,
+      "duration": 0.234,
+      "midi": 62,
+      "noteNumber": 62,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 49.037,
+      "duration": 0.099,
+      "midi": 64,
+      "noteNumber": 64,
+      "velocity": 0.45,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 49.037,
+      "duration": 0.099,
+      "midi": 68,
+      "noteNumber": 68,
+      "velocity": 0.53,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 49.037,
+      "duration": 0.099,
+      "midi": 49,
+      "noteNumber": 49,
+      "velocity": 0.35,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 49.037,
+      "duration": 0.099,
+      "midi": 59,
+      "noteNumber": 59,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 49.286,
+      "duration": 0.096,
+      "midi": 64,
+      "noteNumber": 64,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 49.286,
+      "duration": 0.096,
+      "midi": 68,
+      "noteNumber": 68,
+      "velocity": 0.5,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 49.286,
+      "duration": 0.096,
+      "midi": 49,
+      "noteNumber": 49,
+      "velocity": 0.33,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 49.286,
+      "duration": 0.096,
+      "midi": 59,
+      "noteNumber": 59,
+      "velocity": 0.41,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 49.532,
+      "duration": 0.194,
+      "midi": 64,
+      "noteNumber": 64,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 49.532,
+      "duration": 0.194,
+      "midi": 68,
+      "noteNumber": 68,
+      "velocity": 0.51,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 49.532,
+      "duration": 0.194,
+      "midi": 49,
+      "noteNumber": 49,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 49.532,
+      "duration": 0.194,
+      "midi": 59,
+      "noteNumber": 59,
+      "velocity": 0.51,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 50.031,
+      "duration": 0.209,
+      "midi": 62,
+      "noteNumber": 62,
+      "velocity": 0.46,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 50.031,
+      "duration": 0.209,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.57,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 50.031,
+      "duration": 0.209,
+      "midi": 47,
+      "noteNumber": 47,
+      "velocity": 0.53,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 50.541,
+      "duration": 0.096,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 50.541,
+      "duration": 0.096,
+      "midi": 69,
+      "noteNumber": 69,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 50.788,
+      "duration": 0.099,
+      "midi": 69,
+      "noteNumber": 69,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 50.788,
+      "duration": 0.099,
+      "midi": 73,
+      "noteNumber": 73,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "K"
+    },
+    {
+      "time": 51.286,
+      "duration": 0.096,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 51.286,
+      "duration": 0.096,
+      "midi": 69,
+      "noteNumber": 69,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 51.779,
+      "duration": 0.097,
+      "midi": 62,
+      "noteNumber": 62,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 51.779,
+      "duration": 0.097,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 52.028,
+      "duration": 0.114,
+      "midi": 62,
+      "noteNumber": 62,
+      "velocity": 0.53,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 52.028,
+      "duration": 0.114,
+      "midi": 56,
+      "noteNumber": 56,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 52.293,
+      "duration": 0.098,
+      "midi": 62,
+      "noteNumber": 62,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 52.293,
+      "duration": 0.098,
+      "midi": 56,
+      "noteNumber": 56,
+      "velocity": 0.39,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 52.541,
+      "duration": 0.096,
+      "midi": 62,
+      "noteNumber": 62,
+      "velocity": 0.5,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 52.541,
+      "duration": 0.096,
+      "midi": 56,
+      "noteNumber": 56,
+      "velocity": 0.4,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 53.779,
+      "duration": 0.277,
+      "midi": 61,
+      "noteNumber": 61,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 53.779,
+      "duration": 0.277,
+      "midi": 53,
+      "noteNumber": 53,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 54.028,
+      "duration": 0.114,
+      "midi": 62,
+      "noteNumber": 62,
+      "velocity": 0.45,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 54.028,
+      "duration": 0.297,
+      "midi": 47,
+      "noteNumber": 47,
+      "velocity": 0.39,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 54.028,
+      "duration": 0.19,
+      "midi": 54,
+      "noteNumber": 54,
+      "velocity": 0.5,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 54.293,
+      "duration": 0.098,
+      "midi": 62,
+      "noteNumber": 62,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 54.293,
+      "duration": 0.098,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 54.541,
+      "duration": 0.096,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 54.541,
+      "duration": 0.096,
+      "midi": 69,
+      "noteNumber": 69,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 54.788,
+      "duration": 0.099,
+      "midi": 69,
+      "noteNumber": 69,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 54.788,
+      "duration": 0.099,
+      "midi": 73,
+      "noteNumber": 73,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "K"
+    },
+    {
+      "time": 55.286,
+      "duration": 0.096,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 55.286,
+      "duration": 0.096,
+      "midi": 69,
+      "noteNumber": 69,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 55.779,
+      "duration": 0.097,
+      "midi": 62,
+      "noteNumber": 62,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 55.779,
+      "duration": 0.097,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 56.028,
+      "duration": 0.759,
+      "midi": 64,
+      "noteNumber": 64,
+      "velocity": 0.46,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 56.028,
+      "duration": 0.759,
+      "midi": 68,
+      "noteNumber": 68,
+      "velocity": 0.46,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 56.028,
+      "duration": 0.759,
+      "midi": 76,
+      "noteNumber": 76,
+      "velocity": 0.57,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "K"
+    },
+    {
+      "time": 56.028,
+      "duration": 0.759,
+      "midi": 56,
+      "noteNumber": 56,
+      "velocity": 0.53,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 56.788,
+      "duration": 0.234,
+      "midi": 63,
+      "noteNumber": 63,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 56.788,
+      "duration": 0.234,
+      "midi": 67,
+      "noteNumber": 67,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 56.788,
+      "duration": 0.249,
+      "midi": 75,
+      "noteNumber": 75,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "K"
+    },
+    {
+      "time": 56.788,
+      "duration": 0.234,
+      "midi": 55,
+      "noteNumber": 55,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 57.037,
+      "duration": 0.195,
+      "midi": 62,
+      "noteNumber": 62,
+      "velocity": 0.45,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 57.037,
+      "duration": 0.195,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.45,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 57.037,
+      "duration": 0.195,
+      "midi": 74,
+      "noteNumber": 74,
+      "velocity": 0.56,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "K"
+    },
+    {
+      "time": 57.037,
+      "duration": 0.195,
+      "midi": 54,
+      "noteNumber": 54,
+      "velocity": 0.51,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 58.028,
+      "duration": 0.114,
+      "midi": 68,
+      "noteNumber": 68,
+      "velocity": 0.53,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 58.028,
+      "duration": 0.114,
+      "midi": 45,
+      "noteNumber": 45,
+      "velocity": 0.53,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 58.541,
+      "duration": 0.096,
+      "midi": 73,
+      "noteNumber": 73,
+      "velocity": 0.5,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "K"
+    },
+    {
+      "time": 58.541,
+      "duration": 0.096,
+      "midi": 61,
+      "noteNumber": 61,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 58.541,
+      "duration": 0.082,
+      "midi": 64,
+      "noteNumber": 64,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 58.788,
+      "duration": 0.099,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 59.286,
+      "duration": 0.096,
+      "midi": 73,
+      "noteNumber": 73,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "K"
+    },
+    {
+      "time": 59.286,
+      "duration": 0.096,
+      "midi": 52,
+      "noteNumber": 52,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 59.779,
+      "duration": 0.097,
+      "midi": 68,
+      "noteNumber": 68,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 59.779,
+      "duration": 0.097,
+      "midi": 56,
+      "noteNumber": 56,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 60.293,
+      "duration": 0.098,
+      "midi": 73,
+      "noteNumber": 73,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "K"
+    },
+    {
+      "time": 60.293,
+      "duration": 0.098,
+      "midi": 61,
+      "noteNumber": 61,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 60.293,
+      "duration": 0.098,
+      "midi": 64,
+      "noteNumber": 64,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 60.788,
+      "duration": 0.278,
+      "midi": 67,
+      "noteNumber": 67,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 60.788,
+      "duration": 0.278,
+      "midi": 55,
+      "noteNumber": 55,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 61.037,
+      "duration": 0.212,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.45,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 61.037,
+      "duration": 0.212,
+      "midi": 54,
+      "noteNumber": 54,
+      "velocity": 0.45,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 61.532,
+      "duration": 0.096,
+      "midi": 64,
+      "noteNumber": 64,
+      "velocity": 0.5,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 61.532,
+      "duration": 0.096,
+      "midi": 61,
+      "noteNumber": 61,
+      "velocity": 0.5,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 62.028,
+      "duration": 0.114,
+      "midi": 54,
+      "noteNumber": 54,
+      "velocity": 0.46,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 62.028,
+      "duration": 0.114,
+      "midi": 60,
+      "noteNumber": 60,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 62.028,
+      "duration": 0.114,
+      "midi": 38,
+      "noteNumber": 38,
+      "velocity": 0.52,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 62.293,
+      "duration": 0.098,
+      "midi": 54,
+      "noteNumber": 54,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 62.293,
+      "duration": 0.098,
+      "midi": 60,
+      "noteNumber": 60,
+      "velocity": 0.5,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 62.293,
+      "duration": 0.098,
+      "midi": 38,
+      "noteNumber": 38,
+      "velocity": 0.48,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 62.541,
+      "duration": 0.096,
+      "midi": 54,
+      "noteNumber": 54,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 62.541,
+      "duration": 0.082,
+      "midi": 60,
+      "noteNumber": 60,
+      "velocity": 0.51,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 62.541,
+      "duration": 0.096,
+      "midi": 38,
+      "noteNumber": 38,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 63.532,
+      "duration": 0.096,
+      "midi": 54,
+      "noteNumber": 54,
+      "velocity": 0.34,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 63.532,
+      "duration": 0.096,
+      "midi": 60,
+      "noteNumber": 60,
+      "velocity": 0.42,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 63.532,
+      "duration": 0.096,
+      "midi": 38,
+      "noteNumber": 38,
+      "velocity": 0.39,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 63.779,
+      "duration": 0.097,
+      "midi": 54,
+      "noteNumber": 54,
+      "velocity": 0.33,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 63.779,
+      "duration": 0.097,
+      "midi": 60,
+      "noteNumber": 60,
+      "velocity": 0.41,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 63.779,
+      "duration": 0.097,
+      "midi": 38,
+      "noteNumber": 38,
+      "velocity": 0.39,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 64.028,
+      "duration": 0.114,
+      "midi": 54,
+      "noteNumber": 54,
+      "velocity": 0.37,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 64.028,
+      "duration": 0.129,
+      "midi": 60,
+      "noteNumber": 60,
+      "velocity": 0.48,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 64.028,
+      "duration": 0.114,
+      "midi": 38,
+      "noteNumber": 38,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 65.037,
+      "duration": 0.495,
+      "midi": 56,
+      "noteNumber": 56,
+      "velocity": 0.45,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 65.037,
+      "duration": 0.495,
+      "midi": 59,
+      "noteNumber": 59,
+      "velocity": 0.45,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 65.037,
+      "duration": 0.495,
+      "midi": 63,
+      "noteNumber": 63,
+      "velocity": 0.56,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 65.532,
+      "duration": 0.494,
+      "midi": 55,
+      "noteNumber": 55,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 65.532,
+      "duration": 0.494,
+      "midi": 58,
+      "noteNumber": 58,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 65.532,
+      "duration": 0.494,
+      "midi": 62,
+      "noteNumber": 62,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 66.028,
+      "duration": 0.212,
+      "midi": 62,
+      "noteNumber": 62,
+      "velocity": 0.46,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 66.028,
+      "duration": 0.212,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.57,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 66.028,
+      "duration": 0.25,
+      "midi": 54,
+      "noteNumber": 54,
+      "velocity": 0.46,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 66.028,
+      "duration": 0.25,
+      "midi": 57,
+      "noteNumber": 57,
+      "velocity": 0.46,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 66.028,
+      "duration": 0.25,
+      "midi": 61,
+      "noteNumber": 61,
+      "velocity": 0.57,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 66.541,
+      "duration": 0.096,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 66.541,
+      "duration": 0.096,
+      "midi": 69,
+      "noteNumber": 69,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 66.788,
+      "duration": 0.099,
+      "midi": 69,
+      "noteNumber": 69,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 66.788,
+      "duration": 0.099,
+      "midi": 73,
+      "noteNumber": 73,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "K"
+    },
+    {
+      "time": 67.286,
+      "duration": 0.096,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 67.286,
+      "duration": 0.096,
+      "midi": 69,
+      "noteNumber": 69,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 67.779,
+      "duration": 0.277,
+      "midi": 63,
+      "noteNumber": 63,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 67.779,
+      "duration": 0.247,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 67.779,
+      "duration": 0.247,
+      "midi": 62,
+      "noteNumber": 62,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 68.028,
+      "duration": 0.114,
+      "midi": 64,
+      "noteNumber": 64,
+      "velocity": 0.45,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 68.028,
+      "duration": 0.114,
+      "midi": 56,
+      "noteNumber": 56,
+      "velocity": 0.39,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 68.028,
+      "duration": 0.114,
+      "midi": 62,
+      "noteNumber": 62,
+      "velocity": 0.46,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 68.293,
+      "duration": 0.098,
+      "midi": 64,
+      "noteNumber": 64,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 68.293,
+      "duration": 0.098,
+      "midi": 56,
+      "noteNumber": 56,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 68.293,
+      "duration": 0.098,
+      "midi": 62,
+      "noteNumber": 62,
+      "velocity": 0.5,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 68.541,
+      "duration": 0.096,
+      "midi": 64,
+      "noteNumber": 64,
+      "velocity": 0.5,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 68.541,
+      "duration": 0.096,
+      "midi": 56,
+      "noteNumber": 56,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 68.541,
+      "duration": 0.082,
+      "midi": 62,
+      "noteNumber": 62,
+      "velocity": 0.51,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 69.037,
+      "duration": 0.099,
+      "midi": 68,
+      "noteNumber": 68,
+      "velocity": 0.45,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 69.037,
+      "duration": 0.099,
+      "midi": 76,
+      "noteNumber": 76,
+      "velocity": 0.53,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "K"
+    },
+    {
+      "time": 69.286,
+      "duration": 0.096,
+      "midi": 68,
+      "noteNumber": 68,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 69.286,
+      "duration": 0.096,
+      "midi": 76,
+      "noteNumber": 76,
+      "velocity": 0.5,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "K"
+    },
+    {
+      "time": 69.532,
+      "duration": 0.096,
+      "midi": 68,
+      "noteNumber": 68,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 69.532,
+      "duration": 0.082,
+      "midi": 76,
+      "noteNumber": 76,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "K"
+    },
+    {
+      "time": 70.028,
+      "duration": 0.212,
+      "midi": 47,
+      "noteNumber": 47,
+      "velocity": 0.53,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 70.293,
+      "duration": 0.098,
+      "midi": 62,
+      "noteNumber": 62,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 70.293,
+      "duration": 0.098,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 70.541,
+      "duration": 0.096,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 70.541,
+      "duration": 0.096,
+      "midi": 69,
+      "noteNumber": 69,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 70.788,
+      "duration": 0.099,
+      "midi": 69,
+      "noteNumber": 69,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 70.788,
+      "duration": 0.099,
+      "midi": 73,
+      "noteNumber": 73,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "K"
+    },
+    {
+      "time": 71.287,
+      "duration": 0.097,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 71.287,
+      "duration": 0.097,
+      "midi": 69,
+      "noteNumber": 69,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 71.791,
+      "duration": 0.101,
+      "midi": 62,
+      "noteNumber": 62,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 71.791,
+      "duration": 0.101,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 72.05,
+      "duration": 1.013,
+      "midi": 64,
+      "noteNumber": 64,
+      "velocity": 0.46,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 72.05,
+      "duration": 1.013,
+      "midi": 68,
+      "noteNumber": 68,
+      "velocity": 0.46,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 72.05,
+      "duration": 1.013,
+      "midi": 73,
+      "noteNumber": 73,
+      "velocity": 0.57,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "K"
+    },
+    {
+      "time": 72.05,
+      "duration": 1.013,
+      "midi": 52,
+      "noteNumber": 52,
+      "velocity": 0.53,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 73.063,
+      "duration": 0.195,
+      "midi": 62,
+      "noteNumber": 62,
+      "velocity": 0.45,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 73.063,
+      "duration": 0.195,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.45,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 73.063,
+      "duration": 0.195,
+      "midi": 71,
+      "noteNumber": 71,
+      "velocity": 0.56,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "K"
+    },
+    {
+      "time": 73.063,
+      "duration": 0.195,
+      "midi": 50,
+      "noteNumber": 50,
+      "velocity": 0.51,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 74.054,
+      "duration": 0.25,
+      "midi": 71,
+      "noteNumber": 71,
+      "velocity": 0.53,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "K"
+    },
+    {
+      "time": 74.054,
+      "duration": 0.512,
+      "midi": 52,
+      "noteNumber": 52,
+      "velocity": 0.53,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 74.319,
+      "duration": 0.233,
+      "midi": 67,
+      "noteNumber": 67,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 74.567,
+      "duration": 0.231,
+      "midi": 62,
+      "noteNumber": 62,
+      "velocity": 0.5,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 74.567,
+      "duration": 0.096,
+      "midi": 59,
+      "noteNumber": 59,
+      "velocity": 0.5,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 74.814,
+      "duration": 0.483,
+      "midi": 61,
+      "noteNumber": 61,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 74.814,
+      "duration": 0.483,
+      "midi": 45,
+      "noteNumber": 45,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 75.312,
+      "duration": 0.231,
+      "midi": 71,
+      "noteNumber": 71,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "K"
+    },
+    {
+      "time": 75.312,
+      "duration": 0.096,
+      "midi": 57,
+      "noteNumber": 57,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 75.312,
+      "duration": 0.096,
+      "midi": 61,
+      "noteNumber": 61,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 75.558,
+      "duration": 0.231,
+      "midi": 67,
+      "noteNumber": 67,
+      "velocity": 0.5,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 75.805,
+      "duration": 0.232,
+      "midi": 61,
+      "noteNumber": 61,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 76.054,
+      "duration": 0.25,
+      "midi": 69,
+      "noteNumber": 69,
+      "velocity": 0.53,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 76.054,
+      "duration": 0.512,
+      "midi": 50,
+      "noteNumber": 50,
+      "velocity": 0.53,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 76.319,
+      "duration": 0.233,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 76.567,
+      "duration": 0.231,
+      "midi": 60,
+      "noteNumber": 60,
+      "velocity": 0.5,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 76.567,
+      "duration": 0.096,
+      "midi": 57,
+      "noteNumber": 57,
+      "velocity": 0.5,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 76.814,
+      "duration": 0.483,
+      "midi": 59,
+      "noteNumber": 59,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 76.814,
+      "duration": 0.483,
+      "midi": 43,
+      "noteNumber": 43,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 77.312,
+      "duration": 0.231,
+      "midi": 65,
+      "noteNumber": 65,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 77.312,
+      "duration": 0.096,
+      "midi": 55,
+      "noteNumber": 55,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 77.312,
+      "duration": 0.096,
+      "midi": 59,
+      "noteNumber": 59,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 77.558,
+      "duration": 0.231,
+      "midi": 62,
+      "noteNumber": 62,
+      "velocity": 0.5,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 77.805,
+      "duration": 0.232,
+      "midi": 59,
+      "noteNumber": 59,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 78.055,
+      "duration": 0.114,
+      "midi": 54,
+      "noteNumber": 54,
+      "velocity": 0.46,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 78.055,
+      "duration": 0.114,
+      "midi": 61,
+      "noteNumber": 61,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 78.055,
+      "duration": 0.114,
+      "midi": 47,
+      "noteNumber": 47,
+      "velocity": 0.37,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 78.055,
+      "duration": 0.114,
+      "midi": 52,
+      "noteNumber": 52,
+      "velocity": 0.48,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 78.319,
+      "duration": 0.098,
+      "midi": 54,
+      "noteNumber": 54,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 78.319,
+      "duration": 0.098,
+      "midi": 61,
+      "noteNumber": 61,
+      "velocity": 0.5,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 78.319,
+      "duration": 0.098,
+      "midi": 47,
+      "noteNumber": 47,
+      "velocity": 0.33,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 78.319,
+      "duration": 0.098,
+      "midi": 52,
+      "noteNumber": 52,
+      "velocity": 0.41,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 78.567,
+      "duration": 0.096,
+      "midi": 54,
+      "noteNumber": 54,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 78.567,
+      "duration": 0.082,
+      "midi": 61,
+      "noteNumber": 61,
+      "velocity": 0.51,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 78.567,
+      "duration": 0.096,
+      "midi": 47,
+      "noteNumber": 47,
+      "velocity": 0.34,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 78.567,
+      "duration": 0.111,
+      "midi": 52,
+      "noteNumber": 52,
+      "velocity": 0.42,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 79.805,
+      "duration": 0.277,
+      "midi": 70,
+      "noteNumber": 70,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 79.805,
+      "duration": 0.277,
+      "midi": 49,
+      "noteNumber": 49,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 80.055,
+      "duration": 0.157,
+      "midi": 71,
+      "noteNumber": 71,
+      "velocity": 0.45,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "K"
+    },
+    {
+      "time": 80.055,
+      "duration": 0.157,
+      "midi": 50,
+      "noteNumber": 50,
+      "velocity": 0.45,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 80.319,
+      "duration": 0.277,
+      "midi": 73,
+      "noteNumber": 73,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "K"
+    },
+    {
+      "time": 80.319,
+      "duration": 0.277,
+      "midi": 55,
+      "noteNumber": 55,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 80.567,
+      "duration": 0.139,
+      "midi": 74,
+      "noteNumber": 74,
+      "velocity": 0.45,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "K"
+    },
+    {
+      "time": 80.567,
+      "duration": 0.139,
+      "midi": 56,
+      "noteNumber": 56,
+      "velocity": 0.45,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 80.814,
+      "duration": 0.278,
+      "midi": 78,
+      "noteNumber": 78,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "K"
+    },
+    {
+      "time": 80.814,
+      "duration": 0.278,
+      "midi": 61,
+      "noteNumber": 61,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 81.063,
+      "duration": 0.141,
+      "midi": 81,
+      "noteNumber": 81,
+      "velocity": 0.45,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "K"
+    },
+    {
+      "time": 81.063,
+      "duration": 0.141,
+      "midi": 67,
+      "noteNumber": 67,
+      "velocity": 0.45,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 83.063,
+      "duration": 0.515,
+      "midi": 57,
+      "noteNumber": 57,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 83.558,
+      "duration": 0.513,
+      "midi": 58,
+      "noteNumber": 58,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 84.055,
+      "duration": 0.789,
+      "midi": 59,
+      "noteNumber": 59,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 84.055,
+      "duration": 0.512,
+      "midi": 52,
+      "noteNumber": 52,
+      "velocity": 0.53,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 84.567,
+      "duration": 0.231,
+      "midi": 52,
+      "noteNumber": 52,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 84.567,
+      "duration": 0.246,
+      "midi": 55,
+      "noteNumber": 55,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 84.814,
+      "duration": 0.278,
+      "midi": 58,
+      "noteNumber": 58,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 84.814,
+      "duration": 0.483,
+      "midi": 47,
+      "noteNumber": 47,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 85.063,
+      "duration": 1.482,
+      "midi": 59,
+      "noteNumber": 59,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 85.312,
+      "duration": 0.74,
+      "midi": 52,
+      "noteNumber": 52,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 85.312,
+      "duration": 0.74,
+      "midi": 55,
+      "noteNumber": 55,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 86.055,
+      "duration": 0.25,
+      "midi": 45,
+      "noteNumber": 45,
+      "velocity": 0.53,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 86.319,
+      "duration": 0.494,
+      "midi": 52,
+      "noteNumber": 52,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 86.319,
+      "duration": 0.494,
+      "midi": 55,
+      "noteNumber": 55,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 86.567,
+      "duration": 0.276,
+      "midi": 57,
+      "noteNumber": 57,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 86.814,
+      "duration": 0.278,
+      "midi": 58,
+      "noteNumber": 58,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 86.814,
+      "duration": 0.744,
+      "midi": 52,
+      "noteNumber": 52,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 87.063,
+      "duration": 0.278,
+      "midi": 59,
+      "noteNumber": 59,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 87.312,
+      "duration": 0.512,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 87.558,
+      "duration": 0.494,
+      "midi": 54,
+      "noteNumber": 54,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 87.558,
+      "duration": 0.494,
+      "midi": 55,
+      "noteNumber": 55,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 87.558,
+      "duration": 0.494,
+      "midi": 59,
+      "noteNumber": 59,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 87.805,
+      "duration": 0.277,
+      "midi": 61,
+      "noteNumber": 61,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 88.055,
+      "duration": 0.789,
+      "midi": 59,
+      "noteNumber": 59,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 88.055,
+      "duration": 0.512,
+      "midi": 50,
+      "noteNumber": 50,
+      "velocity": 0.53,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 88.567,
+      "duration": 0.231,
+      "midi": 54,
+      "noteNumber": 54,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 88.567,
+      "duration": 0.246,
+      "midi": 57,
+      "noteNumber": 57,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 88.814,
+      "duration": 0.278,
+      "midi": 58,
+      "noteNumber": 58,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 88.814,
+      "duration": 0.483,
+      "midi": 45,
+      "noteNumber": 45,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 89.063,
+      "duration": 2,
+      "midi": 59,
+      "noteNumber": 59,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 89.312,
+      "duration": 0.493,
+      "midi": 54,
+      "noteNumber": 54,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 89.312,
+      "duration": 0.493,
+      "midi": 57,
+      "noteNumber": 57,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 89.805,
+      "duration": 0.232,
+      "midi": 49,
+      "noteNumber": 49,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 90.055,
+      "duration": 0.25,
+      "midi": 50,
+      "noteNumber": 50,
+      "velocity": 0.53,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 90.319,
+      "duration": 0.494,
+      "midi": 54,
+      "noteNumber": 54,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 90.319,
+      "duration": 0.494,
+      "midi": 57,
+      "noteNumber": 57,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 90.814,
+      "duration": 0.744,
+      "midi": 45,
+      "noteNumber": 45,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 91.063,
+      "duration": 0.515,
+      "midi": 59,
+      "noteNumber": 59,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 91.558,
+      "duration": 0.513,
+      "midi": 60,
+      "noteNumber": 60,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 91.558,
+      "duration": 0.494,
+      "midi": 54,
+      "noteNumber": 54,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 91.558,
+      "duration": 0.494,
+      "midi": 57,
+      "noteNumber": 57,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 92.055,
+      "duration": 0.789,
+      "midi": 61,
+      "noteNumber": 61,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 92.055,
+      "duration": 0.512,
+      "midi": 42,
+      "noteNumber": 42,
+      "velocity": 0.53,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 92.567,
+      "duration": 0.231,
+      "midi": 51,
+      "noteNumber": 51,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 92.567,
+      "duration": 0.246,
+      "midi": 59,
+      "noteNumber": 59,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 92.814,
+      "duration": 0.278,
+      "midi": 60,
+      "noteNumber": 60,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 92.814,
+      "duration": 0.498,
+      "midi": 49,
+      "noteNumber": 49,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 93.063,
+      "duration": 1.504,
+      "midi": 61,
+      "noteNumber": 61,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 93.312,
+      "duration": 0.493,
+      "midi": 49,
+      "noteNumber": 49,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 93.312,
+      "duration": 0.493,
+      "midi": 58,
+      "noteNumber": 58,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 93.805,
+      "duration": 0.232,
+      "midi": 41,
+      "noteNumber": 41,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 94.055,
+      "duration": 0.25,
+      "midi": 42,
+      "noteNumber": 42,
+      "velocity": 0.53,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 94.319,
+      "duration": 0.494,
+      "midi": 49,
+      "noteNumber": 49,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 94.319,
+      "duration": 0.494,
+      "midi": 58,
+      "noteNumber": 58,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 94.567,
+      "duration": 0.276,
+      "midi": 61,
+      "noteNumber": 61,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 94.814,
+      "duration": 0.278,
+      "midi": 60,
+      "noteNumber": 60,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 94.814,
+      "duration": 0.744,
+      "midi": 37,
+      "noteNumber": 37,
+      "velocity": 0.48,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 95.063,
+      "duration": 0.278,
+      "midi": 61,
+      "noteNumber": 61,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 95.312,
+      "duration": 0.512,
+      "midi": 68,
+      "noteNumber": 68,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 95.559,
+      "duration": 0.494,
+      "midi": 49,
+      "noteNumber": 49,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 95.559,
+      "duration": 0.494,
+      "midi": 58,
+      "noteNumber": 58,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 95.805,
+      "duration": 0.277,
+      "midi": 63,
+      "noteNumber": 63,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 96.055,
+      "duration": 0.789,
+      "midi": 61,
+      "noteNumber": 61,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 96.055,
+      "duration": 0.512,
+      "midi": 42,
+      "noteNumber": 42,
+      "velocity": 0.53,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 96.567,
+      "duration": 0.231,
+      "midi": 54,
+      "noteNumber": 54,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 96.567,
+      "duration": 0.246,
+      "midi": 57,
+      "noteNumber": 57,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 96.814,
+      "duration": 0.278,
+      "midi": 63,
+      "noteNumber": 63,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 96.814,
+      "duration": 0.483,
+      "midi": 47,
+      "noteNumber": 47,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 97.063,
+      "duration": 0.72,
+      "midi": 59,
+      "noteNumber": 59,
+      "velocity": 0.45,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 97.312,
+      "duration": 0.74,
+      "midi": 54,
+      "noteNumber": 54,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 97.312,
+      "duration": 0.74,
+      "midi": 57,
+      "noteNumber": 57,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 97.805,
+      "duration": 0.277,
+      "midi": 61,
+      "noteNumber": 61,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 98.055,
+      "duration": 0.157,
+      "midi": 62,
+      "noteNumber": 62,
+      "velocity": 0.45,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 98.055,
+      "duration": 1.008,
+      "midi": 40,
+      "noteNumber": 40,
+      "velocity": 0.52,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "D"
+    },
+    {
+      "time": 98.319,
+      "duration": 0.194,
+      "midi": 66,
+      "noteNumber": 66,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 98.319,
+      "duration": 0.194,
+      "midi": 69,
+      "noteNumber": 69,
+      "velocity": 0.54,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 98.814,
+      "duration": 0.234,
+      "midi": 62,
+      "noteNumber": 62,
+      "velocity": 0.49,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 99.063,
+      "duration": 0.099,
+      "midi": 64,
+      "noteNumber": 64,
+      "velocity": 0.45,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 99.063,
+      "duration": 0.099,
+      "midi": 68,
+      "noteNumber": 68,
+      "velocity": 0.53,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 99.063,
+      "duration": 0.099,
+      "midi": 49,
+      "noteNumber": 49,
+      "velocity": 0.35,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 99.063,
+      "duration": 0.099,
+      "midi": 59,
+      "noteNumber": 59,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 99.312,
+      "duration": 0.096,
+      "midi": 64,
+      "noteNumber": 64,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 99.312,
+      "duration": 0.096,
+      "midi": 68,
+      "noteNumber": 68,
+      "velocity": 0.5,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 99.312,
+      "duration": 0.096,
+      "midi": 49,
+      "noteNumber": 49,
+      "velocity": 0.33,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 99.312,
+      "duration": 0.096,
+      "midi": 59,
+      "noteNumber": 59,
+      "velocity": 0.41,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 99.559,
+      "duration": 0.194,
+      "midi": 64,
+      "noteNumber": 64,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 99.559,
+      "duration": 0.194,
+      "midi": 68,
+      "noteNumber": 68,
+      "velocity": 0.51,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "J"
+    },
+    {
+      "time": 99.559,
+      "duration": 0.194,
+      "midi": 49,
+      "noteNumber": 49,
+      "velocity": 0.43,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    },
+    {
+      "time": 99.559,
+      "duration": 0.194,
+      "midi": 59,
+      "noteNumber": 59,
+      "velocity": 0.51,
+      "track": "SmartMusic SoftSynth",
+      "channel": 0,
+      "lane": "F"
+    }
+  ]
+}
