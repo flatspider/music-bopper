@@ -35,7 +35,6 @@ export class BgMusicPlayer {
    * Loops by scheduling a second pass offset by the song duration.
    */
   load(song: MidiSongJson): void {
-    // Schedule notes — Transport may or may not be running yet
     for (const note of song.notes) {
       if (note.channel === 9) continue; // skip percussion for chill bg vibe
 
