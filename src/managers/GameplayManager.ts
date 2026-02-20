@@ -8,6 +8,9 @@ const HIT_WINDOWS: { grade: HitGrade; window: number }[] = [
   { grade: "good",    window: 0.15 },  // ±150ms
 ];
 
+// The outermost window — once songTime passes a note by more than this, it's a miss
+const MISS_THRESHOLD = HIT_WINDOWS[HIT_WINDOWS.length - 1].window;
+
 // Points awarded per grade. Combo multiplier is applied on top.
 const GRADE_POINTS: Record<HitGrade, number> = {
   perfect: 300,
@@ -25,7 +28,8 @@ export class GameplayManager implements Manager {
     }
     world.pendingInputs = [];
 
-    // TODO (Step 5): detect missed notes here
+    // Mark notes as missed once they're past the hit window
+    this.detectMisses(world);
   }
 
   private processHit(world: RhythmWorld, lane: Lane, time: number): void {
@@ -72,5 +76,24 @@ export class GameplayManager implements Manager {
     }
 
     // Outside all windows — ignore (no penalty for mashing)
+  }
+
+  private detectMisses(world: RhythmWorld): void {
+    for (const lane of Object.values(world.notes)) {
+      for (const note of lane) {
+        if (note.status !== "active") continue;
+
+        // If songTime is past this note by more than the miss threshold, it's gone
+        if (world.songTime - note.time > MISS_THRESHOLD) {
+          note.status = "missed";
+          world.combo = 0;
+          world.hitCounts.missed += 1;
+        }
+
+        // Notes are sorted by time — once we hit a note that's still in the future,
+        // no more misses possible in this lane
+        if (note.time > world.songTime) break;
+      }
+    }
   }
 }
