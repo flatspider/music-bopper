@@ -1,6 +1,5 @@
-import type { Game } from "../engine/Game";
 import type { Renderer } from "../engine/types";
-import type { HitGrade } from "../midi/parser";
+import type { HitGrade, GameNote } from "../midi/parser";
 
 // Shared types go here
 
@@ -47,6 +46,8 @@ export interface RhythmWorld extends GameWorld {
   maxCombo: number;
   hitCounts: Record<HitGrade | "missed", number>;
   lastHitResult: { grade: HitGrade; time: number } | null; // for on-screen feedback
+  notes: Record<Lane, GameNote[]>; // all notes by lane, shared between managers
+  pendingInputs: { lane: Lane; time: number }[]; // InputManager writes, GameplayManager drains
 }
 
 // also contains state and player
