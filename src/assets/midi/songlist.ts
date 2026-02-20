@@ -20,3 +20,9 @@ export const SONG_LIST: Record<SongId, MidiSongJson> = {
   TakeFive: TakeFiveData,
   WillChannel: WiiChannelsData,
 };
+
+// Per-song chart track filter — only these tracks become gameplay notes.
+// Audio still plays ALL tracks. Omit a song to use all tracks for chart.
+export const CHART_TRACKS: Partial<Record<SongId, string[]>> = {
+  PiratesOfTheCaribbean: ["Right Hand"],
+};
