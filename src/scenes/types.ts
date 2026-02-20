@@ -1,6 +1,5 @@
 import type { Game } from "../engine/Game";
 import type { Renderer } from "../engine/types";
-import type { MidiSongJson } from "../types/miditypes";
 
 // Shared types go here
 
@@ -8,7 +7,18 @@ import type { MidiSongJson } from "../types/miditypes";
 
 // -- Shared Constants
 
-// key direction,
+// -- Keys and Lanes
+
+export type Lane = "D" | "F" | "J" | "K";
+
+export const KEY_LANE: Record<string, Lane> = {
+    KeyD: "D",
+    KeyF: "F",
+    KeyJ: "J",
+    KeyK: "K"
+}
+
+// --- Game State --- 
 
 // --- Game State ---
 
@@ -37,12 +47,16 @@ export interface SongSelectWorld extends GameWorld {
   selectedSong: string; // song User selects (loaded into RhythmScene, RhythmWorld)
 }
 
+// Need to add more fields to RhythmWorld interface in the scene/types.ts
+// eg songTime, notes, and score fields
+
 // --- Manager Interface ---
 
 export interface Manager {
-  update?(world: GameWorld, dt: number): void;
-  render?(world: GameWorld, renderer: Renderer): void;
-  onKeyDown?(world: GameWorld, key: string): void;
-  onKeyUp?(world: GameWorld, key: string): void;
-  destroy?(): void;
+    update?(world: RhythmWorld, dt: number): void;
+    render?(world: RhythmWorld, renderer: Renderer): void;
+    onKeyDown?(world: RhythmWorld, key: string): void;
+    onKeyUp?(world: RhythmWorld, key: string): void;
+    onKeyHold?(world: RhythmWorld, key:string): void;
+    destroy?(): void;
 }
