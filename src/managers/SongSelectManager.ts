@@ -1,4 +1,6 @@
 import { SONG_LIST, type SongId } from "../assets/midi/songlist";
+import CarnivalData from "../assets/midi/json/Carnival-Or-Manha-De-Carnival-(Jazz-Gitaar-Trio).json";
+import { BgMusicPlayer } from "../engine/BgMusicPlayer";
 import type { Renderer } from "../engine/Renderer";
 import { CANVAS_WIDTH, CANVAS_HEIGHT } from "../engine/types";
 import type { GameWorld, Manager, SongSelectWorld } from "../scenes/types";
@@ -51,7 +53,7 @@ const COLORS = {
   columnLabel: 0x777777,
   columnLine: 0x444444,
   cardBg: 0x1e1e22,
-  cardBgSelected: 0x2a2a30,
+  cardBgSelected: 0x3c3c44,
   cardBorder: 0xd4af37, // gold highlight for selected
   songTitle: 0xffffff,
   artistText: 0x999999,
@@ -74,15 +76,33 @@ export class SongSelectManager implements Manager {
   private songModules = SONG_LIST;
   private scrollOffset = 0;
 
-  // TODO: Background music for song select screen
-  // - Load a looping ambient/jazz track via AudioManager
-  // - Start playback on scene init, stop on destroy
-  // - Consider: fade in on enter, fade out on song select
-  // - Candidate: a short jazz loop or menu theme
+  // --- Background music ---
+  private bgMusic = new BgMusicPlayer();
+  private bgStarted = false;
+  private fadingOut = false;
+
+  constructor() {
+    this.bgMusic.load(CarnivalData as unknown as MidiSongJson);
+  }
+
+  /** Start bg music on the first user keypress (browser requires gesture). */
+  private ensureBgPlaying(): void {
+    if (this.bgStarted) return;
+    this.bgStarted = true;
+    this.bgMusic.play();
+  }
+
+  destroy(): void {
+    this.bgMusic.dispose();
+  }
 
   onKeyDown(world: GameWorld, key: string): void {
     const ssWorld = world as SongSelectWorld;
     const songCount = Object.keys(this.songModules).length;
+
+    this.ensureBgPlaying();
+
+    if (this.fadingOut) return; // ignore input during fade-out
 
     if (key === "ArrowUp") {
       ssWorld.currentCardHighlight =
@@ -93,8 +113,14 @@ export class SongSelectManager implements Manager {
         (ssWorld.currentCardHighlight + 1) % songCount;
       this.updateScroll(ssWorld.currentCardHighlight, songCount);
     } else if (key === "Enter") {
+      this.fadingOut = true;
       const keys = Object.keys(this.songModules);
-      ssWorld.selectedSong = keys[ssWorld.currentCardHighlight];
+      const selectedSongId = keys[ssWorld.currentCardHighlight];
+
+      // Fade out bg music, then trigger the scene transition
+      this.bgMusic.fadeOut().then(() => {
+        ssWorld.selectedSong = selectedSongId;
+      });
     }
   }
 
