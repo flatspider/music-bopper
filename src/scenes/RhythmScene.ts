@@ -26,7 +26,16 @@ export class RhythmScene implements Scene {
 
     // 3. Create LaneManagers from real song data
     LANES.forEach((lane) => {
-      const notes = song.notes.filter((n) => n.lane === lane);
+      const notes: GameNote[] = song.notes
+        .filter((n) => n.lane === lane)
+        .map((n) => ({
+          time: n.time,
+          lane: n.lane,
+          duration: n.duration,
+          velocity: n.velocity,
+          noteNumber: n.noteNumber,
+          status: "active" as const,
+        }));
       this.managers.push(new LaneManager(notes, lane));
     });
 
