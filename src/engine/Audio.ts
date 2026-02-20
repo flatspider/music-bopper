@@ -21,6 +21,7 @@ export class Audio {
 
   constructor() {
     this.synth = new Tone.PolySynth(Tone.Synth).toDestination();
+    this.synth.maxPolyphony = 64;
   }
 
   /**
