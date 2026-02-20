@@ -1,4 +1,5 @@
 import { SONG_LIST, CHART_TRACKS, SongId } from "../assets/midi/songlist";
+import { CANVAS_WIDTH, CANVAS_HEIGHT } from "../engine/types";
 import type { Scene, GameContext, Renderer } from "../engine/types";
 import type { Manager, RhythmWorld, Lane } from "./types";
 import { LANES, assignLane, type GameNote } from "../midi/parser";
@@ -112,38 +113,71 @@ export class RhythmScene implements Scene {
       return;
     }
 
-    // Score (top-right)
-    renderer.drawText(`${this.world.score}`, 560, 30, {
-      fontSize: 28,
-      color: 0xffffff,
-      anchor: 1,
+    this.renderScoreHUD(renderer);
+    this.renderGradeFeedback(renderer);
+  }
+
+  // --- Score HUD (top-right panel, matches SongSelect aesthetic) ---
+
+  private renderScoreHUD(renderer: Renderer): void {
+    const panelW = 180;
+    const panelH = this.world.combo > 1 ? 80 : 56;
+    const panelX = CANVAS_WIDTH - panelW - 16;
+    const panelY = 12;
+
+    // Dark panel background
+    renderer.drawRect(panelX, panelY, panelW, panelH, 0x141416);
+    // Gold left accent bar
+    renderer.drawRect(panelX, panelY, 3, panelH, 0xd4af37);
+
+    // "SCORE" label
+    renderer.drawText("SCORE", panelX + 14, panelY + 8, {
+      fontSize: 10,
+      color: 0x777777,
+      letterSpacing: 3,
     });
 
-    // Combo (below score, only when active)
+    // Score value
+    renderer.drawText(`${this.world.score}`, panelX + 14, panelY + 24, {
+      fontSize: 26,
+      color: 0xffffff,
+      fontWeight: "bold",
+      fontFamily: "Arial Black, Arial, sans-serif",
+    });
+
+    // Combo (only when active)
     if (this.world.combo > 1) {
-      renderer.drawText(`${this.world.combo}x combo`, 560, 60, {
-        fontSize: 16,
-        color: 0xffe066,
-        anchor: 1,
+      renderer.drawText(`${this.world.combo}x COMBO`, panelX + 14, panelY + 56, {
+        fontSize: 13,
+        color: 0xd4af37,
+        fontWeight: "bold",
+        letterSpacing: 2,
       });
     }
+  }
 
-    // Hit grade feedback — flash for 0.4s after each hit
-    if (this.world.lastHitResult) {
-      const age = this.world.songTime - this.world.lastHitResult.time;
-      if (age < 0.4) {
-        const grade = this.world.lastHitResult.grade;
-        const label = grade.toUpperCase() + "!";
-        const color = grade === "perfect" ? 0xffd700
-                    : grade === "great"   ? 0x44cc44
-                    :                       0xaaaaaa;
-        renderer.drawText(label, 300, 480, {
-          fontSize: 24,
-          color,
-          anchor: 0.5,
-        });
-      }
-    }
+  // --- Hit grade feedback (centered, below hit zone) ---
+
+  private renderGradeFeedback(renderer: Renderer): void {
+    if (!this.world.lastHitResult) return;
+
+    const age = this.world.songTime - this.world.lastHitResult.time;
+    if (age >= 0.4) return;
+
+    const grade = this.world.lastHitResult.grade;
+    const label = grade.toUpperCase() + "!";
+    const color = grade === "perfect" ? 0xd4af37  // gold (matches SongSelect accent)
+               : grade === "great"   ? 0x44cc44
+               :                       0x888888;
+
+    renderer.drawText(label, CANVAS_WIDTH / 2, CANVAS_HEIGHT - 120, {
+      fontSize: 28,
+      color,
+      anchor: 0.5,
+      fontWeight: "bold",
+      fontFamily: "Arial Black, Arial, sans-serif",
+      letterSpacing: 4,
+    });
   }
 
   onKeyDown(key: string): void {
