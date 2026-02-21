@@ -3,7 +3,6 @@ import {
   Container,
   Graphics,
   Text,
-  TextStyle,
   type TextStyleFontWeight,
   type TextStyleFontStyle,
 } from "pixi.js";

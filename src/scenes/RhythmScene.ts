@@ -3,6 +3,7 @@ import { CANVAS_WIDTH, CANVAS_HEIGHT } from "../engine/types";
 import type { Scene, GameContext, Renderer } from "../engine/types";
 import type { Manager, RhythmWorld, Lane } from "./types";
 import { LANES, assignLane, type GameNote } from "../midi/parser";
+import { gameConfig } from "../config/GameConfig";
 import { AudioManager } from "../managers/AudioManager.js";
 import { InputManager } from "../managers/InputManager.js";
 import { GameplayManager } from "../managers/GameplayManager.js";
@@ -53,9 +54,9 @@ export class RhythmScene implements Scene {
     let quickRun = 0;
     for (let i = 0; i < chartNotes.length; i++) {
       const gap = i > 0 ? chartNotes[i].time - chartNotes[i - 1].time : Infinity;
-      if (gap < 0.12) {
+      if (gap < gameConfig.gameplay.quickNoteGap) {
         quickRun++;
-        if (quickRun % 3 === 0) continue;
+        if (quickRun % gameConfig.gameplay.noteThinRate === 0) continue;
       } else {
         quickRun = 0;
       }

@@ -6,7 +6,7 @@ import type { Manager, SongSelectWorld } from "./types";
 
 export class SongSelectScene implements Scene {
   private world!: SongSelectWorld;
-  private managers: Manager<SongSelectWorld>[];
+  private managers!: Manager<SongSelectWorld>[];
   private context!: GameContext;
 
   init(context: GameContext): void {

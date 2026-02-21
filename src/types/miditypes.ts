@@ -3,7 +3,7 @@
 // distinct from @tonejs/midi's MidiJSON/NoteJSON types.
 // See: public/midi/json/*.json
 
-import type { Lane } from "../midi/parser";
+import type { Lane } from "../scenes/types";
 
 export interface MidiSongJson {
   name: string;

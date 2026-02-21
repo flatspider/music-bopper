@@ -1,22 +1,6 @@
 import type { HitGrade, GameNote } from "../midi/parser";
 import type { Manager, RhythmWorld, Lane } from "../scenes/types";
-
-// Hit windows in seconds — how far from the note's exact time counts as a hit
-const HIT_WINDOWS: { grade: HitGrade; window: number }[] = [
-  { grade: "perfect", window: 0.05 },  // ±50ms
-  { grade: "great",   window: 0.10 },  // ±100ms
-  { grade: "good",    window: 0.15 },  // ±150ms
-];
-
-// The outermost window — once songTime passes a note by more than this, it's a miss
-const MISS_THRESHOLD = HIT_WINDOWS[HIT_WINDOWS.length - 1].window;
-
-// Points awarded per grade. Combo multiplier is applied on top.
-const GRADE_POINTS: Record<HitGrade, number> = {
-  perfect: 300,
-  great:   200,
-  good:    100,
-};
+import { gameConfig } from "../config/GameConfig";
 
 export class GameplayManager implements Manager {
   update(world: RhythmWorld, _dt: number): void {
@@ -60,14 +44,28 @@ export class GameplayManager implements Manager {
     if (!closestNote) return;
 
     // Check against hit windows (tightest first)
-    for (const { grade, window } of HIT_WINDOWS) {
+    const { perfectWindow, greatWindow, goodWindow,
+            perfectPoints, greatPoints, goodPoints,
+            comboStep, comboBonusPct } = gameConfig.gameplay;
+    const hitWindows: { grade: HitGrade; window: number }[] = [
+      { grade: "perfect", window: perfectWindow },
+      { grade: "great",   window: greatWindow },
+      { grade: "good",    window: goodWindow },
+    ];
+    const gradePoints: Record<HitGrade, number> = {
+      perfect: perfectPoints,
+      great:   greatPoints,
+      good:    goodPoints,
+    };
+
+    for (const { grade, window } of hitWindows) {
       if (closestDist <= window) {
         closestNote.status = "hit";
         closestNote.hitGrade = grade;
 
         // Score: base points × (1 + combo bonus)
-        const comboMultiplier = 1 + Math.floor(world.combo / 10) * 0.1;
-        world.score += Math.round(GRADE_POINTS[grade] * comboMultiplier);
+        const comboMultiplier = 1 + Math.floor(world.combo / comboStep) * comboBonusPct;
+        world.score += Math.round(gradePoints[grade] * comboMultiplier);
         world.combo += 1;
         if (world.combo > world.maxCombo) world.maxCombo = world.combo;
         world.hitCounts[grade] += 1;
@@ -95,8 +93,8 @@ export class GameplayManager implements Manager {
       for (const note of lane) {
         if (note.status !== "active") continue;
 
-        // If songTime is past this note by more than the miss threshold, it's gone
-        if (world.songTime - note.time > MISS_THRESHOLD) {
+        // If songTime is past this note by more than the outermost window, it's gone
+        if (world.songTime - note.time > gameConfig.gameplay.goodWindow) {
           note.status = "missed";
           world.combo = 0;
           world.hitCounts.missed += 1;
