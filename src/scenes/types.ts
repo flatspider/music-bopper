@@ -58,11 +58,11 @@ export interface SongSelectWorld extends GameWorld {
 
 // --- Manager Interface ---
 
-export interface Manager {
-    update?(world: RhythmWorld, dt: number): void;
-    render?(world: RhythmWorld, renderer: Renderer): void;
-    onKeyDown?(world: RhythmWorld, key: string): void;
-    onKeyUp?(world: RhythmWorld, key: string): void;
-    onKeyHold?(world: RhythmWorld, key:string): void;
+export interface Manager<W extends GameWorld = RhythmWorld> {
+    update?(world: W, dt: number): void;
+    render?(world: W, renderer: Renderer): void;
+    onKeyDown?(world: W, key: string): void;
+    onKeyUp?(world: W, key: string): void;
+    onKeyHold?(world: W, key: string): void;
     destroy?(): void;
 }

@@ -1,13 +1,12 @@
 import type { SongId } from "../assets/midi/songlist";
-import type { Game } from "../engine/Game";
 import type { Scene, GameContext, Renderer } from "../engine/types";
 import { SongSelectManager } from "../managers/SongSelectManager";
 import { RhythmScene } from "./RhythmScene";
-import type { GameWorld, Manager, RhythmWorld, SongSelectWorld } from "./types";
+import type { Manager, SongSelectWorld } from "./types";
 
 export class SongSelectScene implements Scene {
   private world!: SongSelectWorld;
-  private managers: Manager[];
+  private managers: Manager<SongSelectWorld>[];
   private context!: GameContext;
 
   init(context: GameContext): void {
