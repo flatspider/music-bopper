@@ -14,6 +14,7 @@ export function createWorld(): RhythmWorld {
     lastHitResult: null,
     notes: { D: [], F: [], J: [], K: [] },
     pendingInputs: [],
+    countdownTimer: 0,
   };
 }
 
@@ -35,4 +36,5 @@ export function resetWorld(world: RhythmWorld): void {
         }
     }
     world.pendingInputs = []
+    world.countdownTimer = 0
 }

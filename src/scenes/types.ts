@@ -26,6 +26,7 @@ export type GameState =
   | "start"
   | "playing"
   | "pause"
+  | "countdown"
   | "gameOver"
   | "songSelect";
 
@@ -48,6 +49,7 @@ export interface RhythmWorld extends GameWorld {
   lastHitResult: { grade: HitGrade; time: number } | null; // for on-screen feedback
   notes: Record<Lane, GameNote[]>; // all notes by lane, shared between managers
   pendingInputs: { lane: Lane; time: number }[]; // InputManager writes, GameplayManager drains
+  countdownTimer: number; // seconds remaining in resume countdown (3, 2, 1)
 }
 
 // also contains state and player

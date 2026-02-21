@@ -79,6 +79,7 @@ export class RhythmScene implements Scene {
       lastHitResult: null,
       notes: notesByLane,
       pendingInputs: [],
+      countdownTimer: 0,
     };
 
     // 7. Create managers — order matters:
@@ -98,6 +99,12 @@ export class RhythmScene implements Scene {
   }
 
   update(dt: number): void {
+    if (this.world.state === "countdown") {
+      this.world.countdownTimer -= dt;
+      if (this.world.countdownTimer <= 0) {
+        this.world.state = "playing";
+      }
+    }
     for (const m of this.managers) m.update?.(this.world, dt);
   }
 
@@ -118,6 +125,10 @@ export class RhythmScene implements Scene {
 
     if (this.world.state === "pause" || this.world.state === "gameOver") {
       this.renderStatsOverlay(renderer, this.world.state === "pause");
+    }
+
+    if (this.world.state === "countdown") {
+      this.renderCountdown(renderer);
     }
   }
 
@@ -260,6 +271,27 @@ export class RhythmScene implements Scene {
     const prompt = isPaused ? "Press Esc to unpause" : "Press any key to restart";
     renderer.drawText(prompt, cx, panelY + panelH + 16, {
       fontSize: 13, color: 0x777777, anchor: 0.5, fontStyle: "italic",
+    });
+  }
+
+  private renderCountdown(renderer: Renderer): void {
+    const cx = CANVAS_WIDTH / 2;
+    const cy = CANVAS_HEIGHT / 2;
+    const num = Math.ceil(this.world.countdownTimer);
+
+    renderer.drawText("READY?", cx, cy - 60, {
+      fontSize: 20,
+      color: 0x777777,
+      anchor: 0.5,
+      letterSpacing: 4,
+    });
+
+    renderer.drawText(`${num}`, cx, cy, {
+      fontSize: 72,
+      color: 0xd4af37,
+      anchor: 0.5,
+      fontWeight: "bold",
+      fontFamily: "Arial Black, Arial, sans-serif",
     });
   }
 

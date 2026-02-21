@@ -9,7 +9,10 @@ export class InputManager implements Manager {
             if (world.state === "playing") {
                 world.state = "pause"
             } else if (world.state === "pause") {
-                world.state = "playing"
+                world.state = "countdown"
+                world.countdownTimer = 3
+            } else if (world.state === "countdown") {
+                world.state = "pause"
             }
             return
         }
