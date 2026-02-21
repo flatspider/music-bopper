@@ -2,6 +2,7 @@ import { SONG_LIST, CHART_TRACKS, SongId } from "../assets/midi/songlist";
 import type { Scene, GameContext, Renderer } from "../engine/types";
 import type { Manager, RhythmWorld, Lane } from "./types";
 import { LANES, assignLane, type GameNote } from "../midi/parser";
+import { gameConfig } from "../config/GameConfig";
 import { AudioManager } from "../managers/AudioManager.js";
 import { InputManager } from "../managers/InputManager.js";
 import { GameplayManager } from "../managers/GameplayManager.js";
@@ -50,9 +51,9 @@ export class RhythmScene implements Scene {
     let quickRun = 0;
     for (let i = 0; i < chartNotes.length; i++) {
       const gap = i > 0 ? chartNotes[i].time - chartNotes[i - 1].time : Infinity;
-      if (gap < 0.12) {
+      if (gap < gameConfig.gameplay.quickNoteGap) {
         quickRun++;
-        if (quickRun % 3 === 0) continue;
+        if (quickRun % gameConfig.gameplay.noteThinRate === 0) continue;
       } else {
         quickRun = 0;
       }
@@ -131,7 +132,7 @@ export class RhythmScene implements Scene {
     // Hit grade feedback — flash for 0.4s after each hit
     if (this.world.lastHitResult) {
       const age = this.world.songTime - this.world.lastHitResult.time;
-      if (age < 0.4) {
+      if (age < gameConfig.visuals.hitFeedbackDuration) {
         const grade = this.world.lastHitResult.grade;
         const label = grade.toUpperCase() + "!";
         const color = grade === "perfect" ? 0xffd700
