@@ -8,10 +8,11 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test":"vitest"
+    "test": "vitest"
   },
   "dependencies": {
     "@tonejs/midi": "^2.0.28",
+    "lil-gui": "^0.21.0",
     "pixi.js": "^8.16.0",
     "react": "^19.2.0",
     "tone": "^15.1.22"

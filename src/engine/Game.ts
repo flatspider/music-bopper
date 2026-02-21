@@ -4,14 +4,9 @@ import { Application, Graphics, Text, TextStyle } from "pixi.js";
 import { Renderer } from "./Renderer.js";
 import { Input } from "./Input.js";
 import type { Scene, GameContext } from "./types.js";
-import {
-  CANVAS_WIDTH,
-  CANVAS_HEIGHT,
-  TICK_RATE_MS,
-  TICK_RATE_S,
-  MAX_ACCUMULATOR_MS,
-} from "./types.js";
+import { CANVAS_WIDTH, CANVAS_HEIGHT } from "./types.js";
 import { Audio } from "./Audio.js";
+import { gameConfig } from "../config/GameConfig";
 
 export class Game {
   private app: Application;
@@ -60,13 +55,14 @@ export class Game {
 
     const dt = time - this.lastTime;
     this.lastTime = time;
-    this.accumulator += Math.min(dt, MAX_ACCUMULATOR_MS);
+    const { tickRateMs, maxAccumulatorMs } = gameConfig.engine;
+    this.accumulator += Math.min(dt, maxAccumulatorMs);
 
     if (this.scene && !this.errorMessage) {
       try {
-        while (this.accumulator >= TICK_RATE_MS) {
-          this.scene.update(TICK_RATE_S);
-          this.accumulator -= TICK_RATE_MS;
+        while (this.accumulator >= tickRateMs) {
+          this.scene.update(tickRateMs / 1000);
+          this.accumulator -= tickRateMs;
         }
       } catch (e) {
         this.errorMessage = e instanceof Error ? e.message : String(e);
