@@ -9,7 +9,7 @@ async function bootstrap() {
   await app.init({
     width: CANVAS_WIDTH,
     height: CANVAS_HEIGHT,
-    background: 0x1a1a2e,
+    background: 0x000000,
   });
 
   const container = document.getElementById("app");
