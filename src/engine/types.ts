@@ -3,8 +3,8 @@
 import type { AlphaFilter } from "pixi.js";
 
 // Notes should be dynamic to canvas size
-export const CANVAS_WIDTH = 600;
-export const CANVAS_HEIGHT = 600;
+export const CANVAS_WIDTH = 720;
+export const CANVAS_HEIGHT = 740;
 export const TICK_RATE_MS = 16;
 export const TICK_RATE_S = TICK_RATE_MS / 1000;
 // When you lose focus on the page, how long should it accumulate?
