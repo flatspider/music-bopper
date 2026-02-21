@@ -1,7 +1,5 @@
 // --- GAME CONSTANTS --
 
-import type { AlphaFilter } from "pixi.js";
-
 // Notes should be dynamic to canvas size
 export const CANVAS_WIDTH = 600;
 export const CANVAS_HEIGHT = 600;

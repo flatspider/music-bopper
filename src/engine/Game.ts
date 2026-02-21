@@ -5,13 +5,11 @@ import { Renderer } from "./Renderer.js";
 import { Input } from "./Input.js";
 import type { Scene, GameContext } from "./types.js";
 import { CANVAS_WIDTH, CANVAS_HEIGHT } from "./types.js";
-import { Audio } from "./Audio.js";
 import { gameConfig } from "../config/GameConfig";
 
 export class Game {
   private app: Application;
   private renderer: Renderer;
-  private audio: Audio;
   private input: Input;
   private scene: Scene | null = null;
   private accumulator = 0;
@@ -28,7 +26,6 @@ export class Game {
   constructor(app: Application) {
     this.app = app;
     this.renderer = new Renderer(app);
-    this.audio = new Audio();
     this.input = new Input();
   }
 
