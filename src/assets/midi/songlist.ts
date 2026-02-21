@@ -15,10 +15,10 @@ export const SongId = {
 export type SongId = (typeof SongId)[keyof typeof SongId];
 
 export const SONG_LIST: Record<SongId, MidiSongJson> = {
-  ColtraneCountdown: ColtraneData,
-  PiratesOfTheCaribbean: PiratesData,
-  TakeFive: TakeFiveData,
-  WillChannel: WiiChannelsData,
+  ColtraneCountdown: ColtraneData as unknown as MidiSongJson,
+  PiratesOfTheCaribbean: PiratesData as unknown as MidiSongJson,
+  TakeFive: TakeFiveData as unknown as MidiSongJson,
+  WillChannel: WiiChannelsData as unknown as MidiSongJson,
 };
 
 // Per-song chart track filter — only these tracks become gameplay notes.

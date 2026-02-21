@@ -15,7 +15,7 @@ export class AudioManager implements Manager {
     this.audio.loadSong(songmap);
   }
 
-  update(world: RhythmWorld, dt: number) {
+  update(world: RhythmWorld, _dt: number) {
     // check if gameState changed, then play/pause
 
     world.songTime = this.audio.getCurrentTime(); // update shared time with Audio time

@@ -1,13 +1,14 @@
 import {
   Application,
   Container,
+  FillGradient,
   Graphics,
   Text,
-  TextStyle,
   type TextStyleFontWeight,
   type TextStyleFontStyle,
 } from "pixi.js";
 import type { Renderer as IRenderer } from "./types.ts";
+import { CANVAS_WIDTH, CANVAS_HEIGHT } from "./types.ts";
 
 export class Renderer implements IRenderer {
   private app: Application;
@@ -19,6 +20,17 @@ export class Renderer implements IRenderer {
 
   constructor(app: Application) {
     this.app = app;
+
+    // Persistent gradient background (behind all scene content)
+    const bg = new Graphics();
+    const gradient = new FillGradient(0, 0, 0, CANVAS_HEIGHT);
+    gradient.addColorStop(0, 0x0f0c29); // deep purple
+    gradient.addColorStop(0.5, 0x1a1a3e); // dark indigo
+    gradient.addColorStop(1, 0x16213e); // dark navy
+    bg.rect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+    bg.fill(gradient);
+    this.app.stage.addChild(bg);
+
     this.drawContainer = new Container();
     this.app.stage.addChild(this.drawContainer);
   }

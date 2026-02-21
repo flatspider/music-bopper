@@ -2,7 +2,7 @@ import { SONG_LIST, type SongId } from "../assets/midi/songlist";
 import CarnivalData from "../assets/midi/json/Carnival-Or-Manha-De-Carnival-(Jazz-Gitaar-Trio).json";
 import { BgMusicPlayer } from "../managers/BgMusicPlayer";
 import type { Renderer } from "../engine/Renderer";
-import { CANVAS_WIDTH, CANVAS_HEIGHT } from "../engine/types";
+import { CANVAS_WIDTH } from "../engine/types";
 import type { Manager, SongSelectWorld } from "../scenes/types";
 import type { MidiSongJson } from "../types/miditypes";
 
@@ -135,9 +135,6 @@ export class SongSelectManager implements Manager<SongSelectWorld> {
   // --- Rendering ---
 
   render(world: SongSelectWorld, renderer: Renderer): void {
-    // Full-screen dark background
-    renderer.drawRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT, COLORS.bg);
-
     this.renderHeader(renderer);
     this.renderColumnLabels(renderer);
     this.renderSongList(world, renderer);
