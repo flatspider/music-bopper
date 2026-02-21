@@ -28,24 +28,15 @@ export const gameConfig = {
   visuals: {
     scrollSpeed: 300,
     noteWidth: 64,
-    hitZoneY: 540,
+    hitZoneY: 680,
     hitZoneHeight: 14,
-    laneSpacing: 72,
-    firstLaneX: 160,
+    laneSpacing: 80,
+    firstLaneX: 260,
     noteGlowRadius: 20,
     noteInnerRadius: 14,
     hitFeedbackDuration: 0.4,
   },
 
-  audio: {
-    synthPolyphony: 64,
-    kickVolume: -10,
-    hatVolume: -10,
-    bgMusicVolume: -18,
-    bgFadeDuration: 0.6,
-    bgVelocityMultiplier: 0.7,
-    bgSynthPolyphony: 32,
-  },
 };
 
 /** Deep copy of initial values for reset functionality. */
