@@ -85,16 +85,6 @@ export function createControlPanel(): GUI {
   visuals.add(gameConfig.visuals, "noteInnerRadius", 2, 40, 1).name("Note Inner Radius");
   visuals.add(gameConfig.visuals, "hitFeedbackDuration", 0.1, 2, 0.1).name("Feedback Duration (s)");
 
-  // --- Audio ---
-  const audio = gui.addFolder("Audio");
-  audio.add(gameConfig.audio, "synthPolyphony", 4, 128, 4).name("Synth Polyphony");
-  audio.add(gameConfig.audio, "kickVolume", -30, 0, 1).name("Kick Volume (dB)");
-  audio.add(gameConfig.audio, "hatVolume", -30, 0, 1).name("Hat Volume (dB)");
-  audio.add(gameConfig.audio, "bgMusicVolume", -40, 0, 1).name("BG Music Volume (dB)");
-  audio.add(gameConfig.audio, "bgFadeDuration", 0.1, 3, 0.1).name("BG Fade Duration (s)");
-  audio.add(gameConfig.audio, "bgVelocityMultiplier", 0.1, 1.5, 0.05).name("BG Velocity Mult");
-  audio.add(gameConfig.audio, "bgSynthPolyphony", 4, 128, 4).name("BG Synth Polyphony");
-
   // Toggle with backtick key
   window.addEventListener("keydown", (e) => {
     if (e.code === "Backquote") {
