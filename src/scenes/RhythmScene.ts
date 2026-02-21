@@ -11,13 +11,15 @@ import { LaneManager } from "../managers/LaneManager.js";
 export class RhythmScene implements Scene {
   private world!: RhythmWorld;
   private managers!: Manager[];
+  private context!: GameContext;
   private songId: SongId;
 
   constructor(songId: SongId) {
     this.songId = songId;
   }
 
-  init(_context: GameContext): void {
+  init(context: GameContext): void {
+    this.context = context;
     // 1. Get song data
     const song = SONG_LIST[this.songId];
 
@@ -99,6 +101,12 @@ export class RhythmScene implements Scene {
   }
 
   update(dt: number): void {
+    if (this.world.state === "songSelect") {
+      import("./SongSelectScene").then(({ SongSelectScene }) => {
+        this.context.loadScene?.(new SongSelectScene());
+      });
+      return;
+    }
     if (this.world.state === "countdown") {
       this.world.countdownTimer -= dt;
       if (this.world.countdownTimer <= 0) {
@@ -136,7 +144,8 @@ export class RhythmScene implements Scene {
 
   private renderScoreHUD(renderer: Renderer): void {
     const panelW = 180;
-    const panelH = this.world.combo > 1 ? 80 : 56;
+    const comboActive = this.world.combo > 1;
+    const panelH = comboActive ? 100 : 76;
     const panelX = CANVAS_WIDTH - panelW - 16;
     const panelY = 12;
 
@@ -160,9 +169,23 @@ export class RhythmScene implements Scene {
       fontFamily: "Arial Black, Arial, sans-serif",
     });
 
+    // Song left %
+    const songLeftPct = this.getSongLeftPct();
+    renderer.drawText("SONG LEFT", panelX + 14, panelY + 56, {
+      fontSize: 10,
+      color: 0x777777,
+      letterSpacing: 3,
+    });
+    renderer.drawText(`${songLeftPct}%`, panelX + panelW - 14, panelY + 56, {
+      fontSize: 12,
+      color: 0x999999,
+      fontWeight: "bold",
+      anchor: 1,
+    });
+
     // Combo (only when active)
-    if (this.world.combo > 1) {
-      renderer.drawText(`${this.world.combo}x COMBO`, panelX + 14, panelY + 56, {
+    if (comboActive) {
+      renderer.drawText(`${this.world.combo}x COMBO`, panelX + 14, panelY + 76, {
         fontSize: 13,
         color: 0xd4af37,
         fontWeight: "bold",
@@ -220,7 +243,7 @@ export class RhythmScene implements Scene {
 
     // Stats panel
     const panelW = 300;
-    const panelH = 220;
+    const panelH = 240;
     const panelX = cx - panelW / 2;
     const panelY = 100;
 
@@ -241,7 +264,17 @@ export class RhythmScene implements Scene {
       fontSize: 28, color: 0xffffff, fontWeight: "bold",
       fontFamily: "Arial Black, Arial, sans-serif",
     });
-    y += 38;
+    y += 34;
+
+    // Song left %
+    const songLeftPct = this.getSongLeftPct();
+    renderer.drawText("SONG LEFT", left, y, {
+      fontSize: 10, color: 0x777777, letterSpacing: 3,
+    });
+    renderer.drawText(`${songLeftPct}%`, right, y, {
+      fontSize: 12, color: 0x999999, fontWeight: "bold", anchor: 1,
+    });
+    y += 18;
 
     // Divider
     renderer.drawLine(left, y, right, y, 0x444444);
@@ -267,11 +300,27 @@ export class RhythmScene implements Scene {
     y += 20;
     this.renderStatRow(renderer, "MISSED", `${hitCounts.missed}`, left, right, y, 0xcc4444);
 
-    // Footer prompt
-    const prompt = isPaused ? "Press Esc to unpause" : "Press any key to restart";
-    renderer.drawText(prompt, cx, panelY + panelH + 16, {
-      fontSize: 13, color: 0x777777, anchor: 0.5, fontStyle: "italic",
-    });
+    // Footer prompts
+    if (isPaused) {
+      renderer.drawText("Press Esc to unpause  ·  Enter to quit", cx, panelY + panelH + 16, {
+        fontSize: 13, color: 0x777777, anchor: 0.5, fontStyle: "italic",
+      });
+    } else {
+      renderer.drawText("Press any key to restart", cx, panelY + panelH + 16, {
+        fontSize: 13, color: 0x777777, anchor: 0.5, fontStyle: "italic",
+      });
+    }
+  }
+
+  private getSongLeftPct(): number {
+    const lastNoteTime = Math.max(
+      ...Object.values(this.world.notes).map(
+        (lane) => lane.length > 0 ? lane[lane.length - 1].time : 0
+      ),
+    );
+    return lastNoteTime > 0
+      ? Math.round((1 - this.world.songTime / lastNoteTime) * 100)
+      : 0;
   }
 
   private renderCountdown(renderer: Renderer): void {

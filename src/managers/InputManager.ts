@@ -17,6 +17,12 @@ export class InputManager implements Manager {
             return
         }
 
+        // Enter returns to song select from pause
+        if (key === "Enter" && world.state === "pause") {
+            world.state = "songSelect"
+            return
+        }
+
         // Game over — any key resets
         if (world.state === "gameOver") {
             resetWorld(world)
