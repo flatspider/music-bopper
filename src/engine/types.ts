@@ -47,6 +47,14 @@ export interface Renderer {
     color: number,
     alpha: number,
   ): void;
+  drawLine(
+    x1: number,
+    y1: number,
+    x2: number,
+    y2: number,
+    color: number,
+    width?: number,
+  ): void;
   clear(): void;
   // May not modify stage direct. Inline import.
   readonly stage: import("pixi.js").Container;

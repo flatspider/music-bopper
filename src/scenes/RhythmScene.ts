@@ -115,6 +115,10 @@ export class RhythmScene implements Scene {
 
     this.renderScoreHUD(renderer);
     this.renderGradeFeedback(renderer);
+
+    if (this.world.state === "pause" || this.world.state === "gameOver") {
+      this.renderStatsOverlay(renderer, this.world.state === "pause");
+    }
   }
 
   // --- Score HUD (top-right panel, matches SongSelect aesthetic) ---
@@ -177,6 +181,99 @@ export class RhythmScene implements Scene {
       fontWeight: "bold",
       fontFamily: "Arial Black, Arial, sans-serif",
       letterSpacing: 4,
+    });
+  }
+
+  // --- Stats overlay (pause + game over) ---
+
+  private renderStatsOverlay(renderer: Renderer, isPaused: boolean): void {
+    // Dark backdrop
+    renderer.drawRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT, 0x141416);
+
+    const cx = CANVAS_WIDTH / 2;
+    const { score, maxCombo, hitCounts } = this.world;
+    const totalHit = hitCounts.perfect + hitCounts.great + hitCounts.good;
+    const totalNotes = totalHit + hitCounts.missed;
+    const pct = totalNotes > 0 ? Math.round((totalHit / totalNotes) * 100) : 0;
+
+    // Title
+    const title = isPaused ? "PAUSED" : "SONG COMPLETE";
+    renderer.drawText(title, cx, 40, {
+      fontSize: 32,
+      color: 0xffffff,
+      anchor: 0.5,
+      fontWeight: "bold",
+      fontFamily: "Arial Black, Arial, sans-serif",
+      letterSpacing: 6,
+    });
+
+    // Stats panel
+    const panelW = 300;
+    const panelH = 220;
+    const panelX = cx - panelW / 2;
+    const panelY = 100;
+
+    renderer.drawRect(panelX, panelY, panelW, panelH, 0x1e1e22);
+    // Gold left accent
+    renderer.drawRect(panelX, panelY, 4, panelH, 0xd4af37);
+
+    const left = panelX + 20;
+    const right = panelX + panelW - 20;
+    let y = panelY + 14;
+
+    // Score
+    renderer.drawText("SCORE", left, y, {
+      fontSize: 10, color: 0x777777, letterSpacing: 3,
+    });
+    y += 14;
+    renderer.drawText(`${score}`, left, y, {
+      fontSize: 28, color: 0xffffff, fontWeight: "bold",
+      fontFamily: "Arial Black, Arial, sans-serif",
+    });
+    y += 38;
+
+    // Divider
+    renderer.drawLine(left, y, right, y, 0x444444);
+    y += 12;
+
+    // Longest streak
+    this.renderStatRow(renderer, "LONGEST STREAK", `${maxCombo}x`, left, right, y);
+    y += 22;
+
+    // Notes hit %
+    this.renderStatRow(renderer, "NOTES HIT", `${totalHit}/${totalNotes}  (${pct}%)`, left, right, y);
+    y += 22;
+
+    // Breakdown
+    renderer.drawLine(left, y, right, y, 0x444444);
+    y += 12;
+
+    this.renderStatRow(renderer, "PERFECT", `${hitCounts.perfect}`, left, right, y, 0xd4af37);
+    y += 20;
+    this.renderStatRow(renderer, "GREAT", `${hitCounts.great}`, left, right, y, 0x44cc44);
+    y += 20;
+    this.renderStatRow(renderer, "GOOD", `${hitCounts.good}`, left, right, y, 0x888888);
+    y += 20;
+    this.renderStatRow(renderer, "MISSED", `${hitCounts.missed}`, left, right, y, 0xcc4444);
+
+    // Footer prompt
+    const prompt = isPaused ? "Press Esc to unpause" : "Press any key to restart";
+    renderer.drawText(prompt, cx, panelY + panelH + 16, {
+      fontSize: 13, color: 0x777777, anchor: 0.5, fontStyle: "italic",
+    });
+  }
+
+  private renderStatRow(
+    renderer: Renderer,
+    label: string, value: string,
+    left: number, right: number, y: number,
+    color: number = 0x999999,
+  ): void {
+    renderer.drawText(label, left, y, {
+      fontSize: 12, color: 0x777777, letterSpacing: 2,
+    });
+    renderer.drawText(value, right, y, {
+      fontSize: 14, color, fontWeight: "bold", anchor: 1,
     });
   }
 
