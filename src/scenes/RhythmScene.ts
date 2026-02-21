@@ -3,6 +3,7 @@ import { CANVAS_WIDTH, CANVAS_HEIGHT } from "../engine/types";
 import type { Scene, GameContext, Renderer } from "../engine/types";
 import type { Manager, RhythmWorld, Lane } from "./types";
 import { LANES, assignLane, type GameNote } from "../midi/parser";
+import { gameConfig } from "../config/GameConfig";
 import { AudioManager } from "../managers/AudioManager.js";
 import { InputManager } from "../managers/InputManager.js";
 import { GameplayManager } from "../managers/GameplayManager.js";
@@ -53,9 +54,9 @@ export class RhythmScene implements Scene {
     let quickRun = 0;
     for (let i = 0; i < chartNotes.length; i++) {
       const gap = i > 0 ? chartNotes[i].time - chartNotes[i - 1].time : Infinity;
-      if (gap < 0.12) {
+      if (gap < gameConfig.gameplay.quickNoteGap) {
         quickRun++;
-        if (quickRun % 3 === 0) continue;
+        if (quickRun % gameConfig.gameplay.noteThinRate === 0) continue;
       } else {
         quickRun = 0;
       }
@@ -309,6 +310,21 @@ export class RhythmScene implements Scene {
       renderer.drawText("Press any key to restart", cx, panelY + panelH + 16, {
         fontSize: 13, color: 0x777777, anchor: 0.5, fontStyle: "italic",
       });
+    // Hit grade feedback — flash for 0.4s after each hit
+    if (this.world.lastHitResult) {
+      const age = this.world.songTime - this.world.lastHitResult.time;
+      if (age < gameConfig.visuals.hitFeedbackDuration) {
+        const grade = this.world.lastHitResult.grade;
+        const label = grade.toUpperCase() + "!";
+        const color = grade === "perfect" ? 0xffd700
+                    : grade === "great"   ? 0x44cc44
+                    :                       0xaaaaaa;
+        renderer.drawText(label, 300, 480, {
+          fontSize: 24,
+          color,
+          anchor: 0.5,
+        });
+      }
     }
   }
 
