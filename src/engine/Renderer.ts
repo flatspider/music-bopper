@@ -103,6 +103,7 @@ export class Renderer implements IRenderer {
       x: pixelX,
       y: pixelY,
     });
+    if (options?.anchor != null) newText.anchor.x = options.anchor;
     this.drawContainer.addChild(newText);
   }
   clear(): void {

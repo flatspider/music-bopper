@@ -1,4 +1,5 @@
 import { SONG_LIST, CHART_TRACKS, SongId } from "../assets/midi/songlist";
+import { CANVAS_WIDTH, CANVAS_HEIGHT } from "../engine/types";
 import type { Scene, GameContext, Renderer } from "../engine/types";
 import type { Manager, RhythmWorld, Lane } from "./types";
 import { LANES, assignLane, type GameNote } from "../midi/parser";
@@ -11,13 +12,15 @@ import { LaneManager } from "../managers/LaneManager.js";
 export class RhythmScene implements Scene {
   private world!: RhythmWorld;
   private managers!: Manager[];
+  private context!: GameContext;
   private songId: SongId;
 
   constructor(songId: SongId) {
     this.songId = songId;
   }
 
-  init(_context: GameContext): void {
+  init(context: GameContext): void {
+    this.context = context;
     // 1. Get song data
     const song = SONG_LIST[this.songId];
 
@@ -79,6 +82,7 @@ export class RhythmScene implements Scene {
       lastHitResult: null,
       notes: notesByLane,
       pendingInputs: [],
+      countdownTimer: 0,
     };
 
     // 7. Create managers — order matters:
@@ -98,6 +102,18 @@ export class RhythmScene implements Scene {
   }
 
   update(dt: number): void {
+    if (this.world.state === "songSelect") {
+      import("./SongSelectScene").then(({ SongSelectScene }) => {
+        this.context.loadScene?.(new SongSelectScene());
+      });
+      return;
+    }
+    if (this.world.state === "countdown") {
+      this.world.countdownTimer -= dt;
+      if (this.world.countdownTimer <= 0) {
+        this.world.state = "playing";
+      }
+    }
     for (const m of this.managers) m.update?.(this.world, dt);
   }
 
@@ -113,22 +129,187 @@ export class RhythmScene implements Scene {
       return;
     }
 
-    // Score (top-right)
-    renderer.drawText(`${this.world.score}`, 560, 30, {
-      fontSize: 28,
+    this.renderScoreHUD(renderer);
+    this.renderGradeFeedback(renderer);
+
+    if (this.world.state === "pause" || this.world.state === "gameOver") {
+      this.renderStatsOverlay(renderer, this.world.state === "pause");
+    }
+
+    if (this.world.state === "countdown") {
+      this.renderCountdown(renderer);
+    }
+  }
+
+  // --- Score HUD (top-right panel, matches SongSelect aesthetic) ---
+
+  private renderScoreHUD(renderer: Renderer): void {
+    const panelW = 180;
+    const comboActive = this.world.combo > 1;
+    const panelH = comboActive ? 100 : 76;
+    const panelX = CANVAS_WIDTH - panelW - 16;
+    const panelY = 12;
+
+    // Dark panel background
+    renderer.drawRect(panelX, panelY, panelW, panelH, 0x141416);
+    // Gold left accent bar
+    renderer.drawRect(panelX, panelY, 3, panelH, 0xd4af37);
+
+    // "SCORE" label
+    renderer.drawText("SCORE", panelX + 14, panelY + 8, {
+      fontSize: 10,
+      color: 0x777777,
+      letterSpacing: 3,
+    });
+
+    // Score value
+    renderer.drawText(`${this.world.score}`, panelX + 14, panelY + 24, {
+      fontSize: 26,
       color: 0xffffff,
+      fontWeight: "bold",
+      fontFamily: "Arial Black, Arial, sans-serif",
+    });
+
+    // Song left %
+    const songLeftPct = this.getSongLeftPct();
+    renderer.drawText("SONG LEFT", panelX + 14, panelY + 56, {
+      fontSize: 10,
+      color: 0x777777,
+      letterSpacing: 3,
+    });
+    renderer.drawText(`${songLeftPct}%`, panelX + panelW - 14, panelY + 56, {
+      fontSize: 12,
+      color: 0x999999,
+      fontWeight: "bold",
       anchor: 1,
     });
 
-    // Combo (below score, only when active)
-    if (this.world.combo > 1) {
-      renderer.drawText(`${this.world.combo}x combo`, 560, 60, {
-        fontSize: 16,
-        color: 0xffe066,
-        anchor: 1,
+    // Combo (only when active)
+    if (comboActive) {
+      renderer.drawText(`${this.world.combo}x COMBO`, panelX + 14, panelY + 76, {
+        fontSize: 13,
+        color: 0xd4af37,
+        fontWeight: "bold",
+        letterSpacing: 2,
       });
     }
+  }
 
+  // --- Hit grade feedback (centered, below hit zone) ---
+
+  private renderGradeFeedback(renderer: Renderer): void {
+    if (!this.world.lastHitResult) return;
+
+    const age = this.world.songTime - this.world.lastHitResult.time;
+    if (age >= 0.4) return;
+
+    const grade = this.world.lastHitResult.grade;
+    const label = grade.toUpperCase() + "!";
+    const color = grade === "perfect" ? 0xd4af37  // gold (matches SongSelect accent)
+               : grade === "great"   ? 0x44cc44
+               :                       0x888888;
+
+    renderer.drawText(label, CANVAS_WIDTH / 2, CANVAS_HEIGHT - 120, {
+      fontSize: 28,
+      color,
+      anchor: 0.5,
+      fontWeight: "bold",
+      fontFamily: "Arial Black, Arial, sans-serif",
+      letterSpacing: 4,
+    });
+  }
+
+  // --- Stats overlay (pause + game over) ---
+
+  private renderStatsOverlay(renderer: Renderer, isPaused: boolean): void {
+    // Dark backdrop
+    renderer.drawRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT, 0x141416);
+
+    const cx = CANVAS_WIDTH / 2;
+    const { score, maxCombo, hitCounts } = this.world;
+    const totalHit = hitCounts.perfect + hitCounts.great + hitCounts.good;
+    const totalNotes = totalHit + hitCounts.missed;
+    const pct = totalNotes > 0 ? Math.round((totalHit / totalNotes) * 100) : 0;
+
+    // Title
+    const title = isPaused ? "PAUSED" : "SONG COMPLETE";
+    renderer.drawText(title, cx, 40, {
+      fontSize: 32,
+      color: 0xffffff,
+      anchor: 0.5,
+      fontWeight: "bold",
+      fontFamily: "Arial Black, Arial, sans-serif",
+      letterSpacing: 6,
+    });
+
+    // Stats panel
+    const panelW = 300;
+    const panelH = 240;
+    const panelX = cx - panelW / 2;
+    const panelY = 100;
+
+    renderer.drawRect(panelX, panelY, panelW, panelH, 0x1e1e22);
+    // Gold left accent
+    renderer.drawRect(panelX, panelY, 4, panelH, 0xd4af37);
+
+    const left = panelX + 20;
+    const right = panelX + panelW - 20;
+    let y = panelY + 14;
+
+    // Score
+    renderer.drawText("SCORE", left, y, {
+      fontSize: 10, color: 0x777777, letterSpacing: 3,
+    });
+    y += 14;
+    renderer.drawText(`${score}`, left, y, {
+      fontSize: 28, color: 0xffffff, fontWeight: "bold",
+      fontFamily: "Arial Black, Arial, sans-serif",
+    });
+    y += 34;
+
+    // Song left %
+    const songLeftPct = this.getSongLeftPct();
+    renderer.drawText("SONG LEFT", left, y, {
+      fontSize: 10, color: 0x777777, letterSpacing: 3,
+    });
+    renderer.drawText(`${songLeftPct}%`, right, y, {
+      fontSize: 12, color: 0x999999, fontWeight: "bold", anchor: 1,
+    });
+    y += 18;
+
+    // Divider
+    renderer.drawLine(left, y, right, y, 0x444444);
+    y += 12;
+
+    // Longest streak
+    this.renderStatRow(renderer, "LONGEST STREAK", `${maxCombo}x`, left, right, y);
+    y += 22;
+
+    // Notes hit %
+    this.renderStatRow(renderer, "NOTES HIT", `${totalHit}/${totalNotes}  (${pct}%)`, left, right, y);
+    y += 22;
+
+    // Breakdown
+    renderer.drawLine(left, y, right, y, 0x444444);
+    y += 12;
+
+    this.renderStatRow(renderer, "PERFECT", `${hitCounts.perfect}`, left, right, y, 0xd4af37);
+    y += 20;
+    this.renderStatRow(renderer, "GREAT", `${hitCounts.great}`, left, right, y, 0x44cc44);
+    y += 20;
+    this.renderStatRow(renderer, "GOOD", `${hitCounts.good}`, left, right, y, 0x888888);
+    y += 20;
+    this.renderStatRow(renderer, "MISSED", `${hitCounts.missed}`, left, right, y, 0xcc4444);
+
+    // Footer prompts
+    if (isPaused) {
+      renderer.drawText("Press Esc to unpause  ·  Enter to quit", cx, panelY + panelH + 16, {
+        fontSize: 13, color: 0x777777, anchor: 0.5, fontStyle: "italic",
+      });
+    } else {
+      renderer.drawText("Press any key to restart", cx, panelY + panelH + 16, {
+        fontSize: 13, color: 0x777777, anchor: 0.5, fontStyle: "italic",
+      });
     // Hit grade feedback — flash for 0.4s after each hit
     if (this.world.lastHitResult) {
       const age = this.world.songTime - this.world.lastHitResult.time;
@@ -145,6 +326,52 @@ export class RhythmScene implements Scene {
         });
       }
     }
+  }
+
+  private getSongLeftPct(): number {
+    const lastNoteTime = Math.max(
+      ...Object.values(this.world.notes).map(
+        (lane) => lane.length > 0 ? lane[lane.length - 1].time : 0
+      ),
+    );
+    return lastNoteTime > 0
+      ? Math.round((1 - this.world.songTime / lastNoteTime) * 100)
+      : 0;
+  }
+
+  private renderCountdown(renderer: Renderer): void {
+    const cx = CANVAS_WIDTH / 2;
+    const cy = CANVAS_HEIGHT / 2;
+    const num = Math.ceil(this.world.countdownTimer);
+
+    renderer.drawText("READY?", cx, cy - 60, {
+      fontSize: 20,
+      color: 0x777777,
+      anchor: 0.5,
+      letterSpacing: 4,
+    });
+
+    renderer.drawText(`${num}`, cx, cy, {
+      fontSize: 72,
+      color: 0xd4af37,
+      anchor: 0.5,
+      fontWeight: "bold",
+      fontFamily: "Arial Black, Arial, sans-serif",
+    });
+  }
+
+  private renderStatRow(
+    renderer: Renderer,
+    label: string, value: string,
+    left: number, right: number, y: number,
+    color: number = 0x999999,
+  ): void {
+    renderer.drawText(label, left, y, {
+      fontSize: 12, color: 0x777777, letterSpacing: 2,
+    });
+    renderer.drawText(value, right, y, {
+      fontSize: 14, color, fontWeight: "bold", anchor: 1,
+    });
   }
 
   onKeyDown(key: string): void {

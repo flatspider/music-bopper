@@ -64,11 +64,11 @@ const COLORS = {
 };
 
 const HEADER_HEIGHT = 150;
-const CARD_HEIGHT = 105;
+const CARD_HEIGHT = 120;
 const CARD_GAP = 2;
-const ACCENT_WIDTH = 170;
-const TEXT_PAD_LEFT = ACCENT_WIDTH + 16;
-const MAX_VISIBLE_CARDS = 4; // how many cards fit on screen
+const ACCENT_WIDTH = 190;
+const TEXT_PAD_LEFT = ACCENT_WIDTH + 20;
+const MAX_VISIBLE_CARDS = 6; // how many cards fit on screen
 
 // --- Manager ---
 

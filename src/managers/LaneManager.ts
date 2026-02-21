@@ -1,3 +1,4 @@
+import { CANVAS_WIDTH, CANVAS_HEIGHT } from "../engine/types";
 import type { Renderer } from "../engine/types";
 import type { Manager, RhythmWorld, Lane } from "../scenes/types";
 import { LANES } from "../midi/parser";
@@ -14,6 +15,19 @@ export class LaneManager implements Manager {
   constructor(laneKey: Lane) {
     this.laneKey = laneKey;
     this.laneIndex = LANES.indexOf(laneKey);
+
+    this.noteWidth = 64;
+    this.hitZoneHeight = 14;
+    this.scrollSpeed = 300;
+    this.hitZoneY = CANVAS_HEIGHT - 60;
+    this.visibleTop = 0;
+    this.visibleBottom = CANVAS_HEIGHT;
+
+    // Center 4 lanes in the canvas
+    const laneSpacing = 80;
+    const totalLaneWidth = (LANES.length - 1) * laneSpacing;
+    const firstLaneX = (CANVAS_WIDTH - totalLaneWidth) / 2;
+    this.x = firstLaneX + this.laneIndex * laneSpacing;
   }
 
   onKeyDown(_world: RhythmWorld, key: string): void {

@@ -14,6 +14,9 @@ export class GameplayManager implements Manager {
 
     // Mark notes as missed once they're past the hit window
     this.detectMisses(world);
+
+    // Song complete — all notes resolved
+    this.detectSongEnd(world);
   }
 
   private processHit(world: RhythmWorld, lane: Lane, time: number): void {
@@ -74,6 +77,15 @@ export class GameplayManager implements Manager {
     }
 
     // Outside all windows — ignore (no penalty for mashing)
+  }
+
+  private detectSongEnd(world: RhythmWorld): void {
+    for (const lane of Object.values(world.notes)) {
+      for (const note of lane) {
+        if (note.status === "active") return;
+      }
+    }
+    world.state = "gameOver";
   }
 
   private detectMisses(world: RhythmWorld): void {

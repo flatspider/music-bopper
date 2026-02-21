@@ -3,8 +3,8 @@
 import type { AlphaFilter } from "pixi.js";
 
 // Notes should be dynamic to canvas size
-export const CANVAS_WIDTH = 600;
-export const CANVAS_HEIGHT = 600;
+export const CANVAS_WIDTH = 760;
+export const CANVAS_HEIGHT = 740;
 export const TICK_RATE_MS = 16;
 export const TICK_RATE_S = TICK_RATE_MS / 1000;
 // When you lose focus on the page, how long should it accumulate?
@@ -30,7 +30,15 @@ export interface Renderer {
     text: string,
     pixelX: number,
     pixelY: number,
-    options?: { fontSize?: number; color?: number; anchor?: number },
+    options?: {
+      fontSize?: number;
+      color?: number;
+      anchor?: number;
+      fontWeight?: string;
+      fontStyle?: string;
+      fontFamily?: string;
+      letterSpacing?: number;
+    },
   ): void;
   drawCircle(
     pixelX: number,
@@ -38,6 +46,14 @@ export interface Renderer {
     radius: number,
     color: number,
     alpha: number,
+  ): void;
+  drawLine(
+    x1: number,
+    y1: number,
+    x2: number,
+    y2: number,
+    color: number,
+    width?: number,
   ): void;
   clear(): void;
   // May not modify stage direct. Inline import.
